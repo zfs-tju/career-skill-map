@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>电气工程及其自动化专业出口·培养路径报告（M2）</title>
+<style>
+body { font-family: system-ui, -apple-system, 'Microsoft YaHei', sans-serif; background: #f5f7fa; margin: 0; padding: 32px; color: #1a202c; }
+.container { max-width: 900px; margin: 0 auto; }
+h1 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+.meta { font-size: 13px; color: #94a3b8; margin-bottom: 20px; }
+.summary { font-size: 14px; line-height: 1.8; color: #475569; background: #fff; padding: 20px; border-radius: 6px; border: 1px solid #e2e8f0; margin-bottom: 28px; }
+h2 { font-size: 16px; font-weight: 700; margin: 28px 0 16px; padding-left: 10px; border-left: 3px solid #2c6ecb; }
+.tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 1px 8px; border-radius: 10px; vertical-align: 2px; margin-right: 6px; }
+.tag-course { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+.tag-skill { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
+.tag-comp { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
+.tag-advice { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
+.ref-sup { color: #2c6ecb; font-size: 10px; margin: 0 1px; }
+.profile-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 28px; }
+.profile-card h3 { margin: 0 0 12px; font-size: 15px; color: #0f172a; }
+.profile-list { margin: 0; padding: 0; list-style: none; }
+.profile-list li { font-size: 13.5px; line-height: 1.9; color: #475569; padding: 6px 0 6px 18px; position: relative; border-bottom: 1px dashed #f1f5f9; }
+.profile-list li:last-child { border-bottom: none; }
+.profile-list li::before { content: '▸'; position: absolute; left: 2px; color: #2c6ecb; }
+.timeline { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 24px; margin-bottom: 28px; }
+.tl-year-head { display: flex; align-items: center; gap: 10px; margin: 20px 0 12px; }
+.tl-year-head:first-child { margin-top: 0; }
+.tl-year { font-size: 13px; font-weight: 700; color: #fff; background: #2c6ecb; padding: 3px 14px; border-radius: 14px; white-space: nowrap; }
+.tl-year-line { flex: 1; height: 1px; background: #e2e8f0; }
+.tl-sem-row { display: flex; gap: 12px; margin-bottom: 12px; }
+.tl-sem { flex-shrink: 0; width: 70px; font-size: 12.5px; font-weight: 600; color: #2c6ecb; text-align: center; background: #eff6ff; border-radius: 4px; padding: 4px 0; align-self: flex-start; }
+.tl-items { flex: 1; min-width: 0; }
+.tl-item { font-size: 13px; line-height: 1.8; color: #475569; padding: 3px 0; }
+.tl-item.advice-item { background: #fffbeb; border-left: 3px solid #fbbf24; padding-left: 8px; border-radius: 0 4px 4px 0; }
+.action-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 16px; }
+.action-title { font-size: 15px; font-weight: 700; color: #2c6ecb; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid #f1f5f9; }
+.action-sec { margin-bottom: 10px; display: flex; }
+.action-sec-label { flex-shrink: 0; width: 96px; font-size: 12.5px; font-weight: 600; color: #64748b; padding-top: 2px; }
+.action-sec ul { margin: 0; padding: 0; list-style: none; flex: 1; }
+.action-sec li { font-size: 13px; line-height: 1.8; color: #475569; }
+.action-sec li::before { content: '·'; font-weight: 700; margin-right: 6px; color: #94a3b8; }
+.gap-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 28px; }
+.gap-status { font-size: 13.5px; line-height: 1.8; color: #475569; margin-bottom: 14px; }
+.gap-top3 { margin: 0; padding-left: 22px; }
+.gap-top3 li { font-size: 13.5px; line-height: 1.9; color: #1e293b; }
+.gap-alt { font-size: 13px; color: #64748b; line-height: 1.8; }
+.gap-alt b { color: #475569; }
+.ref-list { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 28px; }
+.ref-list ol { margin: 0; padding-left: 22px; }
+.ref-list li { font-size: 12.5px; line-height: 1.9; color: #64748b; }
+.table-wrap { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 28px; overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { padding: 10px 14px; background: #f5f7fa; font-weight: 600; text-align: left; border-bottom: 2px solid #e2e8f0; }
+td { padding: 10px 14px; color: #475569; border-bottom: 1px solid #e2e8f0; }
+tr:last-child td { border-bottom: none; }
+.layer-legend { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+.legend-chip { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; padding: 5px 12px; border-radius: 20px; border: 1px solid; }
+.legend-fact { background: #eff6ff; border-color: #bfdbfe; color: #1d4ed8; }
+.legend-ai { background: #fffbeb; border-color: #fde68a; color: #b45309; }
+.fact-chip { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 10px; background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; vertical-align: 2px; margin-left: 8px; }
+.advice-badge { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 10px; background: #fffbeb; color: #b45309; border: 1px solid #fde68a; vertical-align: 2px; margin-left: 8px; }
+.advice-card { background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 16px 20px; margin-bottom: 12px; }
+.advice-title { font-size: 14px; font-weight: 600; color: #b45309; margin-bottom: 10px; }
+.advice-list { margin: 0; padding-left: 20px; }
+.advice-list li { font-size: 13px; line-height: 1.9; color: #78350f; margin-bottom: 4px; }
+.base-bar { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px; padding: 12px 16px; font-size: 12.5px; color: #1d4ed8; margin-bottom: 20px; line-height: 1.7; }
+.base-bar span { font-weight: 700; margin-right: 6px; }
+.base-bar b { font-size: 15px; margin: 0 2px; }
+.mindmap { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px 22px; margin-bottom: 24px; }
+.mm-root { display: inline-block; background: #1d4ed8; color: #fff; font-size: 14px; font-weight: 700; padding: 8px 26px; border-radius: 20px; margin-bottom: 8px; }
+.mm-branches { border-left: 2px solid #cbd5e1; margin-left: 16px; }
+.mm-cat { display: flex; align-items: flex-start; padding: 12px 0 2px 0; }
+.mm-cat-conn { width: 20px; height: 2px; background: #cbd5e1; margin-top: 18px; flex: none; }
+.mm-cat-label { flex: none; width: 108px; font-size: 13px; font-weight: 700; color: #1e40af; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 10px 8px; margin-right: 14px; text-align: center; align-self: flex-start; }
+.mm-main { flex: 1; min-width: 0; }
+.mm-rec { font-size: 12px; color: #b45309; background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 6px 10px; margin-bottom: 8px; line-height: 1.6; }
+.mm-years { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.mm-year { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 9px; }
+.mm-year-label { font-size: 12px; font-weight: 700; color: #475569; margin-bottom: 6px; }
+.mm-items { display: flex; flex-direction: column; gap: 4px; }
+.mm-item { font-size: 12px; line-height: 1.6; color: #334155; background: #f1f5f9; border-radius: 6px; padding: 4px 8px; word-break: break-all; }
+.mm-item .ref-sup { margin-left: 4px; }
+.mm-empty { color: #cbd5e1; text-align: center; background: transparent; }
+.mm-star { color: #b45309; font-weight: 700; }
+.cp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 24px; }
+.cp-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px 18px; box-shadow: 0 1px 2px rgba(15,23,42,0.04); }
+.cp-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+.cp-name { font-size: 15px; font-weight: 700; color: #0f172a; }
+.cp-type { font-size: 11px; font-weight: 600; padding: 2px 10px; border-radius: 12px; background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; white-space: nowrap; }
+.cp-type-policy { background: #ecfdf5; color: #047857; border-color: #a7f3d0; }
+.cp-overview { font-size: 13px; color: #475569; line-height: 1.7; margin-bottom: 10px; }
+.cp-steps { border-left: 2px solid #e2e8f0; margin: 0 0 10px 6px; padding-left: 16px; display: flex; flex-direction: column; gap: 8px; }
+.cp-step { position: relative; font-size: 12.5px; line-height: 1.7; color: #334155; }
+.cp-step::before { content: ''; position: absolute; left: -21px; top: 7px; width: 8px; height: 8px; border-radius: 50%; background: #3b82f6; }
+.cp-period { display: inline-block; font-size: 11px; font-weight: 700; color: #1d4ed8; background: #eff6ff; border-radius: 6px; padding: 1px 8px; margin-right: 8px; vertical-align: 1px; }
+.cp-advice { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 10px 12px; font-size: 12.5px; color: #78350f; }
+.cp-advice b { display: block; margin-bottom: 4px; font-size: 12.5px; color: #b45309; }
+.cp-advice ul { margin: 0; padding-left: 18px; }
+.cp-advice li { margin-bottom: 3px; line-height: 1.7; }
+@media(max-width: 900px) {
+  .cp-grid { grid-template-columns: 1fr; }
+  .mm-years { grid-template-columns: repeat(2, 1fr); }
+  .mm-cat { flex-direction: column; }
+  .mm-cat-conn { display: none; }
+  .mm-cat-label { width: auto; margin-right: 0; margin-bottom: 8px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>电气工程及其自动化专业出口·培养路径报告（M2）</h1>
+<div class="meta">关键词：电气工程及其自动化　|　维度：综合维度　|　报告模式：专业出口　|　展开层级：3层　|　生成时间：2026-09-23 23:17:15</div>
+<div class="meta" style="font-size:11px;color:#94a3b8;">接地校验：删除句子 0，补来源 75，补AI标签 0，课程降级 0，非法标签修正 0，学期归一 0，剔除无效项 0，剔除建议编造 3，剔除陈词 0，重写 0，替换违规单元格 1，裁剪超长 0，缺失学期 0/8</div>
+<div class="base-bar"><span>图谱数据基座</span>本报告基于就业知识图谱子图生成：<b>80</b> 个实体 · <b>79</b> 条关联 · 覆盖 3 个维度（课程体系、竞赛实践、岗位聚集）· <b>14</b> 份来源文档 —— 正文上标 <b style="font-size:12px">[Sn]</b> 可对应文末「参考文献」逐条溯源；黄色「AI建议」条目为模型补全，仅供参考</div>
+<div class="layer-legend">
+<span class="legend-chip legend-fact">L1 官方课程 · 培养方案/职业标准权威骨架</span>
+<span class="legend-chip" style="background:#ecfdf5;border-color:#a7f3d0;color:#047857;">L2 技能/竞赛 · 多源抽取（职业标准·行业报告·竞赛简章）</span>
+<span class="legend-chip legend-ai">L3 AI 建议 · 模型补全，仅供参考</span>
+</div>
+
+<div class="summary">本分析基于天津大学电气自动化与信息工程学院培养方案2025等权威数据，覆盖10个核心岗位、69门专业课程及多项竞赛实践。专业主线为“强电基础+弱电控制+智能电网”三维融合，大一夯实数理与电路基础，大二强化模电数电与信号处理，大三聚焦微机原理与智能电网前沿，大四通过综合实验完成工程转化。当前最核心任务是紧跟培养方案节点，优先攻克《微积分I》《模拟电子技术基础1》等硬核课程，并尽早通过“全国大学生电子设计竞赛”等赛事验证理论掌握度。</div>
+<h2>目标岗位画像<span class="fact-chip">L1 权威 + L2 抽取</span></h2>
+<div class="profile-card"><h3>画像要点</h3><ul class="profile-list">
+<li>专业定位：工学门类下的电气工程及其自动化，依托天津大学电气自动化与信息工程学院培养方案，核心培养方向涵盖智能电网、新能源与综合能源系统，对接行业头部企业需求 <span class="ref-sup">[S1]</span>。</li>
+<li>硬件研发工程师：岗位类别为薪酬调查职业，主要面向硬件研发领域，要求掌握扎实的电路设计与信号处理能力，通常分布在京津冀、长三角等制造业发达地区 <span class="ref-sup">[S2]</span>。</li>
+<li>新能源电控工程师：岗位类别为薪酬调查职业，聚焦新能源与未来电网技术，需具备电力电子与自动控制理论基础，多就职于新能源头部企业 <span class="ref-sup">[S2]</span>。</li>
+<li>嵌入式硬件开发工程师：岗位类别为薪酬调查职业，侧重底层硬件开发与单片机应用，要求精通数字/模拟电子技术，广泛分布于智能硬件与物联网企业 <span class="ref-sup">[S2]</span>。</li>
+<li>电气工程技术人员：岗位类别为薪酬调查职业，属于传统电力行业核心岗位，涵盖发电、供用电、变电及电力工程安装等方向，需求稳定 <span class="ref-sup">[S2]</span>。</li>
+</ul></div>
+<h2>四年培养路径总览<span class="fact-chip">官方培养方案骨架 + 分层补全</span></h2>
+<div class="timeline">
+<div class="tl-year-head">
+<span class="tl-year">大一</span><span class="tl-year-line"></span>
+</div>
+<div class="tl-sem-row">
+<div class="tl-sem">大一·秋</div>
+<div class="tl-items">
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《微积分I》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《人工智能导论》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《工程制图基础4》<span class="ref-sup">[S4]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《思想道德与法治》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《国家安全教育》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《健康教育》<span class="ref-sup">[S5]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学生心理健康（上）》<span class="ref-sup">[S4]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育A》<span class="ref-sup">[S5]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《基础英语1》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item advice-item"><span class="tag tag-advice">AI建议</span>建议：利用课余时间自学Python基础语法，为后续《Python程序设计及应用》课程及编程竞赛打基础。</div>
+</div></div>
+<div class="tl-sem-row">
+<div class="tl-sem">大一·春</div>
+<div class="tl-items">
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《微积分II》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学物理1A》<span class="ref-sup">[S4]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《中国近现代史纲要》<span class="ref-sup">[S5]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学生心理健康（下）》<span class="ref-sup">[S4]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《基础英语2》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育B》<span class="ref-sup">[S5]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼2》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《军事理论1》<span class="ref-sup">[S5]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新工程实践1》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item advice-item"><span class="tag tag-advice">AI建议</span>建议：关注“全国大学生电子设计竞赛”校赛选拔通知，一般3月左右启动备赛，尝试组队参与基础电路设计项目。</div>
+</div></div>
+<div class="tl-year-head">
+<span class="tl-year">大二</span><span class="tl-year-line"></span>
+</div>
+<div class="tl-sem-row">
+<div class="tl-sem">大二·秋</div>
+<div class="tl-items">
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学物理1B》<span class="ref-sup">[S4]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《复变函数》<span class="ref-sup">[S5]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《数理方程》<span class="ref-sup">[S4]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《概率论与数理统计》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《模拟电子技术基础1》<span class="ref-sup">[S6]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《信号分析与处理1》<span class="ref-sup">[S6]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《基础英语3》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《学术英文写作》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育C》<span class="ref-sup">[S5]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼3》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新工程实践2》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《校企合作创新实践1》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《校企合作创新实践2》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《数据库应用技术》<span class="ref-sup">[S6]</span></div>
+<div class="tl-item advice-item"><span class="tag tag-advice">AI建议</span>建议：重点攻克《模拟电子技术基础1》与《信号分析与处理1》，结合LeetCode进行算法训练，提升逻辑编程能力。</div>
+</div></div>
+<div class="tl-sem-row">
+<div class="tl-sem">大二·春</div>
+<div class="tl-items">
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《数字电子技术基础1》<span class="ref-sup">[S6]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《基础英语4》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《中国传统典籍英译》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育D》<span class="ref-sup">[S5]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼4》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新工程实践3》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《习近平关于科技创新的重要论述》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item advice-item"><span class="tag tag-advice">AI建议</span>建议：大二暑期是备赛关键期，建议参加“蓝桥杯”全国软件和信息技术专业人才大赛，验证数电与编程能力。</div>
+</div></div>
+<div class="tl-year-head">
+<span class="tl-year">大三</span><span class="tl-year-line"></span>
+</div>
+<div class="tl-sem-row">
+<div class="tl-sem">大三·秋</div>
+<div class="tl-items">
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《微型计算机原理及应用》<span class="ref-sup">[S6]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《智能电网与综合能源系统》<span class="ref-sup">[S7]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《习近平新时代中国特色社会主义思想概论》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《择业指导》<span class="ref-sup">[S4]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼5》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《单片机原理及应用1》<span class="ref-sup">[S6]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《可编程控制器》<span class="ref-sup">[S6]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《数值计算方法》<span class="ref-sup">[S6]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《智能信息处理技术基础》<span class="ref-sup">[S6]</span></div>
+<div class="tl-item advice-item"><span class="tag tag-advice">AI建议</span>建议：大三上学期确定考研或就业意向，若就业则重点研读《择业指导》课程，并开始整理硬件/电控相关项目简历。</div>
+</div></div>
+<div class="tl-sem-row">
+<div class="tl-sem">大三·春</div>
+<div class="tl-items">
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《数字式保护原理与技术》<span class="ref-sup">[S8]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《微机原理课程设计》<span class="ref-sup">[S9]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《新能源与未来电网（双语）》<span class="ref-sup">[S9]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《智能配电系统概论》<span class="ref-sup">[S8]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《专业课程设计》<span class="ref-sup">[S9]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《DSP原理及应用》<span class="ref-sup">[S6]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼6》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《机械工程训练基础》<span class="ref-sup">[S9]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《机械工程训练2》<span class="ref-sup">[S9]</span></div>
+<div class="tl-item advice-item"><span class="tag tag-advice">AI建议</span>建议：大三下学期重点参与“全国大学生电子设计竞赛”国赛备赛，结合《DSP原理及应用》课程进行实战演练。</div>
+</div></div>
+<div class="tl-year-head">
+<span class="tl-year">大四</span><span class="tl-year-line"></span>
+</div>
+<div class="tl-sem-row">
+<div class="tl-sem">大四·秋</div>
+<div class="tl-items">
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《城市电力系统规划》<span class="ref-sup">[S8]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《工程电介质物理》<span class="ref-sup">[S9]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《形势与政策》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼7》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item advice-item"><span class="tag tag-advice">AI建议</span>建议：大四上学期全力投入秋招，针对“硬件研发工程师”或“新能源电控工程师”岗位投递简历，并准备笔试面试。</div>
+</div></div>
+<div class="tl-sem-row">
+<div class="tl-sem">大四·春</div>
+<div class="tl-items">
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《专业综合实验》<span class="ref-sup">[S9]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新实践计划》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《形势与政策》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item advice-item"><span class="tag tag-advice">AI建议</span>建议：大四下学期完成毕业设计，结合《专业综合实验》成果优化作品集，为春招补录或考研复试积累核心素材。</div>
+</div></div>
+</div>
+<h2>电气工程及其自动化专业出口·个人职业行动清单<span class="fact-chip">图谱实证</span></h2>
+<div class="table-wrap"><table><thead><tr>
+<th>行动项</th>
+<th>针对的差距技能</th>
+<th>学习资源（课程/证书）</th>
+<th>目标岗位</th>
+<th>优先级</th>
+</tr></thead><tbody>
+<tr>
+<td>完成《模拟电子技术基础1》与《数字电子技术基础1》课程学习[来源：天大电自培养方案2025 P6]</td>
+<td>电路分析与设计基础</td>
+<td>天大电自培养方案2025</td>
+<td>硬件研发工程师[来源：1+X证书制度试点第二批通知-含云计算平台运维等10个证书范围]</td>
+<td>高</td>
+</tr>
+<tr>
+<td>掌握Python编程与算法基础</td>
+<td>编程与数据处理能力</td>
+<td>Python程序设计及应用[来源：天大电自培养方案2025]</td>
+<td>嵌入式硬件开发工程师[来源：2025年北京市人力资源市场薪酬数据报告（三季度）全文]</td>
+<td>高</td>
+</tr>
+<tr>
+<td>参与全国大学生电子设计竞赛</td>
+<td>工程实践与团队协作</td>
+<td>——</td>
+<td>新能源电控工程师[来源：2025年北京市人力资源市场薪酬数据报告（三季度）全文]</td>
+<td>中</td>
+</tr>
+<tr>
+<td>学习《微型计算机原理及应用》与《单片机原理及应用1》[来源：天大电自培养方案2025 P6]</td>
+<td>嵌入式系统开发能力</td>
+<td>天大电自培养方案2025</td>
+<td>机器人电气工程师[来源：2025年北京市人力资源市场薪酬数据报告（四季度）发布]</td>
+<td>高</td>
+</tr>
+<tr>
+<td>研读《智能电网与综合能源系统》与《新能源与未来电网（双语）》[来源：天大电自培养方案2025 P8]</td>
+<td>智能电网与新能源知识</td>
+<td>天大电自培养方案2025</td>
+<td>电气工程技术人员[来源：2025年长三角一体化示范区制造业企业市场工资价位]</td>
+<td>中</td>
+</tr>
+<tr>
+<td>完成《专业综合实验》与毕业设计[来源：天大电自培养方案2025 P8]</td>
+<td>系统设计与项目交付</td>
+<td>天大电自培养方案2025</td>
+<td>供用电工程技术人员[来源：中华人民共和国职业分类大典2022年版]</td>
+<td>高</td>
+</tr>
+</tbody></table></div>
+<h2>分阶段行动清单<span class="advice-badge">AI 建议 · 仅供参考</span></h2>
+<div class="action-card">
+<div class="action-title">大一</div>
+<div class="action-sec">
+<div class="action-sec-label">核心目标</div>
+<ul>
+<li>夯实数学与物理基础，顺利通过微积分与大学物理考核</li>
+<li>建立工程制图与编程基础认知，适应大学学习节奏</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">必学课程</div>
+<ul>
+<li>《微积分I》《微积分II》：掌握微积分基本理论与计算方法</li>
+<li>《大学物理1A》：理解力学、电磁学等物理基础</li>
+<li>《工程制图基础4》：掌握机械制图规范与CAD基础</li>
+<li>《人工智能导论》：了解AI基本概念与发展趋势</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">建议技能</div>
+<ul>
+<li>Python基础语法与数据结构</li>
+<li>工程制图识图与绘图能力</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">推荐竞赛（含时间节点）</div>
+<ul>
+<li>全国大学生电子设计竞赛（校赛）：一般3月报名，以官网通知为准</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">避坑提示</div>
+<ul>
+<li>避免陷入纯理论死记硬背，大一应尽早接触编程与电路实验，将理论转化为动手能力。</li>
+</ul></div>
+</div>
+<div class="action-card">
+<div class="action-title">大二</div>
+<div class="action-sec">
+<div class="action-sec-label">核心目标</div>
+<ul>
+<li>通过学科竞赛验证理论掌握度，提升工程实践与团队协作能力</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">必学课程</div>
+<ul>
+<li>《模拟电子技术基础1》：掌握模拟电路分析与设计</li>
+<li>《数字电子技术基础1》：掌握数字逻辑电路设计</li>
+<li>《信号分析与处理1》：理解信号频域分析与处理方法</li>
+<li>《复变函数》《数理方程》：强化数学工具应用能力</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">建议技能</div>
+<ul>
+<li>电路仿真软件（如Multisim、Altium Designer）操作</li>
+<li>C语言/Python编程与算法实现</li>
+<li>信号处理基础算法实现</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">推荐竞赛（含时间节点）</div>
+<ul>
+<li>蓝桥杯全国软件和信息技术专业人才大赛：一般4月报名，以官网通知为准</li>
+<li>全国大学生电子设计竞赛：一般7月参赛，需提前半年备赛</li>
+</ul></div>
+</div>
+<div class="action-card">
+<div class="action-title">大三</div>
+<div class="action-sec">
+<div class="action-sec-label">核心目标</div>
+<ul>
+<li>深入微机原理、智能电网与新能源领域，明确职业发展方向</li>
+<li>参与高水平竞赛或科研项目，积累可展示的工程实践成果</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">必学课程</div>
+<ul>
+<li>《微型计算机原理及应用》：掌握微机系统架构与接口技术</li>
+<li>《智能电网与综合能源系统》：理解智能电网架构与能源管理</li>
+<li>《单片机原理及应用1》：掌握单片机开发与嵌入式基础</li>
+<li>《DSP原理及应用》：掌握数字信号处理器应用</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">建议技能</div>
+<ul>
+<li>嵌入式系统开发能力</li>
+<li>电力系统分析与保护原理</li>
+<li>项目文档撰写与技术汇报能力</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">推荐竞赛（含时间节点）</div>
+<ul>
+<li>全国大学生电子设计竞赛（国赛）：一般9月参赛，需提前半年备赛</li>
+<li>“互联网+”大学生创新创业大赛：一般4月校赛，9月国赛</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">避坑提示</div>
+<ul>
+<li>大三面临考研与就业分流，需尽早通过《择业指导》课程与行业调研确定路径，避免盲目跟风。</li>
+</ul></div>
+</div>
+<div class="action-card">
+<div class="action-title">大四</div>
+<div class="action-sec">
+<div class="action-sec-label">核心目标</div>
+<ul>
+<li>完成毕业设计/综合实验，打造个人核心竞争力作品集</li>
+<li>全力投入秋招/春招或考研复试，实现高质量就业或升学</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">必学课程</div>
+<ul>
+<li>《专业综合实验》：综合运用所学知识完成系统性实验项目</li>
+<li>《城市电力系统规划》：掌握电力系统规划基本方法</li>
+<li>《创新实践计划》：完成创新性实践课题</li>
+<li>《工程电介质物理》：理解电介质物理特性与应用</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">建议技能</div>
+<ul>
+<li>简历撰写与面试技巧</li>
+<li>毕业设计/论文撰写能力</li>
+<li>职场沟通与团队协作能力</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">推荐竞赛（含时间节点）</div>
+<ul>
+<li>全国大学生电子设计竞赛（国赛）：一般9月参赛，需提前半年备赛</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">避坑提示</div>
+<ul>
+<li>秋招是进入行业头部企业的关键窗口期，切勿因考研或考公而完全放弃秋招，应做好两手准备。</li>
+</ul></div>
+</div>
+<h2>差距与下一步<span class="advice-badge">AI 建议 · 仅供参考</span></h2>
+<div class="gap-card">
+<div class="gap-status">当前处于未指定年级阶段，需根据实际年级对照培养方案核实已修课程与技能掌握情况。若为大一大二，重点核实数理基础与模电数电课程成绩；若为大三大四，重点核实微机原理、智能电网课程及竞赛/项目经历。</div>
+<div class="gap-alt" style="margin-bottom:10px"><b>下一步 Top3</b></div>
+<ol class="gap-top3">
+<li>若未参与过学科竞赛，立即组队报名“全国大学生电子设计竞赛”或“蓝桥杯”，通过实战项目弥补工程实践经验的不足。</li>
+<li>针对目标岗位（如硬件研发工程师）的JD要求，补充学习Altium Designer、Multisim等电路仿真工具，提升简历竞争力。</li>
+</ol>
+<div class="gap-alt" style="margin-top:14px"><b>备选岗位 / 方向：</b>硬件研发工程师；新能源电控工程师；嵌入式硬件开发工程师</div>
+</div>
+<h2 id="report-refs">参考文献<span class="fact-chip">正文上标 [Sn] 对应以下来源</span></h2>
+<div class="ref-list"><ol>
+<li>[S1]　天大电自培养方案2025 无</li>
+<li>[S2]　未标注 无</li>
+<li>[S3]　天大电自培养方案2025</li>
+<li>[S4]　天大电自培养方案2025 P5</li>
+<li>[S5]　天大电自培养方案2025 P4</li>
+<li>[S6]　天大电自培养方案2025 P6</li>
+<li>[S7]　天大电自培养方案2025 P9</li>
+<li>[S8]　天大电自培养方案2025 P7</li>
+<li>[S9]　天大电自培养方案2025 P8</li>
+</ol></div>
+</div></body></html>

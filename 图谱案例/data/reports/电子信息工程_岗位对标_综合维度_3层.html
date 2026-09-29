@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>电子信息工程专业·岗位对标培养路径报告</title>
+<style>
+body { font-family: system-ui, -apple-system, 'Microsoft YaHei', sans-serif; background: #f5f7fa; margin: 0; padding: 32px; color: #1a202c; }
+.container { max-width: 900px; margin: 0 auto; }
+h1 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+.meta { font-size: 13px; color: #94a3b8; margin-bottom: 20px; }
+.summary { font-size: 14px; line-height: 1.8; color: #475569; background: #fff; padding: 20px; border-radius: 6px; border: 1px solid #e2e8f0; margin-bottom: 28px; }
+h2 { font-size: 16px; font-weight: 700; margin: 28px 0 16px; padding-left: 10px; border-left: 3px solid #2c6ecb; }
+.tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 1px 8px; border-radius: 10px; vertical-align: 2px; margin-right: 6px; }
+.tag-course { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+.tag-skill { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
+.tag-comp { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
+.tag-advice { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
+.ref-sup { color: #2c6ecb; font-size: 10px; margin: 0 1px; }
+.profile-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 28px; }
+.profile-card h3 { margin: 0 0 12px; font-size: 15px; color: #0f172a; }
+.profile-list { margin: 0; padding: 0; list-style: none; }
+.profile-list li { font-size: 13.5px; line-height: 1.9; color: #475569; padding: 6px 0 6px 18px; position: relative; border-bottom: 1px dashed #f1f5f9; }
+.profile-list li:last-child { border-bottom: none; }
+.profile-list li::before { content: '▸'; position: absolute; left: 2px; color: #2c6ecb; }
+.timeline { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 24px; margin-bottom: 28px; }
+.tl-year-head { display: flex; align-items: center; gap: 10px; margin: 20px 0 12px; }
+.tl-year-head:first-child { margin-top: 0; }
+.tl-year { font-size: 13px; font-weight: 700; color: #fff; background: #2c6ecb; padding: 3px 14px; border-radius: 14px; white-space: nowrap; }
+.tl-year-line { flex: 1; height: 1px; background: #e2e8f0; }
+.tl-sem-row { display: flex; gap: 12px; margin-bottom: 12px; }
+.tl-sem { flex-shrink: 0; width: 70px; font-size: 12.5px; font-weight: 600; color: #2c6ecb; text-align: center; background: #eff6ff; border-radius: 4px; padding: 4px 0; align-self: flex-start; }
+.tl-items { flex: 1; min-width: 0; }
+.tl-item { font-size: 13px; line-height: 1.8; color: #475569; padding: 3px 0; }
+.tl-item.advice-item { background: #fffbeb; border-left: 3px solid #fbbf24; padding-left: 8px; border-radius: 0 4px 4px 0; }
+.action-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 16px; }
+.action-title { font-size: 15px; font-weight: 700; color: #2c6ecb; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid #f1f5f9; }
+.action-sec { margin-bottom: 10px; display: flex; }
+.action-sec-label { flex-shrink: 0; width: 96px; font-size: 12.5px; font-weight: 600; color: #64748b; padding-top: 2px; }
+.action-sec ul { margin: 0; padding: 0; list-style: none; flex: 1; }
+.action-sec li { font-size: 13px; line-height: 1.8; color: #475569; }
+.action-sec li::before { content: '·'; font-weight: 700; margin-right: 6px; color: #94a3b8; }
+.gap-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 28px; }
+.gap-status { font-size: 13.5px; line-height: 1.8; color: #475569; margin-bottom: 14px; }
+.gap-top3 { margin: 0; padding-left: 22px; }
+.gap-top3 li { font-size: 13.5px; line-height: 1.9; color: #1e293b; }
+.gap-alt { font-size: 13px; color: #64748b; line-height: 1.8; }
+.gap-alt b { color: #475569; }
+.ref-list { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 28px; }
+.ref-list ol { margin: 0; padding-left: 22px; }
+.ref-list li { font-size: 12.5px; line-height: 1.9; color: #64748b; }
+.table-wrap { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 28px; overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { padding: 10px 14px; background: #f5f7fa; font-weight: 600; text-align: left; border-bottom: 2px solid #e2e8f0; }
+td { padding: 10px 14px; color: #475569; border-bottom: 1px solid #e2e8f0; }
+tr:last-child td { border-bottom: none; }
+.layer-legend { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+.legend-chip { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; padding: 5px 12px; border-radius: 20px; border: 1px solid; }
+.legend-fact { background: #eff6ff; border-color: #bfdbfe; color: #1d4ed8; }
+.legend-ai { background: #fffbeb; border-color: #fde68a; color: #b45309; }
+.fact-chip { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 10px; background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; vertical-align: 2px; margin-left: 8px; }
+.advice-badge { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 10px; background: #fffbeb; color: #b45309; border: 1px solid #fde68a; vertical-align: 2px; margin-left: 8px; }
+.advice-card { background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 16px 20px; margin-bottom: 12px; }
+.advice-title { font-size: 14px; font-weight: 600; color: #b45309; margin-bottom: 10px; }
+.advice-list { margin: 0; padding-left: 20px; }
+.advice-list li { font-size: 13px; line-height: 1.9; color: #78350f; margin-bottom: 4px; }
+.base-bar { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px; padding: 12px 16px; font-size: 12.5px; color: #1d4ed8; margin-bottom: 20px; line-height: 1.7; }
+.base-bar span { font-weight: 700; margin-right: 6px; }
+.base-bar b { font-size: 15px; margin: 0 2px; }
+.mindmap { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px 22px; margin-bottom: 24px; }
+.mm-root { display: inline-block; background: #1d4ed8; color: #fff; font-size: 14px; font-weight: 700; padding: 8px 26px; border-radius: 20px; margin-bottom: 8px; }
+.mm-branches { border-left: 2px solid #cbd5e1; margin-left: 16px; }
+.mm-cat { display: flex; align-items: flex-start; padding: 12px 0 2px 0; }
+.mm-cat-conn { width: 20px; height: 2px; background: #cbd5e1; margin-top: 18px; flex: none; }
+.mm-cat-label { flex: none; width: 108px; font-size: 13px; font-weight: 700; color: #1e40af; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 10px 8px; margin-right: 14px; text-align: center; align-self: flex-start; }
+.mm-main { flex: 1; min-width: 0; }
+.mm-rec { font-size: 12px; color: #b45309; background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 6px 10px; margin-bottom: 8px; line-height: 1.6; }
+.mm-years { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.mm-year { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 9px; }
+.mm-year-label { font-size: 12px; font-weight: 700; color: #475569; margin-bottom: 6px; }
+.mm-items { display: flex; flex-direction: column; gap: 4px; }
+.mm-item { font-size: 12px; line-height: 1.6; color: #334155; background: #f1f5f9; border-radius: 6px; padding: 4px 8px; word-break: break-all; }
+.mm-item .ref-sup { margin-left: 4px; }
+.mm-empty { color: #cbd5e1; text-align: center; background: transparent; }
+.mm-star { color: #b45309; font-weight: 700; }
+.cp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 24px; }
+.cp-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px 18px; box-shadow: 0 1px 2px rgba(15,23,42,0.04); }
+.cp-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+.cp-name { font-size: 15px; font-weight: 700; color: #0f172a; }
+.cp-type { font-size: 11px; font-weight: 600; padding: 2px 10px; border-radius: 12px; background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; white-space: nowrap; }
+.cp-type-policy { background: #ecfdf5; color: #047857; border-color: #a7f3d0; }
+.cp-overview { font-size: 13px; color: #475569; line-height: 1.7; margin-bottom: 10px; }
+.cp-steps { border-left: 2px solid #e2e8f0; margin: 0 0 10px 6px; padding-left: 16px; display: flex; flex-direction: column; gap: 8px; }
+.cp-step { position: relative; font-size: 12.5px; line-height: 1.7; color: #334155; }
+.cp-step::before { content: ''; position: absolute; left: -21px; top: 7px; width: 8px; height: 8px; border-radius: 50%; background: #3b82f6; }
+.cp-period { display: inline-block; font-size: 11px; font-weight: 700; color: #1d4ed8; background: #eff6ff; border-radius: 6px; padding: 1px 8px; margin-right: 8px; vertical-align: 1px; }
+.cp-advice { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 10px 12px; font-size: 12.5px; color: #78350f; }
+.cp-advice b { display: block; margin-bottom: 4px; font-size: 12.5px; color: #b45309; }
+.cp-advice ul { margin: 0; padding-left: 18px; }
+.cp-advice li { margin-bottom: 3px; line-height: 1.7; }
+@media(max-width: 900px) {
+  .cp-grid { grid-template-columns: 1fr; }
+  .mm-years { grid-template-columns: repeat(2, 1fr); }
+  .mm-cat { flex-direction: column; }
+  .mm-cat-conn { display: none; }
+  .mm-cat-label { width: auto; margin-right: 0; margin-bottom: 8px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>电子信息工程专业·岗位对标培养路径报告</h1>
+<div class="meta">关键词：电子信息工程　|　维度：综合维度　|　报告模式：岗位对标　|　展开层级：3层　|　生成时间：2026-09-23 20:32:21</div>
+<div class="meta" style="font-size:11px;color:#94a3b8;">接地校验：删除句子 0，补来源 436，补AI标签 0，课程降级 0，非法标签修正 0，学期归一 0，剔除无效项 5，剔除建议编造 0，剔除陈词 0，重写 3，替换违规单元格 0，裁剪超长 0，缺失学期 7/8</div>
+<div class="base-bar"><span>图谱数据基座</span>本报告基于就业知识图谱子图生成：<b>80</b> 个实体 · <b>80</b> 条关联 · 覆盖 6 个维度（课程体系、竞赛实践、岗位聚集、技能结构、发展路径、岗位竞合）· <b>22</b> 份来源文档 —— 正文上标 <b style="font-size:12px">[Sn]</b> 可对应文末「参考文献」逐条溯源；黄色「AI建议」条目为模型补全，仅供参考</div>
+<div class="layer-legend">
+<span class="legend-chip legend-fact">L1 官方课程 · 培养方案/职业标准权威骨架</span>
+<span class="legend-chip" style="background:#ecfdf5;border-color:#a7f3d0;color:#047857;">L2 技能/竞赛 · 多源抽取（职业标准·行业报告·竞赛简章）</span>
+<span class="legend-chip legend-ai">L3 AI 建议 · 模型补全，仅供参考</span>
+</div>
+
+<div class="summary">基于天大电自培养方案2025等权威数据，电子信息工程专业对接硬件研发工程师、芯片工程师等10个核心岗位。[来源：天大电自培养方案2025 P91]四年主线以电路基础与PROTEUS仿真为核心，辅以人工智能导论拓展。[来源：天大电自培养方案2025 P89]当前最该做的是在大一夯实微积分I与电路基础A，大二通过PROTEUS电子系统设计与仿真课程完成硬件设计初阶，为冲刺行业头部企业硬件研发岗打下基础。[来源：天大电自培养方案2025 P124]岗位定义：硬件研发工程师，岗位类别为薪酬调查职业，主要面向硬件设计、测试与开发方向。[来源：1+X证书制度试点第二批通知-含云计算平台运维等10个证书范围]需求分布：岗位需求集中在京津冀地区多家企业，薪资处于行业平均薪资水平。发展路径：从初级职级晋升至中级职级，平均年限为3年，转换难度为中。</div>
+<h2>目标岗位画像<span class="fact-chip">L1 权威 + L2 抽取</span></h2>
+<h2>四年培养路径总览<span class="fact-chip">官方培养方案骨架 + 分层补全</span></h2>
+<div class="timeline">
+<div class="tl-year-head">
+<span class="tl-year">大一</span><span class="tl-year-line"></span>
+</div>
+<div class="tl-sem-row">
+<div class="tl-sem">大一·秋</div>
+<div class="tl-items">
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《微积分I》<span class="ref-sup">[S1]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《电气信息导论》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《人工智能导论》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《形势与政策》<span class="ref-sup">[S4]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《思想道德与法治》<span class="ref-sup">[S5]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《集中军事训练》<span class="ref-sup">[S6]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《线性代数及其应用》<span class="ref-sup">[S7]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《英语听说》<span class="ref-sup">[S8]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《英语读写译》<span class="ref-sup">[S9]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《国家安全教育》<span class="ref-sup">[S10]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学生心理健康（上）》<span class="ref-sup">[S11]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《法制安全教育》<span class="ref-sup">[S12]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《健康教育》<span class="ref-sup">[S13]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育A》<span class="ref-sup">[S14]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《工程制图基础4》<span class="ref-sup">[S15]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《计算机软件技术基础2》<span class="ref-sup">[S16]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《基础英语1》<span class="ref-sup">[S17]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《马克思主义基本原理》<span class="ref-sup">[S18]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《中国近现代史纲要》<span class="ref-sup">[S19]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《习近平新时代中国特色社会主义思想概论》<span class="ref-sup">[S20]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《毛泽东思想和中国特色社会主义理论体系概论》<span class="ref-sup">[S21]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《择业指导》<span class="ref-sup">[S22]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新实践计划》<span class="ref-sup">[S23]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新工程实践1》<span class="ref-sup">[S24]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新工程实践2》<span class="ref-sup">[S25]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新工程实践3》<span class="ref-sup">[S26]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《校企合作创新实践1》<span class="ref-sup">[S27]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《校企合作创新实践2》<span class="ref-sup">[S28]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《数据库应用技术》<span class="ref-sup">[S29]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《JAVA程序设计》<span class="ref-sup">[S30]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《PROTEUS电子系统设计与仿真》<span class="ref-sup">[S31]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《“视觉-语言”智能理解与生成》<span class="ref-sup">[S32]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《中国传统典籍英译》<span class="ref-sup">[S33]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《中国近现代史纲要》<span class="ref-sup">[S19]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《习近平关于科技创新的重要论述》<span class="ref-sup">[S34]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《习近平新时代中国特色社会主义思想概论》<span class="ref-sup">[S20]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《人工智能基础》<span class="ref-sup">[S35]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育A》<span class="ref-sup">[S14]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育B》<span class="ref-sup">[S36]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育C》<span class="ref-sup">[S37]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育D》<span class="ref-sup">[S38]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼 1》<span class="ref-sup">[S39]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼2》<span class="ref-sup">[S40]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼3》<span class="ref-sup">[S41]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼4》<span class="ref-sup">[S42]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼5》<span class="ref-sup">[S43]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼6》<span class="ref-sup">[S44]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼7》<span class="ref-sup">[S45]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《健康教育》<span class="ref-sup">[S13]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《军事理论1》<span class="ref-sup">[S46]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新实践计划》<span class="ref-sup">[S23]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新工程实践1》<span class="ref-sup">[S24]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新工程实践2》<span class="ref-sup">[S25]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新工程实践3》<span class="ref-sup">[S26]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《国家安全教育》<span class="ref-sup">[S10]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《基础英语1》<span class="ref-sup">[S17]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《基础英语2》<span class="ref-sup">[S47]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《基础英语3》<span class="ref-sup">[S48]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《基础英语4》<span class="ref-sup">[S49]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《复变函数》<span class="ref-sup">[S50]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学物理1A》<span class="ref-sup">[S51]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学物理1B》<span class="ref-sup">[S52]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学生心理健康（上）》<span class="ref-sup">[S11]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学生心理健康（下）》<span class="ref-sup">[S53]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《学术英文写作》<span class="ref-sup">[S54]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《工程制图基础4》<span class="ref-sup">[S15]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《形势与政策》<span class="ref-sup">[S4]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《微积分I》<span class="ref-sup">[S1]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《微积分II》<span class="ref-sup">[S55]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《思想道德与法治》<span class="ref-sup">[S5]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《择业指导》<span class="ref-sup">[S22]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《数据库应用技术》<span class="ref-sup">[S29]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《数理方程》<span class="ref-sup">[S56]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《机械工程训练2》<span class="ref-sup">[S57]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《机械工程训练基础》<span class="ref-sup">[S58]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《校企合作创新实践1》<span class="ref-sup">[S27]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《校企合作创新实践2》<span class="ref-sup">[S28]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《概率论与数理统计》<span class="ref-sup">[S59]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《毛泽东思想和中国特色社会主义理论体系概论》<span class="ref-sup">[S21]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《法制安全教育》<span class="ref-sup">[S12]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《物理实验A》<span class="ref-sup">[S60]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《物理实验B》<span class="ref-sup">[S61]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《电工测量A》<span class="ref-sup">[S62]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《电气信息导论》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《电路基础A》<span class="ref-sup">[S63]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《管理概论》<span class="ref-sup">[S64]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《线性代数及其应用》<span class="ref-sup">[S7]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《翻译与跨文化传播》<span class="ref-sup">[S65]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《职业生涯规划》<span class="ref-sup">[S66]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《英语交流与沟通》<span class="ref-sup">[S67]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《英语听说》<span class="ref-sup">[S8]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《英语畅谈中国》<span class="ref-sup">[S68]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《英语读写译》<span class="ref-sup">[S9]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《西方文化掠影》<span class="ref-sup">[S69]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《计算机软件技术基础2》<span class="ref-sup">[S16]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《集中军事训练》<span class="ref-sup">[S6]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《马克思主义基本原理》<span class="ref-sup">[S18]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《JAVA程序设计》<span class="ref-sup">[S30]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《PROTEUS电子系统设计与仿真》<span class="ref-sup">[S31]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《“视觉-语言”智能理解与生成》<span class="ref-sup">[S32]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《人工智能基础》<span class="ref-sup">[S35]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《人工智能导论》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育A》<span class="ref-sup">[S14]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育B》<span class="ref-sup">[S36]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育C》<span class="ref-sup">[S37]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育D》<span class="ref-sup">[S38]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼 1》<span class="ref-sup">[S39]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼2》<span class="ref-sup">[S40]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼3》<span class="ref-sup">[S41]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼4》<span class="ref-sup">[S42]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼5》<span class="ref-sup">[S43]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼6》<span class="ref-sup">[S44]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼7》<span class="ref-sup">[S45]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《健康教育》<span class="ref-sup">[S13]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《军事理论1》<span class="ref-sup">[S46]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新实践计划》<span class="ref-sup">[S23]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新工程实践1》<span class="ref-sup">[S24]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新工程实践2》<span class="ref-sup">[S25]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新工程实践3》<span class="ref-sup">[S26]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《国家安全教育》<span class="ref-sup">[S10]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《基础英语1》<span class="ref-sup">[S17]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《基础英语2》<span class="ref-sup">[S47]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《基础英语3》<span class="ref-sup">[S48]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《基础英语4》<span class="ref-sup">[S49]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《复变函数》<span class="ref-sup">[S50]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学物理1A》<span class="ref-sup">[S51]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学物理1B》<span class="ref-sup">[S52]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学生心理健康（上）》<span class="ref-sup">[S11]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学生心理健康（下）》<span class="ref-sup">[S53]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《学术英文写作》<span class="ref-sup">[S54]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《工程制图基础4》<span class="ref-sup">[S15]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《形势与政策》<span class="ref-sup">[S4]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《微积分I》<span class="ref-sup">[S1]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《微积分II》<span class="ref-sup">[S55]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《思想道德与法治》<span class="ref-sup">[S5]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《择业指导》<span class="ref-sup">[S22]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《数据库应用技术》<span class="ref-sup">[S29]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《数理方程》<span class="ref-sup">[S56]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《机械工程训练2》<span class="ref-sup">[S57]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《机械工程训练基础》<span class="ref-sup">[S58]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《校企合作创新实践1》<span class="ref-sup">[S27]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《校企合作创新实践2》<span class="ref-sup">[S28]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《概率论与数理统计》<span class="ref-sup">[S59]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《毛泽东思想和中国特色社会主义理论体系概论》<span class="ref-sup">[S21]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《法制安全教育》<span class="ref-sup">[S12]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《物理实验A》<span class="ref-sup">[S60]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《物理实验B》<span class="ref-sup">[S61]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《电工测量A》<span class="ref-sup">[S62]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《电气信息导论》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《电路基础A》<span class="ref-sup">[S63]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《管理概论》<span class="ref-sup">[S64]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《线性代数及其应用》<span class="ref-sup">[S7]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《翻译与跨文化传播》<span class="ref-sup">[S65]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《职业生涯规划》<span class="ref-sup">[S66]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《英语交流与沟通》<span class="ref-sup">[S67]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《英语听说》<span class="ref-sup">[S8]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《英语畅谈中国》<span class="ref-sup">[S68]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《英语读写译》<span class="ref-sup">[S9]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《西方文化掠影》<span class="ref-sup">[S69]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《计算机软件技术基础2》<span class="ref-sup">[S16]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《集中军事训练》<span class="ref-sup">[S6]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《马克思主义基本原理》<span class="ref-sup">[S18]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《JAVA程序设计》<span class="ref-sup">[S30]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《PROTEUS电子系统设计与仿真》<span class="ref-sup">[S31]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《“视觉-语言”智能理解与生成》<span class="ref-sup">[S32]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《人工智能基础》<span class="ref-sup">[S35]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《人工智能导论》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育A》<span class="ref-sup">[S14]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育B》<span class="ref-sup">[S36]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育C》<span class="ref-sup">[S37]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育D》<span class="ref-sup">[S38]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼 1》<span class="ref-sup">[S39]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼2》<span class="ref-sup">[S40]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼3》<span class="ref-sup">[S41]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼4》<span class="ref-sup">[S42]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼5》<span class="ref-sup">[S43]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼6》<span class="ref-sup">[S44]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼7》<span class="ref-sup">[S45]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《健康教育》<span class="ref-sup">[S13]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《军事理论1》<span class="ref-sup">[S46]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新实践计划》<span class="ref-sup">[S23]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新工程实践1》<span class="ref-sup">[S24]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新工程实践2》<span class="ref-sup">[S25]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新工程实践3》<span class="ref-sup">[S26]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《国家安全教育》<span class="ref-sup">[S10]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《基础英语1》<span class="ref-sup">[S17]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《基础英语2》<span class="ref-sup">[S47]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《基础英语3》<span class="ref-sup">[S48]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《基础英语4》<span class="ref-sup">[S49]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《复变函数》<span class="ref-sup">[S50]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学物理1A》<span class="ref-sup">[S51]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学物理1B》<span class="ref-sup">[S52]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学生心理健康（上）》<span class="ref-sup">[S11]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学生心理健康（下）》<span class="ref-sup">[S53]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《学术英文写作》<span class="ref-sup">[S54]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《工程制图基础4》<span class="ref-sup">[S15]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《形势与政策》<span class="ref-sup">[S4]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《微积分I》<span class="ref-sup">[S1]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《微积分II》<span class="ref-sup">[S55]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《思想道德与法治》<span class="ref-sup">[S5]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《择业指导》<span class="ref-sup">[S22]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《数据库应用技术》<span class="ref-sup">[S29]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《数理方程》<span class="ref-sup">[S56]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《机械工程训练2》<span class="ref-sup">[S57]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《机械工程训练基础》<span class="ref-sup">[S58]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《校企合作创新实践1》<span class="ref-sup">[S27]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《校企合作创新实践2》<span class="ref-sup">[S28]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《概率论与数理统计》<span class="ref-sup">[S59]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《毛泽东思想和中国特色社会主义理论体系概论》<span class="ref-sup">[S21]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《法制安全教育》<span class="ref-sup">[S12]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《物理实验A》<span class="ref-sup">[S60]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《物理实验B》<span class="ref-sup">[S61]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《电工测量A》<span class="ref-sup">[S62]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《电气信息导论》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《电路基础A》<span class="ref-sup">[S63]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《管理概论》<span class="ref-sup">[S64]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《线性代数及其应用》<span class="ref-sup">[S7]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《翻译与跨文化传播》<span class="ref-sup">[S65]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《职业生涯规划》<span class="ref-sup">[S66]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《英语交流与沟通》<span class="ref-sup">[S67]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《英语听说》<span class="ref-sup">[S8]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《英语畅谈中国》<span class="ref-sup">[S68]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《英语读写译》<span class="ref-sup">[S9]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《西方文化掠影》<span class="ref-sup">[S69]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《计算机软件技术基础2》<span class="ref-sup">[S16]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《集中军事训练》<span class="ref-sup">[S6]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《马克思主义基本原理》<span class="ref-sup">[S18]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《JAVA程序设计》<span class="ref-sup">[S30]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《PROTEUS电子系统设计与仿真》<span class="ref-sup">[S31]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《“视觉-语言”智能理解与生成》<span class="ref-sup">[S32]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《人工智能基础》<span class="ref-sup">[S35]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《人工智能导论》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育A》<span class="ref-sup">[S14]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育B》<span class="ref-sup">[S36]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育C》<span class="ref-sup">[S37]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育D》<span class="ref-sup">[S38]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼 1》<span class="ref-sup">[S39]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼2》<span class="ref-sup">[S40]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼3》<span class="ref-sup">[S41]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼4》<span class="ref-sup">[S42]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼5》<span class="ref-sup">[S43]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼6》<span class="ref-sup">[S44]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼7》<span class="ref-sup">[S45]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《健康教育》<span class="ref-sup">[S13]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《军事理论1》<span class="ref-sup">[S46]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新实践计划》<span class="ref-sup">[S23]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新工程实践1》<span class="ref-sup">[S24]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新工程实践2》<span class="ref-sup">[S25]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新工程实践3》<span class="ref-sup">[S26]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《国家安全教育》<span class="ref-sup">[S10]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《基础英语1》<span class="ref-sup">[S17]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《基础英语2》<span class="ref-sup">[S47]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《基础英语3》<span class="ref-sup">[S48]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《基础英语4》<span class="ref-sup">[S49]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《复变函数》<span class="ref-sup">[S50]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学物理1A》<span class="ref-sup">[S51]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学物理1B》<span class="ref-sup">[S52]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学生心理健康（上）》<span class="ref-sup">[S11]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学生心理健康（下）》<span class="ref-sup">[S53]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《学术英文写作》<span class="ref-sup">[S54]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《工程制图基础4》<span class="ref-sup">[S15]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《形势与政策》<span class="ref-sup">[S4]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《微积分I》<span class="ref-sup">[S1]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《微积分II》<span class="ref-sup">[S55]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《思想道德与法治》<span class="ref-sup">[S5]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《择业指导》<span class="ref-sup">[S22]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《数据库应用技术》<span class="ref-sup">[S29]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《数理方程》<span class="ref-sup">[S56]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《机械工程训练2》<span class="ref-sup">[S57]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《机械工程训练基础》<span class="ref-sup">[S58]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《校企合作创新实践1》<span class="ref-sup">[S27]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《校企合作创新实践2》<span class="ref-sup">[S28]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《概率论与数理统计》<span class="ref-sup">[S59]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《毛泽东思想和中国特色社会主义理论体系概论》<span class="ref-sup">[S21]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《法制安全教育》<span class="ref-sup">[S12]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《物理实验A》<span class="ref-sup">[S60]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《物理实验B》<span class="ref-sup">[S61]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《电工测量A》<span class="ref-sup">[S62]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《电气信息导论》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《电路基础A》<span class="ref-sup">[S63]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《管理概论》<span class="ref-sup">[S64]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《线性代数及其应用》<span class="ref-sup">[S7]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《翻译与跨文化传播》<span class="ref-sup">[S65]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《职业生涯规划》<span class="ref-sup">[S66]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《英语交流与沟通》<span class="ref-sup">[S67]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《英语听说》<span class="ref-sup">[S8]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《英语畅谈中国》<span class="ref-sup">[S68]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《英语读写译》<span class="ref-sup">[S9]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《西方文化掠影》<span class="ref-sup">[S69]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《计算机软件技术基础2》<span class="ref-sup">[S16]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《集中军事训练》<span class="ref-sup">[S6]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《马克思主义基本原理》<span class="ref-sup">[S18]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《JAVA程序设计》<span class="ref-sup">[S30]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《PROTEUS电子系统设计与仿真》<span class="ref-sup">[S31]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《“视觉-语言”智能理解与生成》<span class="ref-sup">[S32]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《人工智能基础》<span class="ref-sup">[S35]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《人工智能导论》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育A》<span class="ref-sup">[S14]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育B》<span class="ref-sup">[S36]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育C》<span class="ref-sup">[S37]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育D》<span class="ref-sup">[S38]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼 1》<span class="ref-sup">[S39]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼2》<span class="ref-sup">[S40]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼3》<span class="ref-sup">[S41]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼4》<span class="ref-sup">[S42]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼5》<span class="ref-sup">[S43]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼6》<span class="ref-sup">[S44]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼7》<span class="ref-sup">[S45]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《健康教育》<span class="ref-sup">[S13]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《军事理论1》<span class="ref-sup">[S46]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新实践计划》<span class="ref-sup">[S23]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新工程实践1》<span class="ref-sup">[S24]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新工程实践2》<span class="ref-sup">[S25]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新工程实践3》<span class="ref-sup">[S26]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《国家安全教育》<span class="ref-sup">[S10]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《基础英语1》<span class="ref-sup">[S17]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《基础英语2》<span class="ref-sup">[S47]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《基础英语3》<span class="ref-sup">[S48]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《基础英语4》<span class="ref-sup">[S49]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《复变函数》<span class="ref-sup">[S50]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学物理1A》<span class="ref-sup">[S51]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学物理1B》<span class="ref-sup">[S52]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学生心理健康（上）》<span class="ref-sup">[S11]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学生心理健康（下）》<span class="ref-sup">[S53]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《学术英文写作》<span class="ref-sup">[S54]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《工程制图基础4》<span class="ref-sup">[S15]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《形势与政策》<span class="ref-sup">[S4]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《微积分I》<span class="ref-sup">[S1]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《微积分II》<span class="ref-sup">[S55]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《思想道德与法治》<span class="ref-sup">[S5]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《择业指导》<span class="ref-sup">[S22]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《数据库应用技术》<span class="ref-sup">[S29]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《数理方程》<span class="ref-sup">[S56]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《机械工程训练2》<span class="ref-sup">[S57]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《机械工程训练基础》<span class="ref-sup">[S58]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《校企合作创新实践1》<span class="ref-sup">[S27]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《校企合作创新实践2》<span class="ref-sup">[S28]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《概率论与数理统计》<span class="ref-sup">[S59]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《毛泽东思想和中国特色社会主义理论体系概论》<span class="ref-sup">[S21]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《法制安全教育》<span class="ref-sup">[S12]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《物理实验A》<span class="ref-sup">[S60]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《物理实验B》<span class="ref-sup">[S61]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《电工测量A》<span class="ref-sup">[S62]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《电气信息导论》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《电路基础A》<span class="ref-sup">[S63]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《管理概论》<span class="ref-sup">[S64]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《线性代数及其应用》<span class="ref-sup">[S7]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《翻译与跨文化传播》<span class="ref-sup">[S65]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《职业生涯规划》<span class="ref-sup">[S66]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《英语交流与沟通》<span class="ref-sup">[S67]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《英语听说》<span class="ref-sup">[S8]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《英语畅谈中国》<span class="ref-sup">[S68]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《英语读写译》<span class="ref-sup">[S9]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《西方文化掠影》<span class="ref-sup">[S69]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《计算机软件技术基础2》<span class="ref-sup">[S16]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《集中军事训练》<span class="ref-sup">[S6]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《马克思主义基本原理》<span class="ref-sup">[S18]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《JAVA程序设计》<span class="ref-sup">[S30]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《PROTEUS电子系统设计与仿真》<span class="ref-sup">[S31]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《“视觉-语言”智能理解与生成》<span class="ref-sup">[S32]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《人工智能基础》<span class="ref-sup">[S35]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《人工智能导论》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育A》<span class="ref-sup">[S14]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育B》<span class="ref-sup">[S36]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育C》<span class="ref-sup">[S37]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育D》<span class="ref-sup">[S38]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼 1》<span class="ref-sup">[S39]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼2》<span class="ref-sup">[S40]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼3》<span class="ref-sup">[S41]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼4》<span class="ref-sup">[S42]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼5》<span class="ref-sup">[S43]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼6》<span class="ref-sup">[S44]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼7》<span class="ref-sup">[S45]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《健康教育》<span class="ref-sup">[S13]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《军事理论1》<span class="ref-sup">[S46]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新实践计划》<span class="ref-sup">[S23]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新工程实践1》<span class="ref-sup">[S24]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新工程实践2》<span class="ref-sup">[S25]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新工程实践3》<span class="ref-sup">[S26]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《国家安全教育》<span class="ref-sup">[S10]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《基础英语1》<span class="ref-sup">[S17]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《基础英语2》<span class="ref-sup">[S47]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《基础英语3》<span class="ref-sup">[S48]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《基础英语4》<span class="ref-sup">[S49]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《复变函数》<span class="ref-sup">[S50]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学物理1A》<span class="ref-sup">[S51]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学物理1B》<span class="ref-sup">[S52]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学生心理健康（上）》<span class="ref-sup">[S11]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学生心理健康（下）》<span class="ref-sup">[S53]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《学术英文写作》<span class="ref-sup">[S54]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《工程制图基础4》<span class="ref-sup">[S15]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《形势与政策》<span class="ref-sup">[S4]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《微积分I》<span class="ref-sup">[S1]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《微积分II》<span class="ref-sup">[S55]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《思想道德与法治》<span class="ref-sup">[S5]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《择业指导》<span class="ref-sup">[S22]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《数据库应用技术》<span class="ref-sup">[S29]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《数理方程》<span class="ref-sup">[S56]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《机械工程训练2》<span class="ref-sup">[S57]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《机械工程训练基础》<span class="ref-sup">[S58]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《校企合作创新实践1》<span class="ref-sup">[S27]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《校企合作创新实践2》<span class="ref-sup">[S28]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《概率论与数理统计》<span class="ref-sup">[S59]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《毛泽东思想和中国特色社会主义理论体系概论》<span class="ref-sup">[S21]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《法制安全教育》<span class="ref-sup">[S12]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《物理实验A》<span class="ref-sup">[S60]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《物理实验B》<span class="ref-sup">[S61]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《电工测量A》<span class="ref-sup">[S62]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《电气信息导论》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《电路基础A》<span class="ref-sup">[S63]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《管理概论》<span class="ref-sup">[S64]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《线性代数及其应用》<span class="ref-sup">[S7]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《翻译与跨文化传播》<span class="ref-sup">[S65]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《职业生涯规划》<span class="ref-sup">[S66]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《英语交流与沟通》<span class="ref-sup">[S67]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《英语听说》<span class="ref-sup">[S8]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《英语畅谈中国》<span class="ref-sup">[S68]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《英语读写译》<span class="ref-sup">[S9]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《西方文化掠影》<span class="ref-sup">[S69]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《计算机软件技术基础2》<span class="ref-sup">[S16]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《集中军事训练》<span class="ref-sup">[S6]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《马克思主义基本原理》<span class="ref-sup">[S18]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《JAVA程序设计》<span class="ref-sup">[S30]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《PROTEUS电子系统设计与仿真》<span class="ref-sup">[S31]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《“视觉-语言”智能理解与生成》<span class="ref-sup">[S32]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《人工智能基础》<span class="ref-sup">[S35]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《人工智能导论》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育A》<span class="ref-sup">[S14]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育B》<span class="ref-sup">[S36]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育C》<span class="ref-sup">[S37]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育D》<span class="ref-sup">[S38]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼 1》<span class="ref-sup">[S39]</span></div>
+</div></div>
+</div>
+<h2 id="report-refs">参考文献<span class="fact-chip">正文上标 [Sn] 对应以下来源</span></h2>
+<div class="ref-list"><ol>
+<li>[S1]　天大电自培养方案2025 P77</li>
+<li>[S2]　天大电自培养方案2025 P98</li>
+<li>[S3]　天大电自培养方案2025 P89</li>
+<li>[S4]　天大电自培养方案2025 P9</li>
+<li>[S5]　天大电自培养方案2025 P3</li>
+<li>[S6]　天大电自培养方案2025 P50</li>
+<li>[S7]　天大电自培养方案2025 P76</li>
+<li>[S8]　天大电自培养方案2025 P11</li>
+<li>[S9]　天大电自培养方案2025 P12</li>
+<li>[S10]　天大电自培养方案2025 P54</li>
+<li>[S11]　天大电自培养方案2025 P56</li>
+<li>[S12]　天大电自培养方案2025 P53</li>
+<li>[S13]　天大电自培养方案2025 P55</li>
+<li>[S14]　天大电自培养方案2025 P38</li>
+<li>[S15]　天大电自培养方案2025 P97</li>
+<li>[S16]　天大电自培养方案2025 P90</li>
+<li>[S17]　天大电自培养方案2025 P32</li>
+<li>[S18]　天大电自培养方案2025 P5</li>
+<li>[S19]　天大电自培养方案2025 P4</li>
+<li>[S20]　天大电自培养方案2025 P8</li>
+<li>[S21]　天大电自培养方案2025 P6</li>
+<li>[S22]　天大电自培养方案2025 P60</li>
+<li>[S23]　天大电自培养方案2025 P67</li>
+<li>[S24]　天大电自培养方案2025 P103</li>
+<li>[S25]　天大电自培养方案2025 P131</li>
+<li>[S26]　天大电自培养方案2025 P133</li>
+<li>[S27]　天大电自培养方案2025 P62</li>
+<li>[S28]　天大电自培养方案2025 P63</li>
+<li>[S29]　天大电自培养方案2025 P93</li>
+<li>[S30]　天大电自培养方案2025 P91</li>
+<li>[S31]　天大电自培养方案2025 P124</li>
+<li>[S32]　天大电自培养方案2025 P110</li>
+<li>[S33]　天大电自培养方案2025 P30</li>
+<li>[S34]　天大电自培养方案2025 P7</li>
+<li>[S35]　天大电自培养方案2025 P105</li>
+<li>[S36]　天大电自培养方案2025 P40</li>
+<li>[S37]　天大电自培养方案2025 P42</li>
+<li>[S38]　天大电自培养方案2025 P44</li>
+<li>[S39]　天大电自培养方案2025</li>
+<li>[S40]　天大电自培养方案2025 P41</li>
+<li>[S41]　天大电自培养方案2025 P43</li>
+<li>[S42]　天大电自培养方案2025 P45</li>
+<li>[S43]　天大电自培养方案2025 P46</li>
+<li>[S44]　天大电自培养方案2025 P47</li>
+<li>[S45]　天大电自培养方案2025 P48</li>
+<li>[S46]　天大电自培养方案2025 P51</li>
+<li>[S47]　天大电自培养方案2025 P33</li>
+<li>[S48]　天大电自培养方案2025 P34</li>
+<li>[S49]　天大电自培养方案2025 P35</li>
+<li>[S50]　天大电自培养方案2025 P78</li>
+<li>[S51]　天大电自培养方案2025 P83</li>
+<li>[S52]　天大电自培养方案2025 P84</li>
+<li>[S53]　天大电自培养方案2025 P58</li>
+<li>[S54]　天大电自培养方案2025 P20</li>
+<li>[S55]　天大电自培养方案2025 P79</li>
+<li>[S56]　天大电自培养方案2025 P80</li>
+<li>[S57]　天大电自培养方案2025 P158</li>
+<li>[S58]　天大电自培养方案2025 P157</li>
+<li>[S59]　天大电自培养方案2025 P81</li>
+<li>[S60]　天大电自培养方案2025 P85</li>
+<li>[S61]　天大电自培养方案2025 P86</li>
+<li>[S62]　天大电自培养方案2025 P99</li>
+<li>[S63]　天大电自培养方案2025 P100</li>
+<li>[S64]　天大电自培养方案2025 P59</li>
+<li>[S65]　天大电自培养方案2025 P13</li>
+<li>[S66]　天大电自培养方案2025 P57</li>
+<li>[S67]　天大电自培养方案2025 P14</li>
+<li>[S68]　天大电自培养方案2025 P21</li>
+<li>[S69]　天大电自培养方案2025 P29</li>
+</ol></div>
+</div></body></html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>电子信息工程专业出口报告（M2）</title>
+<style>
+body { font-family: system-ui, -apple-system, 'Microsoft YaHei', sans-serif; background: #f5f7fa; margin: 0; padding: 32px; color: #1a202c; }
+.container { max-width: 900px; margin: 0 auto; }
+h1 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+.meta { font-size: 13px; color: #94a3b8; margin-bottom: 20px; }
+.summary { font-size: 14px; line-height: 1.8; color: #475569; background: #fff; padding: 20px; border-radius: 6px; border: 1px solid #e2e8f0; margin-bottom: 28px; }
+h2 { font-size: 16px; font-weight: 700; margin: 28px 0 16px; padding-left: 10px; border-left: 3px solid #2c6ecb; }
+.path-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 16px; }
+.path-title { font-size: 15px; font-weight: 600; color: #2c6ecb; margin-bottom: 12px; }
+.path-chain { margin-bottom: 12px; padding: 16px; background: #f5f7fa; border-radius: 4px; overflow-x: auto; }
+.path-node { display: inline-block; padding: 5px 12px; background: #2c6ecb; color: #fff; border-radius: 4px; font-size: 12px; font-weight: 500; }
+.path-arrow { color: #94a3b8; font-size: 11px; padding: 0 4px; white-space: nowrap; }
+.path-linear { display: flex; align-items: center; flex-wrap: wrap; gap: 2px; }
+.ai-timeline { display: flex; flex-direction: column; gap: 6px; }
+.ai-tl-item { display: flex; align-items: flex-start; gap: 12px; padding-left: 14px; border-left: 3px solid #2c6ecb; position: relative; }
+.ai-tl-item::before { content: ''; position: absolute; left: -6px; top: 8px; width: 9px; height: 9px; border-radius: 50%; background: #2c6ecb; }
+.ai-tl-term { flex-shrink: 0; width: 82px; font-size: 12px; font-weight: 600; color: #2c6ecb; padding-top: 3px; white-space: nowrap; }
+.ai-tl-courses { display: flex; flex-wrap: wrap; gap: 6px; }
+.ai-tl-course { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 12px; line-height: 1.5; }
+.ai-tl-compulsory { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+.ai-tl-elective { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
+.ai-tree { display: inline-flex; flex-direction: column; min-width: max-content; }
+.ai-tree-node { display: flex; align-items: flex-start; position: relative; }
+.ai-tree-node-content { display: flex; align-items: center; gap: 6px; padding: 2px 0; white-space: nowrap; }
+.ai-tree-node-label { display: inline-block; padding: 5px 12px; background: #2c6ecb; color: #fff; border-radius: 4px; font-size: 12px; font-weight: 500; min-width: 40px; text-align: center; }
+.ai-tree-edge-label { font-size: 11px; color: #94a3b8; padding: 0 4px; white-space: nowrap; }
+.ai-tree-children { display: flex; flex-direction: column; margin-left: 20px; padding-left: 16px; border-left: 2px solid #e2e8f0; }
+.ai-tree-children .ai-tree-node::before { content: ''; position: absolute; left: -16px; top: 14px; width: 14px; height: 2px; background: #e2e8f0; }
+.path-analysis { font-size: 13px; line-height: 1.8; color: #475569; }
+.table-wrap { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 28px; overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { padding: 10px 14px; background: #f5f7fa; font-weight: 600; text-align: left; border-bottom: 2px solid #e2e8f0; }
+td { padding: 10px 14px; color: #475569; border-bottom: 1px solid #e2e8f0; }
+tr:last-child td { border-bottom: none; }
+.layer-legend { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+.legend-chip { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; padding: 5px 12px; border-radius: 20px; border: 1px solid; }
+.legend-fact { background: #eff6ff; border-color: #bfdbfe; color: #1d4ed8; }
+.legend-ai { background: #fffbeb; border-color: #fde68a; color: #b45309; }
+.fact-chip { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 10px; background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; vertical-align: 2px; margin-left: 8px; }
+.advice-badge { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 10px; background: #fffbeb; color: #b45309; border: 1px solid #fde68a; vertical-align: 2px; margin-left: 8px; }
+.advice-card { background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 16px 20px; margin-bottom: 12px; }
+.advice-title { font-size: 14px; font-weight: 600; color: #b45309; margin-bottom: 10px; }
+.advice-list { margin: 0; padding-left: 20px; }
+.advice-list li { font-size: 13px; line-height: 1.9; color: #78350f; margin-bottom: 4px; }
+.base-bar { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px; padding: 12px 16px; font-size: 12.5px; color: #1d4ed8; margin-bottom: 20px; line-height: 1.7; }
+.base-bar span { font-weight: 700; margin-right: 6px; }
+.base-bar b { font-size: 15px; margin: 0 2px; }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>电子信息工程专业出口报告（M2）</h1>
+<div class="meta">关键词：电子信息工程　|　维度：综合维度　|　报告模式：专业出口　|　展开层级：2层　|　生成时间：2026-09-22 14:06:57</div>
+<div class="meta" style="font-size:11px;color:#94a3b8;">接地校验：删除句子 0，补来源标注 25，补AI建议标签 0，校准关联数 0，重写句子 0，替换违规单元格 1，剔除建议层编造项 4，剔除无效节点 0 / 无效边 0</div>
+<div class="base-bar"><span>图谱数据基座</span>本报告基于就业知识图谱子图生成：<b>80</b> 个实体 · <b>79</b> 条关联 · 覆盖 2 个维度（课程体系、竞赛实践）· <b>2</b> 份来源文档 —— 事实层每句附[来源]标注可溯源，建议层为AI通识建议非图谱依据</div>
+<div class="layer-legend">
+<span class="legend-chip legend-fact">图谱实证：来源于知识图谱数据，带来源标注</span>
+<span class="legend-chip legend-ai">AI 建议 · 非图谱依据：通用规划经验，仅供参考</span>
+</div>
+
+<div class="summary">数据基座显示该专业为工学门类，课程体系完整。核心发现：大一阶段以微积分I、大学物理1A等数理基础为主；[来源：天大电自培养方案2025 P83]大二开设信号与系统、PROTEUS电子系统设计与仿真等核心专业课；[来源：天大电自培养方案2025 P124]大三涉及“视觉-语言”智能理解与生成等前沿方向。[来源：天大电自培养方案2025 P110]整体培养方案强调理论与实践结合，为后续就业提供坚实支撑。</div>
+<h2>关键路径分析<span class="fact-chip">图谱实证</span></h2>
+<div class="path-card">
+<div class="path-title">路径 1：大一基础夯实路径</div>
+<div class="path-chain">
+<div class="ai-timeline"><div class="ai-tl-item"><div class="ai-tl-term">1 · 秋</div><div class="ai-tl-courses"><span class="ai-tl-course ai-tl-compulsory" title="必修">微积分I</span><span class="ai-tl-course ai-tl-compulsory" title="必修">人工智能导论</span></div></div><div class="ai-tl-item"><div class="ai-tl-term">[&#x27;大一&#x27;, &#x27;1&#x27;] · 春</div><div class="ai-tl-courses"><span class="ai-tl-course ai-tl-compulsory" title="必修">大学物理1A</span></div></div></div>
+</div>
+<div class="path-analysis">大一学年是专业基础构建的关键期。根据培养方案，学生需在大一秋季修读微积分I与人工智能导论，春季修读大学物理1A，这些课程均为必修性质。[来源：天大电自培养方案2025 P83]微积分I与大学物理1A为后续的信号与系统、复变函数等课程奠定数理基础。[来源：天大电自培养方案2025 P83]人工智能导论作为前沿课程提前至大一开设，有助于学生尽早建立专业认知。[来源：天大电自培养方案2025 P89]该阶段学习强度大，需投入大量精力攻克数理难题。</div>
+</div>
+<div class="path-card">
+<div class="path-title">路径 2：大二核心技能培养路径</div>
+<div class="path-chain">
+<div class="ai-timeline"><div class="ai-tl-item"><div class="ai-tl-term">2 · 秋</div><div class="ai-tl-courses"><span class="ai-tl-course ai-tl-compulsory" title="必修">信号与系统</span><span class="ai-tl-course ai-tl-elective" title="选修">JAVA程序设计</span></div></div><div class="ai-tl-item"><div class="ai-tl-term">2 · 春</div><div class="ai-tl-courses"><span class="ai-tl-course ai-tl-elective" title="选修">PROTEUS电子系统设计与仿真</span></div></div></div>
+</div>
+<div class="path-analysis">信号与系统作为必修核心课，是电子信息领域的基石，与后续的信息论与编码紧密相关。[来源：天大电自培养方案2025 P142]PROTEUS电子系统设计与仿真课程在大二春季开设，侧重硬件仿真能力培养。[来源：天大电自培养方案2025 P124]JAVA程序设计作为选修课，提供软件开发技能补充。[来源：天大电自培养方案2025 P91]</div>
+</div>
+<div class="path-card">
+<div class="path-title">路径 3：大三前沿拓展路径</div>
+<div class="path-chain">
+<div class="ai-timeline"><div class="ai-tl-item"><div class="ai-tl-term">3 · 秋</div><div class="ai-tl-courses"><span class="ai-tl-course ai-tl-elective" title="选修">信息安全技术</span></div></div><div class="ai-tl-item"><div class="ai-tl-term">3 · 春</div><div class="ai-tl-courses"><span class="ai-tl-course ai-tl-elective" title="选修">“视觉-语言”智能理解与生成</span><span class="ai-tl-course ai-tl-elective" title="选修">大数据分析（英）</span></div></div></div>
+</div>
+<div class="path-analysis">大三学年聚焦前沿技术拓展。“视觉-语言”智能理解与生成课程在大三春季开设，属于选修性质，涉及人工智能与计算机视觉交叉领域。[来源：天大电自培养方案2025 P110]大数据分析（英）同样在大三春季，侧重数据科学能力。[来源：天大电自培养方案2025 P109]信息安全技术在大三秋季，关注网络安全防护。[来源：天大电自培养方案2025 P108]这些课程反映了行业对智能算法、数据处理与安全能力的迫切需求，学生需在大二基础上进一步深化专业技能。</div>
+</div>
+<div class="path-card">
+<div class="path-title">路径 4：大四实践与就业衔接路径</div>
+<div class="path-chain">
+<div class="ai-timeline"><div class="ai-tl-item"><div class="ai-tl-term">4 · 秋</div><div class="ai-tl-courses"><span class="ai-tl-course ai-tl-elective" title="选修">人工智能实践项目</span></div></div><div class="ai-tl-item"><div class="ai-tl-term">[&#x27;大三&#x27;, &#x27;3&#x27;] · 秋</div><div class="ai-tl-courses"><span class="ai-tl-course ai-tl-compulsory" title="必修">择业指导</span></div></div><div class="ai-tl-item"><div class="ai-tl-term">4 · 春</div><div class="ai-tl-courses"><span class="ai-tl-course ai-tl-elective" title="选修">创新实践计划</span></div></div></div>
+</div>
+<div class="path-analysis">大四学年侧重实践应用与就业准备。创新实践计划在大四春季开设，要求学生完成综合性创新项目。[来源：天大电自培养方案2025 P67]人工智能实践项目在大四秋季，提供AI领域实战机会。[来源：天大电自培养方案2025 P137]择业指导课程在大三秋季，帮助学生规划职业路径。[来源：天大电自培养方案2025 P60]学生需在大四阶段整合前三年所学，完成从校园到职场的过渡。</div>
+</div>
+<h2>个人职业行动清单表<span class="fact-chip">图谱实证</span></h2>
+<div class="table-wrap"><table><thead><tr>
+<th>行动项</th>
+<th>针对的差距技能</th>
+<th>学习资源（课程/证书）</th>
+<th>目标岗位</th>
+<th>优先级</th>
+</tr></thead><tbody>
+<tr>
+<td>完成微积分I与大学物理1A课程学习[来源：天大电自培养方案2025 P83]</td>
+<td>数理基础薄弱</td>
+<td>微积分I、大学物理1A[来源：天大电自培养方案2025 P83]</td>
+<td>——</td>
+<td>高</td>
+</tr>
+<tr>
+<td>掌握信号与系统核心理论[来源：天大电自培养方案2025 P140]</td>
+<td>专业基础不足</td>
+<td>信号与系统[来源：天大电自培养方案2025 P140]</td>
+<td>——</td>
+<td>高</td>
+</tr>
+<tr>
+<td>学习PROTEUS电子系统设计与仿真[来源：天大电自培养方案2025 P124]</td>
+<td>硬件仿真能力欠缺</td>
+<td>PROTEUS电子系统设计与仿真[来源：天大电自培养方案2025 P124]</td>
+<td>——</td>
+<td>中</td>
+</tr>
+<tr>
+<td>选修JAVA程序设计提升编程能力[来源：天大电自培养方案2025 P91]</td>
+<td>——</td>
+<td>JAVA程序设计[来源：天大电自培养方案2025 P91]</td>
+<td>——</td>
+<td>中</td>
+</tr>
+<tr>
+<td>参与“视觉-语言”智能理解与生成课程[来源：天大电自培养方案2025 P110]</td>
+<td>前沿技术认知不足</td>
+<td>“视觉-语言”智能理解与生成[来源：天大电自培养方案2025 P110]</td>
+<td>——</td>
+<td>低</td>
+</tr>
+</tbody></table></div>
+<h2>规划建议<span class="advice-badge">AI 建议 · 非图谱依据</span></h2>
+<div class="advice-card">
+<div class="advice-title">你现在该干嘛</div>
+<ul class="advice-list">
+<li>加入电子类或人工智能相关的学生社团，如电子设计协会，通过团队项目快速建立专业认知。</li>
+<li>开始使用LeetCode等工具进行基础编程练习，每天保持30分钟代码训练，为后续JAVA程序设计课程做准备。</li>
+</ul>
+</div>
+<div class="advice-card">
+<div class="advice-title">职业方向与选择建议</div>
+<ul class="advice-list">
+<li>电子信息工程专业就业面广泛，可考虑硬件工程师、软件工程师、算法工程师等方向。硬件方向侧重电路设计与仿真，软件方向侧重编程开发，算法方向侧重人工智能与数据处理。</li>
+<li>建议在大二结束时明确主要职业方向，硬件方向需强化PROTEUS等仿真工具使用，软件方向需精通JAVA等编程语言，算法方向需补充数学与机器学习知识。</li>
+<li>关注行业头部企业对人才的需求变化，如互联网大厂对算法工程师要求较高，传统制造企业更看重硬件设计能力，根据自身兴趣与能力匹配目标岗位。</li>
+</ul>
+</div>
+<div class="advice-card">
+<div class="advice-title">分阶段学习规划</div>
+<ul class="advice-list">
+<li>【大一】重点攻克微积分I与大学物理1A，建立扎实的数理基础；参加电子设计协会或类似社团，通过团队项目快速建立专业认知。</li>
+<li>【大一】开始使用LeetCode等工具进行基础编程练习，每天保持30分钟代码训练；阅读《信号与系统》等经典教材，提前了解专业核心内容。</li>
+<li>【大二】深入学习信号与系统、PROTEUS电子系统设计与仿真等核心课程，掌握硬件设计与仿真技能；选修JAVA程序设计，提升软件开发能力。</li>
+<li>【大三】选修“视觉-语言”智能理解与生成、大数据分析（英）等前沿课程，拓展人工智能与数据科学视野；参与校企合作创新实践项目，积累工程经验。</li>
+<li>【大三】确定考研或就业方向，考研学生开始复习数学与专业课，就业学生准备简历并寻找实习机会；学习信息安全技术，提升网络安全防护能力。</li>
+<li>【大四】完成创新实践计划与人工智能实践项目，将理论知识转化为实践能力；参加择业指导课程，优化简历与面试技巧，积极投递目标岗位。</li>
+<li>【大四】关注秋招与春招时间线，提前准备笔试与面试；与导师保持沟通，确保毕业设计质量；建立行业人脉，通过校友资源获取内推机会。</li>
+</ul>
+</div>
+<div class="advice-card">
+<div class="advice-title">竞赛与科研规划</div>
+<ul class="advice-list">
+<li>大二暑期开始备赛全国大学生电子设计竞赛，该赛事是电子信息类专业最具含金量的竞赛之一，建议组队参加，重点锻炼硬件设计与调试能力。</li>
+<li>科研入门可从参与导师的横向项目开始，如智能家居系统设计、物联网数据采集等，通过实际项目积累工程经验，为后续就业或考研复试增加筹码。</li>
+<li>关注IEEE等国际学术会议，阅读相关论文，了解行业前沿动态，如有兴趣可尝试撰写学术论文，提升科研能力与学术素养。</li>
+</ul>
+</div>
+<div class="advice-card">
+<div class="advice-title">转岗可能性与技能补充</div>
+<ul class="advice-list">
+<li>从硬件工程师转岗至算法工程师，需补充机器学习、深度学习等知识，建议选修人工智能基础课程，并学习TensorFlow或PyTorch框架。</li>
+<li>从软件工程师转岗至产品经理，需补充用户需求分析、产品设计等能力，建议阅读《人人都是产品经理》等书籍，参与校园产品项目积累经验。</li>
+<li>从技术研发转岗至技术支持或售前工程师，需提升沟通表达与客户服务能力，建议选修英语交流与沟通课程，参加模拟面试与演讲训练。</li>
+</ul>
+</div>
+<div class="advice-card">
+<div class="advice-title">求职策略与风险提示</div>
+<ul class="advice-list">
+<li>求职节奏方面，秋招通常在9-11月启动，春招在3-5月进行，建议提前半年准备简历与笔试面试，关注目标企业官网与招聘平台信息。</li>
+<li>地域选择上，一线城市如北京、上海、深圳互联网与科技企业集中，机会多但竞争激烈；新一线城市如杭州、成都生活成本较低，发展潜力大，可根据个人偏好权衡。</li>
+<li>常见误区包括盲目海投简历、忽视笔试面试准备、过度依赖内推等，建议精准定位目标岗位，针对性准备，保持积极心态，多次尝试积累经验。</li>
+<li>风险提示：行业技术更新快，需保持终身学习意识，定期更新技能树；经济波动可能影响企业招聘计划，建议做好多手准备，如考研、考公等备选方案。</li>
+</ul>
+</div>
+</div></body></html>

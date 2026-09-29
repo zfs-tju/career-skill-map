@@ -1,0 +1,15 @@
+# Python 本地产物（虚拟环境无需上传）
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# 超过 GitHub 单文件 100MB 上限的大视频（本地保留）
+图谱案例/demo.mp4
+
+# 暂不上传的数据目录（以后想上传时，删除下面这一行即可）
+数据/
+
+# 系统垃圾文件
+Thumbs.db
+.DS_Store

@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>就业职业岗位技能图谱系统</title>
+    <link rel="stylesheet" href="/static/css/style.css?v=36">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="main-container">
+            <!-- r8 窄屏抽屉开关与遮罩 -->
+            <button class="sidebar-toggle" onclick="toggleSidebar()" title="展开/收起菜单">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+            </button>
+            <div class="sidebar-backdrop" onclick="closeSidebar()"></div>
+            <!-- 左侧菜单栏 -->
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <div class="section-title">账号</div>
+                    <div id="accountLoggedOut">
+                        <div class="form-group">
+                            <label>用户名</label>
+                            <input type="text" id="loginUsername" placeholder="2-20个字符" maxlength="20">
+                        </div>
+                        <div class="form-group">
+                            <label>密码</label>
+                            <input type="password" id="loginPassword" placeholder="至少6位" maxlength="32">
+                        </div>
+                        <button class="btn-action" onclick="handleLogin()">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                                <polyline points="10 17 15 12 10 7"/>
+                                <line x1="15" y1="12" x2="3" y2="12"/>
+                            </svg>
+                            登录
+                        </button>
+                        <button class="btn-action" onclick="handleRegister()">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M17 11v6M14 14h6"/>
+                            </svg>
+                            注册新账号
+                        </button>
+                        <div class="folder-info">登录后拥有独立个人资料库：技能点亮、画像、上传文件均按账号隔离保存。</div>
+                    </div>
+                    <div id="accountLoggedIn" style="display:none">
+                        <div class="folder-info" id="accountWelcome"></div>
+                        <button class="btn-action" onclick="handleLogout()">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                                <polyline points="16 17 21 12 16 7"/>
+                                <line x1="21" y1="12" x2="9" y2="12"/>
+                            </svg>
+                            退出登录
+                        </button>
+                        <div class="folder-info">个人上传默认仅本人可见，导入时可勾选"共享到公共资料库"。</div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="section-title">综合检索</div>
+                    <div class="catalog-box unified-search-box">
+                        <div class="catalog-step">
+                            <span class="depth-label">① 搜索类型：</span>
+                            <select id="searchTypeSelect" onchange="onSearchTypeChange()">
+                                <option value="专业" selected>专业</option>
+                                <option value="岗位">岗位</option>
+                                <option value="技能">技能</option>
+                                <option value="课程">课程</option>
+                                <option value="认证证书">证书</option>
+                                <option value="竞赛">竞赛</option>
+                                <option value="__free__">高级·自由词</option>
+                            </select>
+                        </div>
+                        <div class="catalog-step catalog-entity-step">
+                            <span class="depth-label">② 具体目标：</span>
+                            <input type="text" id="searchEntityInput" placeholder="输入关键词联想，如：电气工程及其自动化" autocomplete="off" oninput="onSearchEntityInput()" onfocus="onSearchEntityFocus()" onkeydown="if(event.key==='Enter')generateGraph()" />
+                            <div id="searchEntityList" class="catalog-entity-list" style="display:none"></div>
+                        </div>
+                        <div class="catalog-step overlay-step">
+                            <span class="depth-label">③ 叠加条件（可选）：</span>
+                            <div class="focus-multi" id="focusJobMulti">
+                                <div class="focus-multi-box" onclick="toggleFocusList('focusJobMulti')">
+                                    <div class="focus-multi-values" id="focusJobValues"><span class="focus-multi-placeholder">目标岗位（可多选）</span></div>
+                                    <span class="focus-multi-arrow">▾</span>
+                                </div>
+                                <div class="focus-multi-list" id="focusJobList" style="display:none"></div>
+                            </div>
+                            <div class="focus-multi" id="focusCityMulti">
+                                <div class="focus-multi-box" onclick="toggleFocusList('focusCityMulti')">
+                                    <div class="focus-multi-values" id="focusCityValues"><span class="focus-multi-placeholder">意向城市（可多选）</span></div>
+                                    <span class="focus-multi-arrow">▾</span>
+                                </div>
+                                <div class="focus-multi-list" id="focusCityList" style="display:none"></div>
+                            </div>
+                            <div class="overlay-depth-row">
+                                <span class="depth-label">展开范围：</span>
+                                <select id="searchDepthSelect" title="从搜索对象向外扩展几层关联关系，层数越多图谱展示的内容越全面">
+                                    <option value="3" selected>3层 · 推荐（能看到岗位）</option>
+                                    <option value="2">2层</option>
+                                    <option value="1">1层</option>
+                                    <option value="4">4层 · 最全面</option>
+                                </select>
+                                <button class="cross-search-btn" id="generateGraphBtn" onclick="generateGraph()" disabled>生成图谱</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="crossSearchResult" class="cross-search-result"></div>
+                    <select id="aiModeSelect" class="ai-mode-select" style="display:none" title="选择报告模式，自动判定会根据搜索对象类型选择">
+                        <option value="auto" selected>报告模式：自动判定</option>
+                        <option value="m4">报告模式：个性培养</option>
+                        <option value="m5">报告模式：职业方向</option>
+                    </select>
+                    <select id="aiGradeSelect" class="ai-mode-select" style="display:none" title="选择你当前年级，AI将据此在报告开头给出本阶段优先动作">
+                        <option value="" selected>当前年级：未选择</option>
+                        <option value="大一">当前年级：大一</option>
+                        <option value="大二">当前年级：大二</option>
+                        <option value="大三">当前年级：大三</option>
+                        <option value="大四">当前年级：大四</option>
+                    </select>
+                    <button id="aiAnalyzeBtn" class="btn-ai-analyze" onclick="startAIAnalysis()" style="display:none">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                        生成职业规划报告
+                    </button>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="section-title">图谱维度</div>
+                    <nav class="dimension-menu">
+                        <div class="menu-item" data-dimension="job_cluster">
+                            <div class="menu-icon" style="background: linear-gradient(135deg, #00d4ff, #0077be)">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="white" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                            </div>
+                            <div class="menu-text">
+                                <div class="menu-name">专业岗位</div>
+                                <div class="menu-desc">本专业常见岗位</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" data-dimension="skill_structure">
+                            <div class="menu-icon" style="background: linear-gradient(135deg, #e74c3c, #c0392b)">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="white" stroke-width="2">
+                                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                                </svg>
+                            </div>
+                            <div class="menu-text">
+                                <div class="menu-name">技能结构</div>
+                                <div class="menu-desc">岗位技能要求与分类分级</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" data-dimension="course_system">
+                            <div class="menu-icon" style="background: linear-gradient(135deg, #8bc34a, #558b2f)">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="white" stroke-width="2">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                                </svg>
+                            </div>
+                            <div class="menu-text">
+                                <div class="menu-name">课程体系</div>
+                                <div class="menu-desc">专业课程培养与技能对接</div>
+                            </div>
+                        </div>
+                        <div class="menu-item" data-dimension="competition_practice">
+                            <div class="menu-icon" style="background: linear-gradient(135deg, #ab47bc, #6a1b9a)">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="white" stroke-width="2">
+                                    <path d="M8 21h8"/>
+                                    <path d="M12 17v4"/>
+                                    <path d="M7 4h10v5a5 5 0 0 1-10 0z"/>
+                                    <path d="M17 4h3a2 2 0 0 1-2 4h-1"/>
+                                    <path d="M7 4H4a2 2 0 0 0 2 4h1"/>
+                                </svg>
+                            </div>
+                            <div class="menu-text">
+                                <div class="menu-name">竞赛实践</div>
+                                <div class="menu-desc">竞赛锻炼技能与面向专业</div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="section-title">资料导入</div>
+                    <label class="import-share-row" id="excelShareRow" style="margin-bottom:8px;">
+                        <input type="checkbox" id="excelShareCheckbox"> 存入公共资料库
+                    </label>
+                    <div class="folder-info" style="margin-bottom:8px;">把招聘公告、培养方案、职业标准等材料交给系统抽取入图：可输入网页链接，也可直接粘贴文字，两个通道任选其一。</div>
+                    <div class="form-group">
+                        <label>文档类型（决定抽取侧重）</label>
+                        <select id="importDocType">
+                            <option value="auto">自动识别（推荐）</option>
+                            <option value="standard">职业标准类（技能标准/任职规范）</option>
+                            <option value="curriculum">培养方案类（教学计划/课程体系）</option>
+                            <option value="policy">政策/行业报告类（趋势与人才需求）</option>
+                            <option value="competition">竞赛认证类（竞赛简章/考试大纲）</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>通道A · 网页URL抓取</label>
+                        <input type="text" id="importUrlInput" placeholder="https://...">
+                    </div>
+                    <button class="btn-action" onclick="handleImportUrl()">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                        </svg>
+                        抓取并抽取
+                    </button>
+                    <button class="btn-action" onclick="toggleImportTextBox()">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="8" y="2" width="8" height="4" rx="1"/>
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                        </svg>
+                        通道B · 粘贴文本
+                    </button>
+                    <div id="importTextBox" style="display:none">
+                        <div class="form-group">
+                            <label>材料标题（可选）</label>
+                            <input type="text" id="importTitleInput" placeholder="如：国家电网2026招聘公告">
+                        </div>
+                        <div class="form-group">
+                            <label>网页正文（复制粘贴）</label>
+                            <textarea id="importTextArea" rows="6" placeholder="粘贴招聘公告、培养方案、竞赛通知等正文…"></textarea>
+                        </div>
+                        <button class="btn-action" onclick="handleImportText()">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 11 12 14 22 4"/>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                            </svg>
+                            抽取粘贴内容
+                        </button>
+                    </div>
+                    <div class="form-group" style="margin-top:8px;">
+                        <label>通道C · 图片OCR（公告/海报截图）</label>
+                        <input type="text" id="importImageTitleInput" placeholder="材料标题（可选），如：XX招聘公告截图">
+                    </div>
+                    <button class="btn-action" onclick="document.getElementById('importImageInput').click()">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <polyline points="21 15 16 10 5 21"/>
+                        </svg>
+                        上传图片识别（OCR）
+                    </button>
+                    <input type="file" id="importImageInput" accept="image/png,image/jpeg,image/bmp,image/webp" style="display:none" onchange="handleImportImage(this)">
+                    <div class="form-group" style="margin-top:8px;">
+                        <label>通道D · 培养方案/Excel六表直传</label>
+                        <input type="text" id="importExcelNameInput" placeholder="资料夹名称（可选），如：XX大学2024培养方案">
+                    </div>
+                    <button class="btn-action" onclick="document.getElementById('importExcelInput').click()">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                        上传Excel直转入图
+                    </button>
+                    <input type="file" id="importExcelInput" accept=".xlsx,.xlsm" multiple style="display:none" onchange="handleUploadExcel(this)">
+                    <div class="folder-info" id="webImportHint">JS动态页面请用通道B粘贴正文；培养方案Excel请用通道D直传（不走OCR）；文字截图用通道C</div>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="section-title">操作</div>
+                    <button class="btn-action" onclick="addNodeMode()">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="8" x2="12" y2="16"/>
+                            <line x1="8" y1="12" x2="16" y2="12"/>
+                        </svg>
+                        添加节点
+                    </button>
+                    <button class="btn-action" onclick="addEdgeMode()">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                        添加关系
+                    </button>
+                    <button class="btn-action btn-reset" onclick="resetGraph()">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="1 4 1 10 7 10"/>
+                            <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+                        </svg>
+                        重置图谱
+                    </button>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="section-title">数据源</div>
+                    <div class="folder-selector">
+                        <select id="folderSelect" onchange="selectFolder(this.value)">
+                            <option value="">-- 选择文件夹 --</option>
+                        </select>
+                    </div>
+                    <div id="folderInfo" class="folder-info"></div>
+                </div>
+
+                <div class="sidebar-section stats-section">
+                    <div class="section-title">图谱统计</div>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value" id="nodeCount">0</div>
+                            <div class="stat-label">节点</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="edgeCount">0</div>
+                            <div class="stat-label">关系</div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- 中间图谱展示区 -->
+            <main class="graph-area">
+                <div class="graph-header">
+                    <h2 id="graphTitle">岗位聚集图谱</h2>
+                    <button id="aiResultBtn" class="btn-ai-result" onclick="showAIResult()" style="display:none">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                        </svg>
+                        查看分析报告
+                    </button>
+                    <button id="graphViewBtn" class="btn-graph-view" onclick="showGraphView()" style="display:none">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="6" cy="6" r="3"/>
+                            <circle cx="18" cy="6" r="3"/>
+                            <circle cx="12" cy="18" r="3"/>
+                            <line x1="6" y1="6" x2="18" y2="6"/>
+                            <line x1="6" y1="6" x2="12" y2="18"/>
+                            <line x1="18" y1="6" x2="12" y2="18"/>
+                        </svg>
+                        图谱展示
+                    </button>
+                    <button id="sourcesBtn" class="btn-graph-view" onclick="toggleSourcesPanel()" style="display:none" title="查看当前图谱数据的原文出处">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                        </svg>
+                        来源溯源
+                    </button>
+                    <button id="profileBtn" class="btn-graph-view" onclick="toggleProfilePanel()" title="我的画像：专业/年级/意向与已点亮技能">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        我的画像
+                    </button>
+                    <div class="graph-controls">
+                        <button class="ctrl-btn" onclick="zoomIn()" title="放大">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                                <line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
+                            </svg>
+                        </button>
+                        <button class="ctrl-btn" onclick="zoomOut()" title="缩小">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                                <line x1="8" y1="11" x2="14" y2="11"/>
+                            </svg>
+                        </button>
+                        <button class="ctrl-btn" onclick="resetZoom()" title="重置缩放">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 12a9 9 0 1 0 9-9"/>
+                                <path d="M3 3v6h6"/>
+                            </svg>
+                        </button>
+                        <button class="ctrl-btn" onclick="toggleLayout()" title="切换布局">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3"/>
+                                <circle cx="6" cy="6" r="2"/>
+                                <circle cx="18" cy="6" r="2"/>
+                                <circle cx="6" cy="18" r="2"/>
+                                <circle cx="18" cy="18" r="2"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 使用说明条（初始界面常驻，可关闭） -->
+                <div id="guideBar" class="guide-bar">
+                    <span class="guide-bar-tag">使用说明</span>
+                    <div class="guide-bar-text">
+                        <b>我的画像</b>：点击右上角「我的画像」按钮随时打开，可编辑专业/年级/意向岗位/意向城市，AI 报告会自动带入；<b>点亮已会</b>：点击图谱中的技能/课程/竞赛节点，在节点信息栏点「点亮已会」标记已掌握内容；已点亮技能会在 AI 能力差距分析中按「已会」排除，待补项围绕未点亮的关键技能/课程/竞赛展开。
+                    </div>
+                    <button class="guide-bar-close" onclick="closeGuideBar()" title="收起说明">×</button>
+                </div>
+
+                <div id="graphChart" class="graph-chart"></div>
+
+                <!-- AI分析报告（图谱区域内嵌） -->
+                <div id="aiResultPanel" class="ai-result-panel" style="display:none">
+                    <div class="ai-result-panel-header">
+                        <h2 id="aiResultTitle">智能分析报告</h2>
+                        <div class="ai-panel-switcher">
+                            <button class="btn-switch" onclick="toggleProfilePanel()" title="我的画像：专业/年级/意向与已点亮技能">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                                我的画像
+                                <span id="profileKnownCount" class="profile-count-badge" style="display:none">0</span>
+                            </button>
+                            <button class="btn-switch" onclick="showGraphView()">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="18" r="3"/>
+                                    <line x1="6" y1="6" x2="18" y2="6"/><line x1="6" y1="6" x2="12" y2="18"/><line x1="18" y1="6" x2="12" y2="18"/>
+                                </svg>
+                                图谱展示
+                            </button>
+                            <button class="btn-switch active">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                </svg>
+                                分析报告
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ai-result-body" id="aiResultBody"></div>
+                </div>
+
+                <!-- 来源溯源面板（P4 双层接地） -->
+                <div id="sourcesPanel" class="ai-result-panel" style="display:none">
+                    <div class="ai-result-panel-header">
+                        <h2>来源溯源 · 数据出处</h2>
+                        <div class="ai-panel-switcher">
+                            <button class="btn-switch" onclick="showGraphView()">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="18" r="3"/>
+                                    <line x1="6" y1="6" x2="18" y2="6"/><line x1="6" y1="6" x2="12" y2="18"/><line x1="18" y1="6" x2="12" y2="18"/>
+                                </svg>
+                                图谱展示
+                            </button>
+                            <button class="btn-switch active">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                                </svg>
+                                来源溯源
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ai-result-body" id="sourcesList"></div>
+                </div>
+
+                <!-- 我的画像面板（r6f：点亮已会技能 + 差距分析对照） -->
+                <div id="profilePanel" class="ai-result-panel" style="display:none">
+                    <div class="ai-result-panel-header">
+                        <h2>我的画像 · 已会技能与目标</h2>
+                        <div class="ai-panel-switcher">
+                            <button class="btn-switch" onclick="showGraphView()">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="18" r="3"/>
+                                    <line x1="6" y1="6" x2="18" y2="6"/><line x1="6" y1="6" x2="12" y2="18"/><line x1="18" y1="6" x2="12" y2="18"/>
+                                </svg>
+                                图谱展示
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ai-result-body" id="profileBody"></div>
+                </div>
+
+                <!-- 图例 -->
+                <div class="legend" id="legend"></div>
+
+                <!-- 添加节点弹窗 -->
+                <div class="modal-overlay" id="addNodeModal" style="display:none">
+                    <div class="modal">
+                        <div class="modal-header">
+                            <h3>添加新节点</h3>
+                            <button class="modal-close" onclick="closeModal('addNodeModal')">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>节点名称</label>
+                                <input type="text" id="newNodeName" placeholder="请输入节点名称" />
+                            </div>
+                            <div class="form-group">
+                                <label>节点类型</label>
+                                <select id="newNodeType">
+                                    <option value="岗位">岗位</option>
+                                    <option value="技能">技能</option>
+                                    <option value="企业">企业</option>
+                                    <option value="城市">城市</option>
+                                    <option value="行业">行业</option>
+                                    <option value="岗位类别">岗位类别</option>
+                                    <option value="技能分类">技能分类</option>
+                                    <option value="工具/平台">工具/平台</option>
+                                    <option value="认证证书">认证证书</option>
+                                    <option value="职业方向">职业方向</option>
+                                    <option value="专业">专业</option>
+                                    <option value="课程">课程</option>
+                                    <option value="学院">学院</option>
+                                    <option value="院校">院校</option>
+                                    <option value="竞赛">竞赛</option>
+                                    <option value="自定义">自定义</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>属性 (JSON格式)</label>
+                                <textarea id="newNodeProps" placeholder='{"属性1": "值1", "属性2": "值2"}' rows="4"></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn-cancel" onclick="closeModal('addNodeModal')">取消</button>
+                            <button class="btn-confirm" onclick="confirmAddNode()">确认添加</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 添加关系弹窗 -->
+                <div class="modal-overlay" id="addEdgeModal" style="display:none">
+                    <div class="modal">
+                        <div class="modal-header">
+                            <h3>添加关系</h3>
+                            <button class="modal-close" onclick="closeModal('addEdgeModal')">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>源节点</label>
+                                <select id="edgeSource"></select>
+                            </div>
+                            <div class="form-group">
+                                <label>目标节点</label>
+                                <select id="edgeTarget"></select>
+                            </div>
+                            <div class="form-group">
+                                <label>关系名称</label>
+                                <input type="text" id="edgeRelation" placeholder="如：招聘于、要求、培养、晋升/转岗..." />
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn-cancel" onclick="closeModal('addEdgeModal')">取消</button>
+                            <button class="btn-confirm" onclick="confirmAddEdge()">确认添加</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- 右侧节点信息面板 -->
+            <aside class="info-panel" id="infoPanel">
+                <div class="info-header">
+                    <h3>节点信息</h3>
+                    <button class="info-close" onclick="closeInfoPanel()">&times;</button>
+                </div>
+                <div class="info-content" id="infoContent">
+                    <div class="info-empty">
+                        <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.3">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="8" x2="12" y2="12"/>
+                            <line x1="12" y1="16" x2="12.01" y2="16"/>
+                        </svg>
+                        <p>点击图谱中的节点查看详细信息</p>
+                    </div>
+                </div>
+                <div class="info-actions" id="infoActions" style="display:none">
+                    <button class="btn-edit" onclick="editNode()">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                        </svg>
+                        修改
+                    </button>
+                    <button class="btn-delete" onclick="deleteNode()">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="3 6 5 6 21 6"/>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                        </svg>
+                        删除
+                    </button>
+                </div>
+            </aside>
+
+            <!-- 右侧固定工具栏（预留功能道具区；职业方向报告中点击岗位，在此展示九段式职业发展图） -->
+            <aside class="tool-dock" id="toolDock">
+                <div class="tool-dock-header">
+                    <h3 id="toolDockTitle">工具区</h3>
+                    <button id="toolDockBack" class="tool-dock-back" onclick="closeCareerDetail()" style="display:none">
+                        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+                        </svg>
+                        返回
+                    </button>
+                </div>
+                <div class="tool-dock-body" id="toolDockBody">
+                    <div class="tool-dock-empty" id="toolDockEmpty">
+                        <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.3">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                        </svg>
+                        <p>功能道具区（预留）</p>
+                        <span>后续将在这里加入各类小工具；<br>在职业方向报告中点击具体岗位，<br>可在此查看该岗位的职业发展图</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- 编辑节点弹窗 -->
+        <div class="modal-overlay" id="editNodeModal" style="display:none">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3>修改节点信息</h3>
+                    <button class="modal-close" onclick="closeModal('editNodeModal')">&times;</button>
+                </div>
+                <div class="modal-body" id="editNodeBody">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-cancel" onclick="closeModal('editNodeModal')">取消</button>
+                    <button class="btn-confirm" onclick="confirmEditNode()">保存修改</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 编辑边弹窗 -->
+        <div class="modal-overlay" id="editEdgeModal" style="display:none">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3>修改关系</h3>
+                    <button class="modal-close" onclick="closeModal('editEdgeModal')">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>源节点</label>
+                        <select id="editEdgeSource"></select>
+                    </div>
+                    <div class="form-group">
+                        <label>目标节点</label>
+                        <select id="editEdgeTarget"></select>
+                    </div>
+                    <div class="form-group">
+                        <label>关系名称</label>
+                        <input type="text" id="editEdgeRelation" placeholder="如：招聘于、要求、培养、晋升/转岗..." />
+                    </div>
+                    <div class="form-group" id="editEdgeProductGroup" style="display:none">
+                        <label id="editEdgeProductLabel">竞争/合作产品</label>
+                        <input type="text" id="editEdgeProduct" placeholder="竞争或合作的产品名称" />
+                    </div>
+                    <div class="form-group">
+                        <label>原文支撑内容</label>
+                        <textarea id="editEdgeSupport" rows="3" placeholder="原文支撑内容"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>页号</label>
+                        <input type="text" id="editEdgePage" placeholder="页号" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-cancel" onclick="closeModal('editEdgeModal')">取消</button>
+                    <button class="btn-confirm" onclick="confirmEditEdge()">保存修改</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 网页导入抽取预览 -->
+        <div class="modal-overlay" id="importPreviewModal" style="display:none">
+            <div class="modal modal-wide">
+                <div class="modal-header">
+                    <h3 id="importPreviewTitle">网页抽取预览</h3>
+                    <button class="modal-close" onclick="closeModal('importPreviewModal')">&times;</button>
+                </div>
+                <div class="modal-body import-preview-body" id="importPreviewBody"></div>
+                <div class="modal-footer">
+                    <span class="import-preview-summary" id="importPreviewSummary"></span>
+                    <label class="import-share-row" id="importShareRow" style="display:none" title="共享后所有用户都能在数据源中看到该文件夹">
+                        <input type="checkbox" id="importShareCheckbox"> 共享到公共资料库
+                    </label>
+                    <button class="btn-cancel" onclick="closeModal('importPreviewModal')">取消</button>
+                    <button class="btn-confirm" id="importConfirmBtn" onclick="confirmImport()">确认导入</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 提示信息 -->
+        <div class="toast" id="toast"></div>
+
+        <!-- 加载动画 -->
+        <div class="loading-overlay" id="loadingOverlay" style="display:none">
+            <div class="loading-spinner">
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+                <p>正在加载图谱数据...</p>
+            </div>
+        </div>
+
+        <!-- AI分析加载条 -->
+        <div id="aiLoadingBar" class="ai-loading-bar" style="display:none">
+            <div class="ai-loading-content">
+                <div class="ai-loading-text" id="aiLoadingText">正在分析图谱数据...</div>
+                <div class="ai-progress-track">
+                    <div class="ai-progress-fill" id="aiProgressFill"></div>
+                </div>
+                <div class="ai-loading-detail" id="aiLoadingDetail">准备发送图谱数据到智能体...</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/main.js?v=78"></script>
+</body>
+</html>

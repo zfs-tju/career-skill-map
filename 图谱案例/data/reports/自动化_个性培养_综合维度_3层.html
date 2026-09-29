@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自动化专业·综合维度培养路径报告</title>
+<style>
+body { font-family: system-ui, -apple-system, 'Microsoft YaHei', sans-serif; background: #f5f7fa; margin: 0; padding: 32px; color: #1a202c; }
+.container { max-width: 900px; margin: 0 auto; }
+h1 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+.meta { font-size: 13px; color: #94a3b8; margin-bottom: 20px; }
+.summary { font-size: 14px; line-height: 1.8; color: #475569; background: #fff; padding: 20px; border-radius: 6px; border: 1px solid #e2e8f0; margin-bottom: 28px; }
+h2 { font-size: 16px; font-weight: 700; margin: 28px 0 16px; padding-left: 10px; border-left: 3px solid #2c6ecb; }
+.tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 1px 8px; border-radius: 10px; vertical-align: 2px; margin-right: 6px; }
+.tag-course { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+.tag-skill { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
+.tag-comp { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
+.tag-advice { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
+.ref-sup { color: #2c6ecb; font-size: 10px; margin: 0 1px; }
+.profile-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 28px; }
+.profile-card h3 { margin: 0 0 12px; font-size: 15px; color: #0f172a; }
+.profile-list { margin: 0; padding: 0; list-style: none; }
+.profile-list li { font-size: 13.5px; line-height: 1.9; color: #475569; padding: 6px 0 6px 18px; position: relative; border-bottom: 1px dashed #f1f5f9; }
+.profile-list li:last-child { border-bottom: none; }
+.profile-list li::before { content: '▸'; position: absolute; left: 2px; color: #2c6ecb; }
+.timeline { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 24px; margin-bottom: 28px; }
+.tl-year-head { display: flex; align-items: center; gap: 10px; margin: 20px 0 12px; }
+.tl-year-head:first-child { margin-top: 0; }
+.tl-year { font-size: 13px; font-weight: 700; color: #fff; background: #2c6ecb; padding: 3px 14px; border-radius: 14px; white-space: nowrap; }
+.tl-year-line { flex: 1; height: 1px; background: #e2e8f0; }
+.tl-sem-row { display: flex; gap: 12px; margin-bottom: 12px; }
+.tl-sem { flex-shrink: 0; width: 70px; font-size: 12.5px; font-weight: 600; color: #2c6ecb; text-align: center; background: #eff6ff; border-radius: 4px; padding: 4px 0; align-self: flex-start; }
+.tl-items { flex: 1; min-width: 0; }
+.tl-item { font-size: 13px; line-height: 1.8; color: #475569; padding: 3px 0; }
+.tl-item.advice-item { background: #fffbeb; border-left: 3px solid #fbbf24; padding-left: 8px; border-radius: 0 4px 4px 0; }
+.action-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 16px; }
+.action-title { font-size: 15px; font-weight: 700; color: #2c6ecb; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid #f1f5f9; }
+.action-sec { margin-bottom: 10px; display: flex; }
+.action-sec-label { flex-shrink: 0; width: 96px; font-size: 12.5px; font-weight: 600; color: #64748b; padding-top: 2px; }
+.action-sec ul { margin: 0; padding: 0; list-style: none; flex: 1; }
+.action-sec li { font-size: 13px; line-height: 1.8; color: #475569; }
+.action-sec li::before { content: '·'; font-weight: 700; margin-right: 6px; color: #94a3b8; }
+.gap-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 28px; }
+.gap-status { font-size: 13.5px; line-height: 1.8; color: #475569; margin-bottom: 14px; }
+.gap-top3 { margin: 0; padding-left: 22px; }
+.gap-top3 li { font-size: 13.5px; line-height: 1.9; color: #1e293b; }
+.gap-alt { font-size: 13px; color: #64748b; line-height: 1.8; }
+.gap-alt b { color: #475569; }
+.ref-list { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 28px; }
+.ref-list ol { margin: 0; padding-left: 22px; }
+.ref-list li { font-size: 12.5px; line-height: 1.9; color: #64748b; }
+.table-wrap { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 28px; overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { padding: 10px 14px; background: #f5f7fa; font-weight: 600; text-align: left; border-bottom: 2px solid #e2e8f0; }
+td { padding: 10px 14px; color: #475569; border-bottom: 1px solid #e2e8f0; }
+tr:last-child td { border-bottom: none; }
+.layer-legend { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+.legend-chip { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; padding: 5px 12px; border-radius: 20px; border: 1px solid; }
+.legend-fact { background: #eff6ff; border-color: #bfdbfe; color: #1d4ed8; }
+.legend-ai { background: #fffbeb; border-color: #fde68a; color: #b45309; }
+.fact-chip { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 10px; background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; vertical-align: 2px; margin-left: 8px; }
+.advice-badge { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 10px; background: #fffbeb; color: #b45309; border: 1px solid #fde68a; vertical-align: 2px; margin-left: 8px; }
+.advice-card { background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 16px 20px; margin-bottom: 12px; }
+.advice-title { font-size: 14px; font-weight: 600; color: #b45309; margin-bottom: 10px; }
+.advice-list { margin: 0; padding-left: 20px; }
+.advice-list li { font-size: 13px; line-height: 1.9; color: #78350f; margin-bottom: 4px; }
+.base-bar { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px; padding: 12px 16px; font-size: 12.5px; color: #1d4ed8; margin-bottom: 20px; line-height: 1.7; }
+.base-bar span { font-weight: 700; margin-right: 6px; }
+.base-bar b { font-size: 15px; margin: 0 2px; }
+.mindmap { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px 22px; margin-bottom: 24px; }
+.mm-root { display: inline-block; background: #1d4ed8; color: #fff; font-size: 14px; font-weight: 700; padding: 8px 26px; border-radius: 20px; margin-bottom: 8px; }
+.mm-branches { border-left: 2px solid #cbd5e1; margin-left: 16px; }
+.mm-cat { display: flex; align-items: flex-start; padding: 12px 0 2px 0; }
+.mm-cat-conn { width: 20px; height: 2px; background: #cbd5e1; margin-top: 18px; flex: none; }
+.mm-cat-label { flex: none; width: 108px; font-size: 13px; font-weight: 700; color: #1e40af; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 10px 8px; margin-right: 14px; text-align: center; align-self: flex-start; }
+.mm-main { flex: 1; min-width: 0; }
+.mm-rec { font-size: 12px; color: #b45309; background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 6px 10px; margin-bottom: 8px; line-height: 1.6; }
+.mm-years { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.mm-year { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 9px; }
+.mm-year-label { font-size: 12px; font-weight: 700; color: #475569; margin-bottom: 6px; }
+.mm-items { display: flex; flex-direction: column; gap: 4px; }
+.mm-item { font-size: 12px; line-height: 1.6; color: #334155; background: #f1f5f9; border-radius: 6px; padding: 4px 8px; word-break: break-all; }
+.mm-item .ref-sup { margin-left: 4px; }
+.mm-empty { color: #cbd5e1; text-align: center; background: transparent; }
+.mm-star { color: #b45309; font-weight: 700; }
+.fy-grid { display: grid; grid-template-columns: 11fr 9fr; gap: 16px; margin-bottom: 24px; align-items: start; }
+.fy-col { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px 20px; }
+.fy-col-head { font-size: 14.5px; font-weight: 700; color: #1d4ed8; padding-bottom: 10px; border-bottom: 2px solid #eff6ff; margin-bottom: 12px; }
+.fy-col-head.fy-head-ai { color: #b45309; border-bottom-color: #fef3c7; }
+.fy-col-sub { display: block; font-size: 11px; font-weight: 500; color: #94a3b8; margin-top: 2px; }
+.fy-year { margin-bottom: 14px; }
+.fy-year:last-child { margin-bottom: 0; }
+.fy-year-label { display: inline-block; font-size: 12px; font-weight: 700; color: #fff; background: #2c6ecb; padding: 2px 14px; border-radius: 12px; margin-bottom: 8px; }
+.fy-year-ai { background: #d97706; }
+.fy-sem { display: flex; gap: 10px; margin-bottom: 8px; }
+.fy-sem-label { flex: none; width: 64px; font-size: 11.5px; font-weight: 600; color: #1d4ed8; background: #eff6ff; border-radius: 4px; padding: 3px 0; text-align: center; align-self: flex-start; }
+.fy-sem-items { flex: 1; min-width: 0; }
+.fy-course { font-size: 12.5px; line-height: 1.9; color: #334155; }
+.ct-tag { display: inline-block; font-size: 10.5px; font-weight: 600; padding: 0 6px; border-radius: 8px; margin-right: 6px; border: 1px solid; vertical-align: 1px; white-space: nowrap; }
+.ct-0 { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+.ct-1 { background: #f5f3ff; color: #6d28d9; border-color: #ddd6fe; }
+.ct-2 { background: #ecfeff; color: #0e7490; border-color: #a5f3fc; }
+.ct-3 { background: #f1f5f9; color: #475569; border-color: #e2e8f0; }
+.ct-plain { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+.fy-block { margin-bottom: 10px; }
+.fy-block:last-child { margin-bottom: 0; }
+.fy-block-label { font-size: 12px; font-weight: 700; color: #b45309; margin-bottom: 3px; }
+.fy-block ul { margin: 0; padding-left: 16px; }
+.fy-block li { font-size: 12.5px; line-height: 1.8; color: #475569; }
+.fy-empty { color: #cbd5e1; font-size: 12px; text-align: center; padding: 16px 0; }
+.cp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 24px; }
+.cp-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px 18px; box-shadow: 0 1px 2px rgba(15,23,42,0.04); }
+.cp-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+.cp-name { font-size: 15px; font-weight: 700; color: #0f172a; }
+.cp-type { font-size: 11px; font-weight: 600; padding: 2px 10px; border-radius: 12px; background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; white-space: nowrap; }
+.cp-type-policy { background: #ecfdf5; color: #047857; border-color: #a7f3d0; }
+.cp-type-job { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+.cp-type-master { background: #f5f3ff; color: #6d28d9; border-color: #ddd6fe; }
+.cp-type-phd { background: #ecfeff; color: #0e7490; border-color: #a5f3fc; }
+.cp-type-exam { background: #fff7ed; color: #c2410c; border-color: #fed7aa; }
+.cp-overview { font-size: 13px; color: #475569; line-height: 1.7; margin-bottom: 10px; }
+.cp-steps { border-left: 2px solid #e2e8f0; margin: 0 0 10px 6px; padding-left: 16px; display: flex; flex-direction: column; gap: 8px; }
+.cp-step { position: relative; font-size: 12.5px; line-height: 1.7; color: #334155; }
+.cp-step::before { content: ''; position: absolute; left: -21px; top: 7px; width: 8px; height: 8px; border-radius: 50%; background: #3b82f6; }
+.cp-period { display: inline-block; font-size: 11px; font-weight: 700; color: #1d4ed8; background: #eff6ff; border-radius: 6px; padding: 1px 8px; margin-right: 8px; vertical-align: 1px; }
+.cp-advice { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 10px 12px; font-size: 12.5px; color: #78350f; }
+.cp-advice b { display: block; margin-bottom: 4px; font-size: 12.5px; color: #b45309; }
+.cp-advice ul { margin: 0; padding-left: 18px; }
+.cp-advice li { margin-bottom: 3px; line-height: 1.7; }
+.cp-mm { display: flex; align-items: center; gap: 26px; background: linear-gradient(180deg, #f0f6ff 0%, #ffffff 90px); border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px 14px 12px; margin-bottom: 24px; }
+.cp-mm-root { display: flex; align-items: center; gap: 10px; writing-mode: vertical-rl; position: relative; flex-shrink: 0; align-self: center; max-height: 280px; margin: 0; padding: 14px 10px; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); border-radius: 8px; box-shadow: 0 2px 8px rgba(37,99,235,0.25); }
+.cp-mm-root::after { content: ''; position: absolute; top: 50%; right: -26px; width: 26px; border-top: 2px solid #cbd5e1; }
+.cp-mm-root-badge { padding: 2px 9px; border-radius: 999px; background: rgba(255,255,255,0.22); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 2px; }
+.cp-mm-root-name { color: #fff; font-size: 15px; font-weight: 700; letter-spacing: 0.5px; }
+.cp-mm-branches { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 10px; margin-top: 0; padding-left: 0; }
+.cp-mm-branch { position: relative; margin-left: 26px; padding: 12px 14px; background: #fff; border: 1px solid #e2e8f0; border-left: 3px solid #93c5fd; border-radius: 8px; }
+.cp-mm-branch::before { content: ''; position: absolute; left: -26px; top: 50%; width: 26px; border-top: 2px solid #cbd5e1; }
+.cp-mm-branch::after { content: ''; position: absolute; left: -26px; top: -10px; bottom: -10px; border-left: 2px solid #cbd5e1; }
+.cp-mm-branch:first-child::after { top: 50%; }
+.cp-mm-branch:last-child::after { bottom: 50%; }
+.cp-mm-branch:only-child::after { display: none; }
+.cp-mm-flow { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+.cp-mm-chip { display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: 999px; background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; line-height: 1.6; color: #1a202c; }
+.cp-mm-chip i { font-style: normal; font-size: 10px; font-weight: 700; opacity: 0.72; }
+.cp-mm-chip-skill { background: #dbeafe; border-color: #bfdbfe; color: #1d4ed8; }
+.cp-mm-chip-course { background: #d1fae5; border-color: #a7f3d0; color: #047857; }
+.cp-mm-chip-comp { background: #fef3c7; border-color: #fde68a; color: #b45309; }
+.cp-mm-chip-text { background: #f1f5f9; color: #475569; }
+.cp-mm-arrow { color: #94a3b8; font-size: 13px; flex-shrink: 0; }
+.cp-mm-arrow-final { color: #2563eb; font-size: 15px; font-weight: 700; margin: 0 3px; }
+.cp-mm-target { display: inline-flex; align-items: center; padding: 5px 16px; border-radius: 999px; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: #fff; font-size: 13px; font-weight: 700; box-shadow: 0 2px 6px rgba(37,99,235,0.3); white-space: nowrap; }
+.cp-mm-note { margin-top: 9px; }
+.cp-mm-overview { font-size: 12px; color: #64748b; line-height: 1.7; margin-bottom: 5px; }
+.cp-mm-advice { margin: 8px 0 2px; padding: 7px 12px 8px; background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; }
+.cp-mm-advice-label { font-size: 11px; font-weight: 700; color: #b45309; letter-spacing: 0.5px; margin-bottom: 6px; }
+.cp-mm-advice-list { margin: 0; padding-left: 16px; }
+.cp-mm-advice-list li { font-size: 12px; color: #78350f; line-height: 1.7; }
+.cp-mm-branch-study { border-left-color: #c4b5fd; }
+.cp-mm-target-study { background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%); box-shadow: 0 2px 6px rgba(124,58,237,0.3); }
+.cp-mm-target-study i { font-style: normal; font-size: 10px; font-weight: 400; opacity: 0.9; background: rgba(255,255,255,0.2); border-radius: 999px; padding: 1px 8px; margin-right: 6px; }
+.cp-mm-steps { margin: 7px 0 8px; padding: 7px 10px 8px; background: #faf5ff; border: 1px solid #ede9fe; border-radius: 8px; }
+.cp-mm-steps-label { font-size: 11px; font-weight: 700; color: #6d28d9; letter-spacing: 0.5px; margin-bottom: 6px; }
+.cp-mm-step-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px 16px; }
+.cp-mm-step { display: flex; align-items: flex-start; gap: 7px; font-size: 12px; line-height: 1.6; }
+.cp-mm-period { flex-shrink: 0; padding: 1px 8px; border-radius: 6px; background: #ede9fe; border: 1px solid #ddd6fe; color: #6d28d9; font-size: 11px; font-weight: 700; white-space: nowrap; }
+.cp-mm-action { color: #334155; min-width: 0; }
+@media(max-width: 900px) {
+  .cp-grid { grid-template-columns: 1fr; }
+  .cp-mm { display: block; padding: 12px 10px 10px; }
+  .cp-mm-root { writing-mode: horizontal-tb; margin: 0 auto 6px; padding: 7px 14px; max-height: none; }
+  .cp-mm-root::after { display: none; }
+  .cp-mm-branches { display: block; padding-left: 8px; }
+  .cp-mm-branch { margin-left: 0; margin-bottom: 10px; padding: 12px 14px; }
+  .cp-mm-branch::before { display: none; }
+  .cp-mm-branch::after { display: none; }
+  .cp-mm-target { white-space: normal; }
+  .cp-mm-step-grid { grid-template-columns: 1fr; }
+  .fy-grid { grid-template-columns: 1fr; }
+  .mm-years { grid-template-columns: repeat(2, 1fr); }
+  .mm-cat { flex-direction: column; }
+  .mm-cat-conn { display: none; }
+  .mm-cat-label { width: auto; margin-right: 0; margin-bottom: 8px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>自动化专业·综合维度培养路径报告</h1>
+<div class="meta">关键词：自动化　|　维度：综合维度　|　报告模式：个性培养　|　展开层级：3层　|　生成时间：2026-09-26 00:40:32</div>
+<div class="meta" style="font-size:11px;color:#94a3b8;">接地校验：删除句子 0，补来源 79，补AI标签 0，课程降级 0，非法标签修正 0，学期归一 0，剔除无效项 6，剔除建议编造 2，剔除陈词 1，重写 0，替换违规单元格 1，裁剪超长 0，缺失学期 0/8，行动项回填 2</div>
+<div class="base-bar"><span>图谱数据基座</span>本报告基于就业知识图谱子图生成：<b>80</b> 个实体 · <b>79</b> 条关联 · 覆盖 5 个维度（课程体系、竞赛实践、岗位聚集、技能结构、岗位竞合）· <b>22</b> 份来源文档 —— 正文上标 <b style="font-size:12px">[Sn]</b> 可对应文末「数据来源」逐条溯源；黄色「AI建议」条目为模型补全，仅供参考</div>
+<div class="layer-legend">
+<span class="legend-chip legend-fact">L1 官方课程 · 培养方案/职业标准权威骨架</span>
+<span class="legend-chip" style="background:#ecfdf5;border-color:#a7f3d0;color:#047857;">L2 技能/竞赛 · 多源抽取（职业标准·行业报告·竞赛简章）</span>
+<span class="legend-chip legend-ai">L3 AI 建议 · 模型补全，仅供参考</span>
+</div>
+
+<div class="summary">自动化专业核心课程包括《自动控制理论A》《自动控制理论B》《计算机控制理论与应用》《电力电子技术》《检测技术基础》等，构建起从理论到工程应用的完整知识体系<span class="ref-sup">[S1]</span><span class="ref-sup">[S1]</span><span class="ref-sup">[S1]</span><span class="ref-sup">[S1]</span><span class="ref-sup">[S1]</span>。必备基础课程涵盖《线性代数及其应用》《概率论与数理统计1》《大学物理1A》等数理与通识课程<span class="ref-sup">[S1]</span><span class="ref-sup">[S1]</span><span class="ref-sup">[S1]</span>。上述课程共同支撑了系统控制、信号处理、硬件设计与智能算法等核心能力。当前最该做的是扎实掌握专业核心课，并尽早参与电子设计或智能控制类竞赛以强化工程实践能力。</div>
+<h2>个人培养画像<span class="fact-chip">L1 权威 + L2 抽取</span></h2>
+<div class="profile-card"><h3>画像要点</h3><ul class="profile-list">
+<li>自动化专业毕业生主要面向自动控制工程技术人员、电气工程技术人员、智能制造工程技术人员等岗位<span class="ref-sup">[S2]</span>。</li>
+<li>核心技能要求包括掌握自动控制理论、计算机控制技术、电力电子技术与检测技术，具备系统分析与设计能力<span class="ref-sup">[S1]</span><span class="ref-sup">[S1]</span><span class="ref-sup">[S1]</span><span class="ref-sup">[S1]</span>。</li>
+<li>专业必修课《自动控制理论A》《自动控制理论B》《计算机控制理论与应用》是胜任控制类岗位的核心依据<span class="ref-sup">[S1]</span><span class="ref-sup">[S1]</span><span class="ref-sup">[S1]</span>。</li>
+<li>专业选修课《嵌入式系统》《机器人学导论(双语)》《智能控制系统》为向机器人、嵌入式方向发展的关键支撑<span class="ref-sup">[S1]</span><span class="ref-sup">[S1]</span><span class="ref-sup">[S1]</span>。</li>
+</ul></div>
+<h2>个性化培养思维导图<span class="fact-chip">官方培养方案骨架 + 分层补全</span></h2>
+<div class="fy-grid">
+<div class="fy-col fy-courses">
+<div class="fy-col-head">课程主线<span class="fy-col-sub">官方课程 + 个性化培养 · 按学期</span></div>
+<div class="mm-rec">选课策略（AI建议）：建议优先选择《嵌入式系统》《智能控制系统》《深度学习基础》等课程，以增强在智能控制与嵌入式领域的竞争力。</div>
+<div class="fy-course-body">
+<div class="fy-year">
+<span class="fy-year-label">大一</span>
+<div class="fy-sem">
+<span class="fy-sem-label">大一·秋</span>
+<div class="fy-sem-items">
+<div class="fy-course"><span class="ct-tag ct-0">大类通识课</span>《线性代数及其应用》</div>
+<div class="fy-course"><span class="ct-tag ct-0">大类通识课</span>《概率论与数理统计1》</div>
+<div class="fy-course"><span class="ct-tag ct-0">大类通识课</span>《大学计算机基础1》</div>
+<div class="fy-course"><span class="ct-tag ct-0">大类通识课</span>《工程制图基础4》</div>
+<div class="fy-course"><span class="ct-tag ct-0">大类通识课</span>《诚信教育》</div>
+</div></div>
+<div class="fy-sem">
+<span class="fy-sem-label">大一·春</span>
+<div class="fy-sem-items">
+<div class="fy-course"><span class="ct-tag ct-0">大类通识课</span>《复变函数》</div>
+<div class="fy-course"><span class="ct-tag ct-0">大类通识课</span>《大学物理1A》</div>
+<div class="fy-course"><span class="ct-tag ct-0">大类通识课</span>《电路基础4A-B》</div>
+<div class="fy-course"><span class="ct-tag ct-0">大类通识课</span>《计算机软件技术基础2》</div>
+<div class="fy-course"><span class="ct-tag ct-0">大类通识课</span>《军事理论1》</div>
+</div></div>
+</div>
+<div class="fy-year">
+<span class="fy-year-label">大二</span>
+<div class="fy-sem">
+<span class="fy-sem-label">大二·秋</span>
+<div class="fy-sem-items">
+<div class="fy-course"><span class="ct-tag ct-0">大类通识课</span>《大学物理1B》</div>
+<div class="fy-course"><span class="ct-tag ct-0">大类通识课</span>《物理实验A》</div>
+<div class="fy-course"><span class="ct-tag ct-0">大类通识课</span>《管理概论》</div>
+<div class="fy-course"><span class="ct-tag ct-1">专业必修课</span>《模拟电子技术基础1》</div>
+<div class="fy-course"><span class="ct-tag ct-1">专业必修课</span>《信号分析与处理1》</div>
+<div class="fy-course"><span class="ct-tag ct-1">专业必修课</span>《电磁场》</div>
+<div class="fy-course"><span class="ct-tag ct-1">专业必修课</span>《积分变换》</div>
+<div class="fy-course"><span class="ct-tag ct-1">专业必修课</span>《电工测量1》</div>
+<div class="fy-course"><span class="ct-tag ct-1">专业必修课</span>《电机及拖动基础》</div>
+<div class="fy-course"><span class="ct-tag ct-plain">官方课程</span>《数字电子技术基础1》</div>
+</div></div>
+<div class="fy-sem">
+<span class="fy-sem-label">大二·春</span>
+<div class="fy-sem-items">
+<div class="fy-course"><span class="ct-tag ct-0">大类通识课</span>《电子技术实验》</div>
+<div class="fy-course"><span class="ct-tag ct-0">大类通识课</span>《机械工程训练基础》</div>
+<div class="fy-course"><span class="ct-tag ct-0">大类通识课</span>《机械工程训练2》</div>
+<div class="fy-course"><span class="ct-tag ct-0">大类通识课</span>《物理实验B》</div>
+<div class="fy-course"><span class="ct-tag ct-1">专业必修课</span>《数字电子技术基础1》</div>
+<div class="fy-course"><span class="ct-tag ct-2">专业选修课</span>《数值计算方法》</div>
+<div class="fy-course"><span class="ct-tag ct-2">专业选修课</span>《人工智能概论》</div>
+</div></div>
+</div>
+<div class="fy-year">
+<span class="fy-year-label">大三</span>
+<div class="fy-sem">
+<span class="fy-sem-label">大三·秋</span>
+<div class="fy-sem-items">
+<div class="fy-course"><span class="ct-tag ct-1">专业必修课</span>《自动控制理论A》</div>
+<div class="fy-course"><span class="ct-tag ct-1">专业必修课</span>《检测技术基础》</div>
+<div class="fy-course"><span class="ct-tag ct-1">专业必修课</span>《电力电子技术》</div>
+<div class="fy-course"><span class="ct-tag ct-1">专业必修课</span>《微型计算机原理及应用》</div>
+<div class="fy-course"><span class="ct-tag ct-1">专业必修课</span>《计算机控制技术基础》</div>
+<div class="fy-course"><span class="ct-tag ct-2">专业选修课</span>《DSP原理及应用》</div>
+<div class="fy-course"><span class="ct-tag ct-2">专业选修课</span>《单片机原理及应用1》</div>
+<div class="fy-course"><span class="ct-tag ct-2">专业选修课</span>《嵌入式系统》</div>
+<div class="fy-course"><span class="ct-tag ct-2">专业选修课</span>《工厂供电》</div>
+<div class="fy-course"><span class="ct-tag ct-2">专业选修课</span>《新型传感技术》</div>
+<div class="fy-course"><span class="ct-tag ct-2">专业选修课</span>《机器人学导论(双语)》</div>
+<div class="fy-course"><span class="ct-tag ct-2">专业选修课</span>《模式识别基础》</div>
+<div class="fy-course"><span class="ct-tag ct-2">专业选修课</span>《优化技术基础》</div>
+<div class="fy-course"><span class="ct-tag ct-2">专业选修课</span>《通信与信息技术》</div>
+</div></div>
+<div class="fy-sem">
+<span class="fy-sem-label">大三·春</span>
+<div class="fy-sem-items">
+<div class="fy-course"><span class="ct-tag ct-1">专业必修课</span>《自动控制理论B》</div>
+<div class="fy-course"><span class="ct-tag ct-1">专业必修课</span>《计算机控制理论与应用》</div>
+<div class="fy-course"><span class="ct-tag ct-2">专业选修课</span>《可编程控制器》</div>
+<div class="fy-course"><span class="ct-tag ct-2">专业选修课</span>《微机原理课程设计》</div>
+<div class="fy-course"><span class="ct-tag ct-2">专业选修课</span>《控制系统设计与仿真》</div>
+<div class="fy-course"><span class="ct-tag ct-2">专业选修课</span>《数字控制技术》</div>
+<div class="fy-course"><span class="ct-tag ct-2">专业选修课</span>《图像处理1》</div>
+<div class="fy-course"><span class="ct-tag ct-2">专业选修课</span>《无人系统自主控制技术基础》</div>
+<div class="fy-course"><span class="ct-tag ct-2">专业选修课</span>《智能控制系统》</div>
+<div class="fy-course"><span class="ct-tag ct-2">专业选修课</span>《智能装置与设计1》</div>
+<div class="fy-course"><span class="ct-tag ct-2">专业选修课</span>《最优控制理论与应用》</div>
+<div class="fy-course"><span class="ct-tag ct-2">专业选修课</span>《深度学习基础》</div>
+<div class="fy-course"><span class="ct-tag ct-2">专业选修课</span>《现代信息处理技术》</div>
+<div class="fy-course"><span class="ct-tag ct-2">专业选修课</span>《工业控制网络》</div>
+<div class="fy-course"><span class="ct-tag ct-2">专业选修课</span>《视觉检测及其应用》</div>
+<div class="fy-course"><span class="ct-tag ct-2">专业选修课</span>《通信与信息技术》</div>
+</div></div>
+</div>
+<div class="fy-year">
+<span class="fy-year-label">大四</span>
+<div class="fy-sem">
+<span class="fy-sem-label">大四·秋</span>
+<div class="fy-sem-items">
+<div class="fy-course"><span class="ct-tag ct-1">专业必修课</span>《毕业实习》</div>
+<div class="fy-course"><span class="ct-tag ct-plain">官方课程</span>《电工电子综合课程设计》</div>
+<div class="fy-course"><span class="ct-tag ct-plain">官方课程</span>《电子课程设计》</div>
+</div></div>
+<div class="fy-sem">
+<span class="fy-sem-label">大四·春</span>
+<div class="fy-sem-items">
+<div class="fy-course"><span class="ct-tag ct-1">专业必修课</span>《毕业设计（论文）》</div>
+</div></div>
+<div class="fy-sem">
+<span class="fy-sem-label">学期未标</span>
+<div class="fy-sem-items">
+<div class="fy-course"><span class="ct-tag ct-1">专业必修课</span>《控制系统分析与设计》</div>
+<div class="fy-course"><span class="ct-tag ct-1">专业必修课</span>《数控系统课程设计》</div>
+<div class="fy-course"><span class="ct-tag ct-1">专业必修课</span>《智能装置课程设计》</div>
+</div></div>
+</div>
+</div></div>
+<div class="fy-col fy-extras">
+<div class="fy-col-head fy-head-ai">竞赛 / 技能 / AI建议<span class="fy-col-sub">L2 + L3 · 仅供参考</span></div>
+<div class="fy-course-body">
+<div class="fy-year">
+<span class="fy-year-label fy-year-ai">大一</span>
+<div class="fy-block">
+<div class="fy-block-label">核心目标</div>
+<ul>
+<li>打好数理与编程基础</li>
+<li>培养工程兴趣</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">技能要求</div>
+<ul>
+<li>C语言基础</li>
+<li>Python基础</li>
+<li>掌握C语言基础编程能力</li>
+<li>开始学习Python基础语法</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">推荐竞赛</div>
+<ul>
+<li>全国大学生数学竞赛（一般9月报名，以官网通知为准）</li>
+<li>全国大学生电子设计竞赛（一般暑期备赛，AI建议）</li>
+<li>了解全国大学生数学竞赛赛制</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">AI建议</div>
+<ul>
+<li>建议参加学校组织的计算机基础培训，打好编程底子</li>
+<li>建议加入学校科技社团，接触基础电子制作</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">课程建议</div>
+<ul>
+<li>线性代数及其应用</li>
+<li>概率论与数理统计1</li>
+<li>大学物理1A</li>
+<li>电路基础4A-B</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">避坑提示</div>
+<ul>
+<li>不要忽视英语和数学基础课，它们是后续专业课的基石</li>
+</ul></div>
+</div>
+<div class="fy-year">
+<span class="fy-year-label fy-year-ai">大二</span>
+<div class="fy-block">
+<div class="fy-block-label">核心目标</div>
+<ul>
+<li>掌握核心电子技术</li>
+<li>参与学科竞赛</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">技能要求</div>
+<ul>
+<li>Multisim电路仿真</li>
+<li>Altium Designer基础</li>
+<li>掌握Multisim电路仿真软件操作</li>
+<li>学习Altium Designer基础绘图</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">推荐竞赛</div>
+<ul>
+<li>全国大学生电子设计竞赛（一般7月报名，以官网通知为准）</li>
+<li>全国大学生智能汽车竞赛（一般3月报名，以官网通知为准）</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">AI建议</div>
+<ul>
+<li>建议重点攻克模电数电难点，多做课后习题</li>
+<li>建议利用暑期时间参加电子设计竞赛集训</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">课程建议</div>
+<ul>
+<li>模拟电子技术基础1</li>
+<li>数字电子技术基础1</li>
+<li>信号分析与处理1</li>
+<li>电磁场</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">避坑提示</div>
+<ul>
+<li>学习Altium Designer基础绘图</li>
+</ul></div>
+</div>
+<div class="fy-year">
+<span class="fy-year-label fy-year-ai">大三</span>
+<div class="fy-block">
+<div class="fy-block-label">核心目标</div>
+<ul>
+<li>深入专业核心课</li>
+<li>确定职业方向</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">技能要求</div>
+<ul>
+<li>STM32单片机开发</li>
+<li>MATLAB/Simulink仿真</li>
+<li>掌握STM32单片机开发基础</li>
+<li>掌握MATLAB/Simulink仿真工具</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">推荐竞赛</div>
+<ul>
+<li>全国大学生智能汽车竞赛（一般3月报名，以官网通知为准）</li>
+<li>全国大学生机器人大赛（一般5月报名，以官网通知为准）</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">AI建议</div>
+<ul>
+<li>建议确定考研或就业方向，开始针对性准备</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">课程建议</div>
+<ul>
+<li>自动控制理论A</li>
+<li>自动控制理论B</li>
+<li>计算机控制理论与应用</li>
+<li>电力电子技术</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">避坑提示</div>
+<ul>
+<li>专业课繁多，需合理分配时间，避免顾此失彼</li>
+</ul></div>
+</div>
+<div class="fy-year">
+<span class="fy-year-label fy-year-ai">大四</span>
+<div class="fy-block">
+<div class="fy-block-label">核心目标</div>
+<ul>
+<li>完成毕业设计</li>
+<li>落实就业或升学</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">技能要求</div>
+<ul>
+<li>简历撰写</li>
+<li>面试技巧</li>
+<li>掌握简历撰写与面试技巧</li>
+<li>完成毕业设计开题与中期检查</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">推荐竞赛</div>
+<ul>
+<li>秋招/春招</li>
+<li>考研复试</li>
+<li>参加秋招面试</li>
+<li>参加春招补录或考研复试</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">AI建议</div>
+<ul>
+<li>建议积极投递行业头部企业，积累面试经验</li>
+<li>建议认真打磨毕业设计，争取优秀论文</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">课程建议</div>
+<ul>
+<li>毕业实习</li>
+<li>毕业设计（论文）</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">避坑提示</div>
+<ul>
+<li>不要因实习或求职而荒废毕业设计，需保持平衡</li>
+</ul></div>
+</div>
+</div></div></div>
+<h2>自动化专业个人职业行动清单<span class="fact-chip">图谱实证</span></h2>
+<div class="table-wrap"><table><thead><tr>
+<th>行动项</th>
+<th>针对的差距技能</th>
+<th>学习资源（课程/证书）</th>
+<th>目标岗位</th>
+<th>优先级</th>
+</tr></thead><tbody>
+<tr>
+<td>掌握自动控制理论</td>
+<td>系统控制能力</td>
+<td>《自动控制理论A》《自动控制理论B》<span class="ref-sup">[S1]</span></td>
+<td>自动控制工程技术人员<span class="ref-sup">[S3]</span></td>
+<td>高</td>
+</tr>
+<tr>
+<td>精通单片机与嵌入式开发</td>
+<td>硬件设计与编程能力</td>
+<td>《单片机原理及应用1》《嵌入式系统》<span class="ref-sup">[S1]</span></td>
+<td>嵌入式系统设计工程技术人员<span class="ref-sup">[S1]</span></td>
+<td>高</td>
+</tr>
+<tr>
+<td>提升电力电子与检测技术</td>
+<td>电力与传感技术</td>
+<td>《电力电子技术》《检测技术基础》<span class="ref-sup">[S1]</span></td>
+<td>电气工程技术人员<span class="ref-sup">[S4]</span></td>
+<td>中</td>
+</tr>
+<tr>
+<td>参与电子设计竞赛</td>
+<td>工程实践能力</td>
+<td>必修课《线性代数及其应用》<span class="ref-sup">[S1]</span></td>
+<td>智能制造工程技术人员<span class="ref-sup">[S5]</span></td>
+<td>高</td>
+</tr>
+<tr>
+<td>学习智能控制算法</td>
+<td>智能算法能力</td>
+<td>《智能控制系统》《深度学习基础》<span class="ref-sup">[S1]</span></td>
+<td>飞行器自动控制算法工程师<span class="ref-sup">[S6]</span></td>
+<td>中</td>
+</tr>
+<tr>
+<td>完成毕业设计</td>
+<td>综合应用能力</td>
+<td>《毕业设计（论文）》<span class="ref-sup">[S1]</span></td>
+<td>机器人电气工程师<span class="ref-sup">[S7]</span></td>
+<td>高</td>
+</tr>
+</tbody></table></div>
+<h2>差距与下一步<span class="advice-badge">AI 建议 · 仅供参考</span></h2>
+<div class="gap-card">
+<div class="gap-alt" style="margin-bottom:10px"><b>下一步 Top3</b></div>
+<ol class="gap-top3">
+<li>大一阶段重点攻克线性代数、概率论与大学物理，同时熟练掌握C语言与Python基础编程。</li>
+<li>大三阶段精通自动控制理论与计算机控制技术，掌握STM32与MATLAB工具，确定职业方向。</li>
+</ol>
+<div class="gap-alt" style="margin-top:14px"><b>备选岗位 / 方向：</b>嵌入式系统设计工程技术人员；智能制造工程技术人员；机器人电气工程师</div>
+</div>
+<h2 id="report-refs">数据来源<span class="fact-chip">正文上标 [Sn] 对应以下来源，统一汇总于此</span></h2>
+<div class="ref-list"><ol>
+<li>[S1]　天大电自培养方案2025</li>
+<li>[S2]　未标注</li>
+<li>[S3]　深圳职业技术大学工业机器人技术专业人才培养标准2025级专科</li>
+<li>[S4]　2025年长三角一体化示范区制造业企业市场工资价位</li>
+<li>[S5]　2024届本科毕业生起薪分布</li>
+<li>[S6]　2025年北京市人力资源市场薪酬数据报告（三季度）全文</li>
+<li>[S7]　2025年北京市人力资源市场薪酬数据报告（四季度）发布</li>
+</ol></div>
+</div></body></html>

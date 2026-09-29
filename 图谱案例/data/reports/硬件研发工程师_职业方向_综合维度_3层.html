@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>硬件研发工程师·多路径培养报告</title>
+<style>
+body { font-family: system-ui, -apple-system, 'Microsoft YaHei', sans-serif; background: #f5f7fa; margin: 0; padding: 32px; color: #1a202c; }
+.container { max-width: 900px; margin: 0 auto; }
+h1 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+.meta { font-size: 13px; color: #94a3b8; margin-bottom: 20px; }
+.summary { font-size: 14px; line-height: 1.8; color: #475569; background: #fff; padding: 20px; border-radius: 6px; border: 1px solid #e2e8f0; margin-bottom: 28px; }
+h2 { font-size: 16px; font-weight: 700; margin: 28px 0 16px; padding-left: 10px; border-left: 3px solid #2c6ecb; }
+.tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 1px 8px; border-radius: 10px; vertical-align: 2px; margin-right: 6px; }
+.tag-course { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+.tag-skill { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
+.tag-comp { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
+.tag-advice { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
+.ref-sup { color: #2c6ecb; font-size: 10px; margin: 0 1px; }
+.profile-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 28px; }
+.profile-card h3 { margin: 0 0 12px; font-size: 15px; color: #0f172a; }
+.profile-list { margin: 0; padding: 0; list-style: none; }
+.profile-list li { font-size: 13.5px; line-height: 1.9; color: #475569; padding: 6px 0 6px 18px; position: relative; border-bottom: 1px dashed #f1f5f9; }
+.profile-list li:last-child { border-bottom: none; }
+.profile-list li::before { content: '▸'; position: absolute; left: 2px; color: #2c6ecb; }
+.timeline { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 24px; margin-bottom: 28px; }
+.tl-year-head { display: flex; align-items: center; gap: 10px; margin: 20px 0 12px; }
+.tl-year-head:first-child { margin-top: 0; }
+.tl-year { font-size: 13px; font-weight: 700; color: #fff; background: #2c6ecb; padding: 3px 14px; border-radius: 14px; white-space: nowrap; }
+.tl-year-line { flex: 1; height: 1px; background: #e2e8f0; }
+.tl-sem-row { display: flex; gap: 12px; margin-bottom: 12px; }
+.tl-sem { flex-shrink: 0; width: 70px; font-size: 12.5px; font-weight: 600; color: #2c6ecb; text-align: center; background: #eff6ff; border-radius: 4px; padding: 4px 0; align-self: flex-start; }
+.tl-items { flex: 1; min-width: 0; }
+.tl-item { font-size: 13px; line-height: 1.8; color: #475569; padding: 3px 0; }
+.tl-item.advice-item { background: #fffbeb; border-left: 3px solid #fbbf24; padding-left: 8px; border-radius: 0 4px 4px 0; }
+.action-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 16px; }
+.action-title { font-size: 15px; font-weight: 700; color: #2c6ecb; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid #f1f5f9; }
+.action-sec { margin-bottom: 10px; display: flex; }
+.action-sec-label { flex-shrink: 0; width: 96px; font-size: 12.5px; font-weight: 600; color: #64748b; padding-top: 2px; }
+.action-sec ul { margin: 0; padding: 0; list-style: none; flex: 1; }
+.action-sec li { font-size: 13px; line-height: 1.8; color: #475569; }
+.action-sec li::before { content: '·'; font-weight: 700; margin-right: 6px; color: #94a3b8; }
+.gap-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 28px; }
+.gap-status { font-size: 13.5px; line-height: 1.8; color: #475569; margin-bottom: 14px; }
+.gap-top3 { margin: 0; padding-left: 22px; }
+.gap-top3 li { font-size: 13.5px; line-height: 1.9; color: #1e293b; }
+.gap-alt { font-size: 13px; color: #64748b; line-height: 1.8; }
+.gap-alt b { color: #475569; }
+.ref-list { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 28px; }
+.ref-list ol { margin: 0; padding-left: 22px; }
+.ref-list li { font-size: 12.5px; line-height: 1.9; color: #64748b; }
+.table-wrap { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 28px; overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { padding: 10px 14px; background: #f5f7fa; font-weight: 600; text-align: left; border-bottom: 2px solid #e2e8f0; }
+td { padding: 10px 14px; color: #475569; border-bottom: 1px solid #e2e8f0; }
+tr:last-child td { border-bottom: none; }
+.layer-legend { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+.legend-chip { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; padding: 5px 12px; border-radius: 20px; border: 1px solid; }
+.legend-fact { background: #eff6ff; border-color: #bfdbfe; color: #1d4ed8; }
+.legend-ai { background: #fffbeb; border-color: #fde68a; color: #b45309; }
+.fact-chip { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 10px; background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; vertical-align: 2px; margin-left: 8px; }
+.advice-badge { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 10px; background: #fffbeb; color: #b45309; border: 1px solid #fde68a; vertical-align: 2px; margin-left: 8px; }
+.advice-card { background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 16px 20px; margin-bottom: 12px; }
+.advice-title { font-size: 14px; font-weight: 600; color: #b45309; margin-bottom: 10px; }
+.advice-list { margin: 0; padding-left: 20px; }
+.advice-list li { font-size: 13px; line-height: 1.9; color: #78350f; margin-bottom: 4px; }
+.base-bar { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px; padding: 12px 16px; font-size: 12.5px; color: #1d4ed8; margin-bottom: 20px; line-height: 1.7; }
+.base-bar span { font-weight: 700; margin-right: 6px; }
+.base-bar b { font-size: 15px; margin: 0 2px; }
+.mindmap { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px 22px; margin-bottom: 24px; }
+.mm-root { display: inline-block; background: #1d4ed8; color: #fff; font-size: 14px; font-weight: 700; padding: 8px 26px; border-radius: 20px; margin-bottom: 8px; }
+.mm-branches { border-left: 2px solid #cbd5e1; margin-left: 16px; }
+.mm-cat { display: flex; align-items: flex-start; padding: 12px 0 2px 0; }
+.mm-cat-conn { width: 20px; height: 2px; background: #cbd5e1; margin-top: 18px; flex: none; }
+.mm-cat-label { flex: none; width: 108px; font-size: 13px; font-weight: 700; color: #1e40af; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 10px 8px; margin-right: 14px; text-align: center; align-self: flex-start; }
+.mm-main { flex: 1; min-width: 0; }
+.mm-rec { font-size: 12px; color: #b45309; background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 6px 10px; margin-bottom: 8px; line-height: 1.6; }
+.mm-years { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.mm-year { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 9px; }
+.mm-year-label { font-size: 12px; font-weight: 700; color: #475569; margin-bottom: 6px; }
+.mm-items { display: flex; flex-direction: column; gap: 4px; }
+.mm-item { font-size: 12px; line-height: 1.6; color: #334155; background: #f1f5f9; border-radius: 6px; padding: 4px 8px; word-break: break-all; }
+.mm-item .ref-sup { margin-left: 4px; }
+.mm-empty { color: #cbd5e1; text-align: center; background: transparent; }
+.mm-star { color: #b45309; font-weight: 700; }
+.fy-grid { display: grid; grid-template-columns: 11fr 9fr; gap: 16px; margin-bottom: 24px; align-items: start; }
+.fy-col { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px 20px; }
+.fy-col-head { font-size: 14.5px; font-weight: 700; color: #1d4ed8; padding-bottom: 10px; border-bottom: 2px solid #eff6ff; margin-bottom: 12px; }
+.fy-col-head.fy-head-ai { color: #b45309; border-bottom-color: #fef3c7; }
+.fy-col-sub { display: block; font-size: 11px; font-weight: 500; color: #94a3b8; margin-top: 2px; }
+.fy-year { margin-bottom: 14px; }
+.fy-year:last-child { margin-bottom: 0; }
+.fy-year-label { display: inline-block; font-size: 12px; font-weight: 700; color: #fff; background: #2c6ecb; padding: 2px 14px; border-radius: 12px; margin-bottom: 8px; }
+.fy-year-ai { background: #d97706; }
+.fy-sem { display: flex; gap: 10px; margin-bottom: 8px; }
+.fy-sem-label { flex: none; width: 64px; font-size: 11.5px; font-weight: 600; color: #1d4ed8; background: #eff6ff; border-radius: 4px; padding: 3px 0; text-align: center; align-self: flex-start; }
+.fy-sem-items { flex: 1; min-width: 0; }
+.fy-course { font-size: 12.5px; line-height: 1.9; color: #334155; }
+.ct-tag { display: inline-block; font-size: 10.5px; font-weight: 600; padding: 0 6px; border-radius: 8px; margin-right: 6px; border: 1px solid; vertical-align: 1px; white-space: nowrap; }
+.ct-0 { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+.ct-1 { background: #f5f3ff; color: #6d28d9; border-color: #ddd6fe; }
+.ct-2 { background: #ecfeff; color: #0e7490; border-color: #a5f3fc; }
+.ct-3 { background: #f1f5f9; color: #475569; border-color: #e2e8f0; }
+.ct-plain { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+.fy-block { margin-bottom: 10px; }
+.fy-block:last-child { margin-bottom: 0; }
+.fy-block-label { font-size: 12px; font-weight: 700; color: #b45309; margin-bottom: 3px; }
+.fy-block ul { margin: 0; padding-left: 16px; }
+.fy-block li { font-size: 12.5px; line-height: 1.8; color: #475569; }
+.fy-empty { color: #cbd5e1; font-size: 12px; text-align: center; padding: 16px 0; }
+.cp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 24px; }
+.cp-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px 18px; box-shadow: 0 1px 2px rgba(15,23,42,0.04); }
+.cp-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+.cp-name { font-size: 15px; font-weight: 700; color: #0f172a; }
+.cp-type { font-size: 11px; font-weight: 600; padding: 2px 10px; border-radius: 12px; background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; white-space: nowrap; }
+.cp-type-policy { background: #ecfdf5; color: #047857; border-color: #a7f3d0; }
+.cp-type-job { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+.cp-type-master { background: #f5f3ff; color: #6d28d9; border-color: #ddd6fe; }
+.cp-type-phd { background: #ecfeff; color: #0e7490; border-color: #a5f3fc; }
+.cp-type-exam { background: #fff7ed; color: #c2410c; border-color: #fed7aa; }
+.cp-overview { font-size: 13px; color: #475569; line-height: 1.7; margin-bottom: 10px; }
+.cp-steps { border-left: 2px solid #e2e8f0; margin: 0 0 10px 6px; padding-left: 16px; display: flex; flex-direction: column; gap: 8px; }
+.cp-step { position: relative; font-size: 12.5px; line-height: 1.7; color: #334155; }
+.cp-step::before { content: ''; position: absolute; left: -21px; top: 7px; width: 8px; height: 8px; border-radius: 50%; background: #3b82f6; }
+.cp-period { display: inline-block; font-size: 11px; font-weight: 700; color: #1d4ed8; background: #eff6ff; border-radius: 6px; padding: 1px 8px; margin-right: 8px; vertical-align: 1px; }
+.cp-advice { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 10px 12px; font-size: 12.5px; color: #78350f; }
+.cp-advice b { display: block; margin-bottom: 4px; font-size: 12.5px; color: #b45309; }
+.cp-advice ul { margin: 0; padding-left: 18px; }
+.cp-advice li { margin-bottom: 3px; line-height: 1.7; }
+@media(max-width: 900px) {
+  .cp-grid { grid-template-columns: 1fr; }
+  .fy-grid { grid-template-columns: 1fr; }
+  .mm-years { grid-template-columns: repeat(2, 1fr); }
+  .mm-cat { flex-direction: column; }
+  .mm-cat-conn { display: none; }
+  .mm-cat-label { width: auto; margin-right: 0; margin-bottom: 8px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>硬件研发工程师·多路径培养报告</h1>
+<div class="meta">关键词：硬件研发工程师　|　维度：综合维度　|　报告模式：职业方向　|　展开层级：3层　|　生成时间：2026-09-24 00:19:50</div>
+<div class="meta" style="font-size:11px;color:#94a3b8;">接地校验：删除句子 0，补来源 37，补AI标签 0，课程降级 0，非法标签修正 0，学期归一 0，剔除无效项 2，剔除建议编造 3，剔除陈词 0，重写 0，替换违规单元格 2，裁剪超长 0，缺失学期 0/8</div>
+<div class="base-bar"><span>图谱数据基座</span>本报告基于就业知识图谱子图生成：<b>80</b> 个实体 · <b>115</b> 条关联 · 覆盖 3 个维度（岗位聚集、课程体系、竞赛实践）· <b>330</b> 份来源文档 —— 正文上标 <b style="font-size:12px">[Sn]</b> 可对应文末「参考文献」逐条溯源；黄色「AI建议」条目为模型补全，仅供参考</div>
+<div class="layer-legend">
+<span class="legend-chip legend-fact">L1 官方课程 · 培养方案/职业标准权威骨架</span>
+<span class="legend-chip" style="background:#ecfdf5;border-color:#a7f3d0;color:#047857;">L2 技能/竞赛 · 多源抽取（职业标准·行业报告·竞赛简章）</span>
+<span class="legend-chip legend-ai">L3 AI 建议 · 模型补全，仅供参考</span>
+</div>
+
+<div class="summary">当前最该做的是紧跟培养方案节奏，在大二前掌握PROTEUS电子系统设计与仿真等工具，并尽早参与全国大学生电子设计竞赛等赛事积累项目经验。[来源：天大电自培养方案2025 P124]</div>
+<h2>个人现状与方向盘点<span class="fact-chip">L1 权威 + L2 抽取</span></h2>
+<div class="profile-card"><h3>画像要点</h3><ul class="profile-list">
+<li>岗位定义：硬件研发工程师属于硬件类岗位，主要面向电气工程及其自动化、电子信息工程等专业毕业生，是行业头部企业核心研发岗之一 <span class="ref-sup">[S1]</span>。</li>
+<li>薪资分布：硬件研发工程师在小米、北京多家企业汇总等企业的招聘薪资范围标注为面议，具体薪酬需结合个人项目经验与面试表现综合评估 <span class="ref-sup">[S2]</span>。</li>
+<li>就业去向：硬件研发工程师主要招聘于小米、北京多家企业汇总等企业，工作地点覆盖北京、武汉等核心城市，属于互联网/IT软件及综合行业领域 <span class="ref-sup">[S1]</span>。</li>
+</ul></div>
+<h2>职业方向路径图<span class="fact-chip">事实步骤接地溯源 · 规划步骤为AI建议</span></h2>
+<div class="cp-grid">
+<div class="cp-card">
+<div class="cp-head">
+<span class="cp-name">就业-硬件研发工程师</span>
+<span class="cp-type cp-type-job">就业</span>
+</div>
+<div class="cp-overview">直接面向硬件研发工程师岗位，依托专业课程与竞赛经验，进入小米等头部企业，起薪面议，发展空间广阔。</div>
+<div class="cp-steps">
+<div class="cp-step">
+<span class="cp-period">大一·秋</span>
+<span>完成《人工智能导论》《体育A》等通识课程，建立专业认知。</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大二·春</span>
+<span>重点学习《PROTEUS电子系统设计与仿真》，掌握电路仿真工具 <span class="ref-sup">[S3]</span>。</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大三·春</span>
+<span>完成《DSP原理及应用》《专业课程设计》，提升硬件系统设计能力 <span class="ref-sup">[S3]</span>。</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大四·秋</span>
+<span>关注小米、北京多家企业汇总等企业的硬件研发工程师校招，一般8-10月集中投递，以官网通知为准。</span>
+</div>
+</div>
+<div class="cp-advice"><b>路径建议</b><ul>
+<li>准备一份突出硬件项目经验的简历，重点展示PROTEUS仿真、PCB设计等实操技能。</li>
+<li>提前了解小米等企业的硬件研发岗位JD，针对性补充相关技能，如嵌入式开发或信号处理。</li>
+</ul></div>
+</div>
+<div class="cp-card">
+<div class="cp-head">
+<span class="cp-name">就业-嵌入式软件开发工程师</span>
+<span class="cp-type cp-type-job">就业</span>
+</div>
+<div class="cp-overview">硬件研发工程师的相邻岗位，侧重嵌入式软件与驱动开发，适合对软硬件结合感兴趣的同学。</div>
+<div class="cp-steps">
+<div class="cp-step">
+<span class="cp-period">大二·秋</span>
+<span>深入学习《信号分析与处理1》《信号与系统》，为嵌入式底层开发打下理论基础 <span class="ref-sup">[S3]</span>。</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大三·秋</span>
+<span>参与《信号处理实践项目》，学习C语言在单片机上的应用，掌握嵌入式开发基础 <span class="ref-sup">[S3]</span>。</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大三·春</span>
+<span>通过《专业课程设计》锻炼综合编程能力，尝试将硬件设计与软件控制结合 <span class="ref-sup">[S3]</span>。</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大四·秋</span>
+<span>关注嵌入式软件开发工程师岗位，一般8-10月集中投递，以官网通知为准。</span>
+</div>
+</div>
+<div class="cp-advice"><b>路径建议</b><ul>
+<li>重点掌握C语言和数据结构，这是嵌入式开发的基石。</li>
+<li>尝试使用STM32等主流单片机进行项目开发，积累嵌入式实战经验。</li>
+</ul></div>
+</div>
+<div class="cp-card">
+<div class="cp-head">
+<span class="cp-name">就业-硬件测试工程师</span>
+<span class="cp-type cp-type-job">就业</span>
+</div>
+<div class="cp-overview">硬件研发工程师的相邻岗位，侧重硬件产品的测试与验证，适合细心且具备硬件基础的同学。</div>
+<div class="cp-steps">
+<div class="cp-step">
+<span class="cp-period">大二·春</span>
+<span>学习《PROTEUS电子系统设计与仿真》，理解硬件电路原理，为测试打下基础 <span class="ref-sup">[S3]</span>。</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大三·春</span>
+<span>完成《专业课程设计》，了解硬件产品的设计流程与常见故障点 <span class="ref-sup">[S3]</span>。</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大四·秋</span>
+<span>关注硬件测试工程师岗位，一般8-10月集中投递，以官网通知为准。</span>
+</div>
+</div>
+<div class="cp-advice"><b>路径建议</b><ul>
+<li>学习自动化测试工具与脚本编写，提高测试效率。</li>
+<li>了解硬件测试标准与规范，培养严谨的测试思维。</li>
+</ul></div>
+</div>
+<div class="cp-card">
+<div class="cp-head">
+<span class="cp-name">考研</span>
+<span class="cp-type cp-type-exam">考研</span>
+</div>
+<div class="cp-overview">通过考研深造，提升在硬件研发领域的专业深度，进入更高平台或从事研发工作。</div>
+<div class="cp-steps">
+<div class="cp-step">
+<span class="cp-period">大一·秋</span>
+<span>保持高绩点，打好数学、英语等基础学科基础。</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大二·秋</span>
+<span>重点攻克《信号与系统》等核心专业课，这些往往是考研专业课的重要内容。</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大三·秋</span>
+<span>确定目标院校与专业，开始系统复习考研科目，一般9月关注招生简章。</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大四·秋</span>
+<span>参加全国硕士研究生统一招生考试，一般12月考试，以官网通知为准。</span>
+</div>
+</div>
+<div class="cp-advice"><b>路径建议</b><ul>
+<li>提前了解目标院校的考研专业课大纲，针对性复习。</li>
+<li>关注考研政治、英语、数学等公共课的复习进度，合理安排时间。</li>
+</ul></div>
+</div>
+<div class="cp-card">
+<div class="cp-head">
+<span class="cp-name">直博</span>
+<span class="cp-type cp-type-phd">直博</span>
+</div>
+<div class="cp-overview">针对成绩优异、科研潜力突出的学生，通过直博通道直接进入博士阶段学习，从事前沿硬件研发。</div>
+<div class="cp-steps">
+<div class="cp-step">
+<span class="cp-period">大一·秋</span>
+<span>保持极高绩点，积极参与科研项目，争取发表论文。</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大二·秋</span>
+<span>深入参与导师的硬件研发项目，积累科研经验，争取在核心期刊发表论文。</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大三·秋</span>
+<span>联系目标导师，申请直博资格，一般9-10月关注直博政策。</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大四·秋</span>
+<span>完成直博申请与考核，一般11-12月确定录取结果，以官网通知为准。</span>
+</div>
+</div>
+<div class="cp-advice"><b>路径建议</b><ul>
+<li>直博竞争激烈，需提前与目标导师建立联系，展示科研潜力。</li>
+<li>保持高绩点与科研产出，这是直博申请的核心竞争力。</li>
+</ul></div>
+</div>
+<div class="cp-card">
+<div class="cp-head">
+<span class="cp-name">选调</span>
+<span class="cp-type cp-type-policy">选调</span>
+</div>
+<div class="cp-overview">通过选调生考试进入党政机关，从事基层或专业技术类公务员工作，适合有志于公共服务的学生。</div>
+<div class="cp-steps">
+<div class="cp-step">
+<span class="cp-period">大一·秋</span>
+<span>关注选调生政策，了解报考条件，一般要求党员、学生干部或获奖经历。</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大二·秋</span>
+<span>争取入党，担任学生干部或获得校级及以上荣誉，满足选调基本条件。</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大三·秋</span>
+<span>系统复习选调生考试内容，一般9-10月关注各省选调公告。</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大四·秋</span>
+<span>参加选调生考试与面试，一般11-12月确定录用结果，以官网通知为准。</span>
+</div>
+</div>
+<div class="cp-advice"><b>路径建议</b><ul>
+<li>选调生考试竞争激烈，需提前准备行测、申论等考试内容。</li>
+<li>关注目标省份的选调政策，不同省份对学历、专业、政治面貌要求不同。</li>
+</ul></div>
+</div>
+<div class="cp-card">
+<div class="cp-head">
+<span class="cp-name">支教保研</span>
+<span class="cp-type cp-type-policy">支教保研</span>
+</div>
+<div class="cp-overview">通过参加支教团，获得推荐免试研究生资格，适合有奉献精神且成绩优秀的学生。</div>
+<div class="cp-steps">
+<div class="cp-step">
+<span class="cp-period">大一·秋</span>
+<span>保持高绩点，了解支教保研政策，一般要求前三年绩点排名前列。</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大二·秋</span>
+<span>积极参与志愿服务与支教活动，积累相关经验，争取获得推荐资格。</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大三·秋</span>
+<span>申请支教保研项目，一般9-10月关注学校通知。</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大四·秋</span>
+<span>完成支教任务，获得保研资格，一般11-12月确定录取结果，以官网通知为准。</span>
+</div>
+</div>
+<div class="cp-advice"><b>路径建议</b><ul>
+<li>支教保研对绩点要求较高，需平衡支教活动与学业。</li>
+<li>提前了解目标院校的支教保研政策，不同学校要求不同。</li>
+</ul></div>
+</div>
+<div class="cp-card">
+<div class="cp-head">
+<span class="cp-name">干部保研</span>
+<span class="cp-type cp-type-policy">干部保研</span>
+</div>
+<div class="cp-overview">通过担任学生干部获得推荐免试研究生资格，适合在学生工作中表现突出的学生。</div>
+<div class="cp-steps">
+<div class="cp-step">
+<span class="cp-period">大一·秋</span>
+<span>保持高绩点，竞选学生干部，如班长、团支书或学生会干部。</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大二·秋</span>
+<span>在学生工作中表现突出，获得校级及以上荣誉，积累干部工作经验。</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大三·秋</span>
+<span>申请干部保研资格，一般9-10月关注学校通知。</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大四·秋</span>
+<span>完成干部保研申请与考核，一般11-12月确定录取结果，以官网通知为准。</span>
+</div>
+</div>
+<div class="cp-advice"><b>路径建议</b><ul>
+<li>干部保研对绩点与干部经历均有要求，需平衡学业与学生工作。</li>
+<li>提前了解目标院校的干部保研政策，不同学校要求不同。</li>
+</ul></div>
+</div>
+</div>
+<h2>四年培养路径总览<span class="fact-chip">官方培养方案骨架 + 分层补全</span></h2>
+<div class="timeline">
+<div class="tl-year-head">
+<span class="tl-year">大一</span><span class="tl-year-line"></span>
+</div>
+<div class="tl-sem-row">
+<div class="tl-sem">大一·秋</div>
+<div class="tl-items">
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《人工智能导论》<span class="ref-sup">[S4]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育A》<span class="ref-sup">[S5]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《健康教育》<span class="ref-sup">[S5]</span></div>
+<div class="tl-item advice-item"><span class="tag tag-advice">AI建议</span>建议：利用大一时间广泛阅读硬件行业科普书籍，建立对电路、电子元件的基础认知，为后续专业课打下感性认识基础。</div>
+</div></div>
+<div class="tl-sem-row">
+<div class="tl-sem">大一·春</div>
+<div class="tl-items">
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《中国近现代史纲要》<span class="ref-sup">[S5]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育B》<span class="ref-sup">[S5]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《军事理论1》<span class="ref-sup">[S5]</span></div>
+<div class="tl-item advice-item"><span class="tag tag-advice">AI建议</span>建议：加入学校的电子爱好者协会或机器人实验室，通过动手焊接简单套件，提前熟悉电烙铁、万用表等基础硬件工具的使用。</div>
+</div></div>
+<div class="tl-year-head">
+<span class="tl-year">大二</span><span class="tl-year-line"></span>
+</div>
+<div class="tl-sem-row">
+<div class="tl-sem">大二·秋</div>
+<div class="tl-items">
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《信号分析与处理1》<span class="ref-sup">[S6]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《信号与系统》<span class="ref-sup">[S7]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育C》<span class="ref-sup">[S5]</span></div>
+<div class="tl-item advice-item"><span class="tag tag-advice">AI建议</span>建议：重点攻克《信号与系统》等理论难点，尝试使用MATLAB进行简单的信号波形仿真，将抽象的数学公式转化为直观的物理图像。</div>
+</div></div>
+<div class="tl-sem-row">
+<div class="tl-sem">大二·春</div>
+<div class="tl-items">
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《信息论与编码》<span class="ref-sup">[S8]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《PROTEUS电子系统设计与仿真》<span class="ref-sup">[S9]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育D》<span class="ref-sup">[S5]</span></div>
+<div class="tl-item advice-item"><span class="tag tag-advice">AI建议</span>建议：利用PROTEUS软件完成至少一个完整的电路仿真项目（如简易直流稳压电源），并尝试报名参加全国大学生电子设计竞赛的校内选拔。</div>
+</div></div>
+<div class="tl-year-head">
+<span class="tl-year">大三</span><span class="tl-year-line"></span>
+</div>
+<div class="tl-sem-row">
+<div class="tl-sem">大三·秋</div>
+<div class="tl-items">
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《习近平新时代中国特色社会主义思想概论》<span class="ref-sup">[S4]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼5》<span class="ref-sup">[S4]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《信号处理实践项目》<span class="ref-sup">[S10]</span></div>
+<div class="tl-item advice-item"><span class="tag tag-advice">AI建议</span>建议：结合信号处理实践项目，深入学习嵌入式开发基础，掌握C语言在单片机上的应用，为后续硬件驱动开发做准备。</div>
+</div></div>
+<div class="tl-sem-row">
+<div class="tl-sem">大三·春</div>
+<div class="tl-items">
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《DSP原理及应用》<span class="ref-sup">[S6]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《专业课程设计》<span class="ref-sup">[S11]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼6》<span class="ref-sup">[S4]</span></div>
+</div></div>
+<div class="tl-year-head">
+<span class="tl-year">大四</span><span class="tl-year-line"></span>
+</div>
+<div class="tl-sem-row">
+<div class="tl-sem">大四·秋</div>
+<div class="tl-items">
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《体育锻炼7》<span class="ref-sup">[S4]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《人工智能实践项目》<span class="ref-sup">[S12]</span></div>
+<div class="tl-item advice-item"><span class="tag tag-advice">AI建议</span>建议：整理大学四年的硬件项目作品，制作专业的技术简历，重点关注小米、华为等头部企业的秋招硬件研发岗位，积极投递。</div>
+</div></div>
+<div class="tl-sem-row">
+<div class="tl-sem">大四·春</div>
+<div class="tl-items">
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《专业综合实验》<span class="ref-sup">[S11]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新实践计划》<span class="ref-sup">[S4]</span></div>
+<div class="tl-item advice-item"><span class="tag tag-advice">AI建议</span>建议：完成高质量的毕业设计，争取将本科阶段的硬件设计成果转化为专利或学术论文，为考研复试或求职面试增加核心竞争力。</div>
+</div></div>
+</div>
+<h2>硬件研发工程师个人职业行动清单<span class="fact-chip">图谱实证</span></h2>
+<div class="table-wrap"><table><thead><tr>
+<th>行动项</th>
+<th>针对的差距技能</th>
+<th>学习资源（课程/证书）</th>
+<th>目标岗位</th>
+<th>优先级</th>
+</tr></thead><tbody>
+<tr>
+<td>完成PROTEUS电路仿真项目</td>
+<td>电路设计与仿真能力</td>
+<td>《PROTEUS电子系统设计与仿真》[来源：天大电自培养方案2025 P124]</td>
+<td>硬件研发工程师[来源：1+X证书制度试点第二批通知-含云计算平台运维等10个证书范围 P[&quot;R23&quot;]]</td>
+<td>高</td>
+</tr>
+<tr>
+<td>掌握信号处理理论</td>
+<td>信号分析与处理能力</td>
+<td>《信号与系统》《信号处理实践项目》[来源：天大电自培养方案2025 P134]</td>
+<td>硬件研发工程师[来源：1+X证书制度试点第二批通知-含云计算平台运维等10个证书范围 P[&quot;R23&quot;]]</td>
+<td>高</td>
+</tr>
+<tr>
+<td>参与全国大学生电子设计竞赛</td>
+<td>硬件工程实践能力</td>
+<td>——</td>
+<td>硬件研发工程师[来源：1+X证书制度试点第二批通知-含云计算平台运维等10个证书范围 P[&quot;R23&quot;]]</td>
+<td>高</td>
+</tr>
+<tr>
+<td>学习DSP原理与应用</td>
+<td>数字信号处理能力</td>
+<td>《DSP原理及应用》[来源：天大电自培养方案2025 P6]</td>
+<td>硬件研发工程师[来源：1+X证书制度试点第二批通知-含云计算平台运维等10个证书范围 P[&quot;R23&quot;]]</td>
+<td>中</td>
+</tr>
+<tr>
+<td>——</td>
+<td>综合硬件系统设计能力[来源：17个新职业正式发布-第七批新职业信息（2025年7月22日，来源：中国政府网转新华社） P1]</td>
+<td>《专业课程设计》[来源：天大电自培养方案2025 P8]</td>
+<td>硬件研发工程师[来源：1+X证书制度试点第二批通知-含云计算平台运维等10个证书范围 P[&quot;R23&quot;]]</td>
+<td>中</td>
+</tr>
+<tr>
+<td>掌握EDA工具绘制PCB</td>
+<td>硬件电路设计与制版能力</td>
+<td>行业认可度高的EDA工具</td>
+<td>硬件研发工程师[来源：1+X证书制度试点第二批通知-含云计算平台运维等10个证书范围 P[&quot;R23&quot;]]</td>
+<td>中</td>
+</tr>
+<tr>
+<td>投递小米等头部企业校招[来源：1+X证书制度试点第二批通知-含云计算平台运维等10个证书范围 P[&quot;R3&quot;]]</td>
+<td>求职投递与面试能力</td>
+<td>招聘JD-硬件-小米-硬件研发工程师26届[来源：1+X证书制度试点第二批通知-含云计算平台运维等10个证书范围 P[&quot;R23&quot;]]</td>
+<td>硬件研发工程师[来源：1+X证书制度试点第二批通知-含云计算平台运维等10个证书范围 P[&quot;R23&quot;]]</td>
+<td>高</td>
+</tr>
+</tbody></table></div>
+<h2>分阶段行动清单<span class="advice-badge">AI 建议 · 仅供参考</span></h2>
+<div class="action-card">
+<div class="action-title">大一</div>
+<div class="action-sec">
+<div class="action-sec-label">核心目标</div>
+<ul>
+<li>适应大学学习节奏，保持高绩点</li>
+<li>培养对电子硬件的兴趣与基础认知</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">必学课程</div>
+<ul>
+<li>《人工智能导论》</li>
+<li>《体育A》</li>
+<li>《健康教育》</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">建议技能</div>
+<ul>
+<li>基础办公软件操作</li>
+<li>C语言基础语法</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">推荐竞赛（含时间节点）</div>
+<ul>
+<li>全国大学生电子设计竞赛（一般6月报名，以官网通知为准）</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">避坑提示</div>
+<ul>
+<li>避免沉迷游戏或无效社交，大一基础课学分占比高，切勿挂科</li>
+</ul></div>
+</div>
+<div class="action-card">
+<div class="action-title">大二</div>
+<div class="action-sec">
+<div class="action-sec-label">核心目标</div>
+<ul>
+<li>掌握核心专业课，通过英语四级</li>
+<li>参与省级以上电子设计竞赛</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">必学课程</div>
+<ul>
+<li>《信号与系统》</li>
+<li>《PROTEUS电子系统设计与仿真》</li>
+<li>《信息论与编码》</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">建议技能</div>
+<ul>
+<li>PROTEUS电路仿真</li>
+<li>MATLAB基础应用</li>
+<li>Multisim仿真</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">推荐竞赛（含时间节点）</div>
+<ul>
+<li>全国大学生电子设计竞赛（一般7月备赛，8月比赛）</li>
+<li>蓝桥杯全国软件和信息技术专业人才大赛（一般3月报名，以官网通知为准）</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">避坑提示</div>
+<ul>
+<li>不要只看书不动手，硬件专业必须通过实际焊接和调试来验证理论</li>
+</ul></div>
+</div>
+<div class="action-card">
+<div class="action-title">大三</div>
+<div class="action-sec">
+<div class="action-sec-label">核心目标</div>
+<ul>
+<li>确定考研或就业的最终方向</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">必学课程</div>
+<ul>
+<li>《DSP原理及应用》</li>
+<li>《专业课程设计》</li>
+<li>《信号处理实践项目》</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">建议技能</div>
+<ul>
+<li>Altium Designer/Cadence</li>
+<li>单片机开发</li>
+<li>嵌入式C语言</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">推荐竞赛（含时间节点）</div>
+<ul>
+<li>挑战杯全国大学生课外学术科技作品竞赛（一般10月报名，以官网通知为准）</li>
+</ul></div>
+</div>
+<div class="action-card">
+<div class="action-title">大四</div>
+<div class="action-sec">
+<div class="action-sec-label">核心目标</div>
+<ul>
+<li>完成高质量毕业设计</li>
+<li>斩获心仪企业的硬件研发Offer</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">必学课程</div>
+<ul>
+<li>《专业综合实验》</li>
+<li>《创新实践计划》</li>
+<li>《人工智能实践项目》</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">建议技能</div>
+<ul>
+<li>简历撰写</li>
+<li>面试技巧</li>
+<li>PCB打样与调试</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">推荐竞赛（含时间节点）</div>
+<ul>
+<li>互联网大厂硬件研发秋招（一般8-10月集中投递，以官网通知为准）</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">避坑提示</div>
+<ul>
+<li>不要海投简历，应针对目标企业定制简历，突出硬件项目经验与工具技能</li>
+</ul></div>
+</div>
+<h2>差距与下一步<span class="advice-badge">AI 建议 · 仅供参考</span></h2>
+<div class="gap-card">
+<div class="gap-status">当前阶段已完成/已掌握情况的核实性描述，80-120字</div>
+<div class="gap-alt" style="margin-bottom:10px"><b>下一步 Top3</b></div>
+<ol class="gap-top3">
+<li>立即开始学习PROTEUS电子系统设计与仿真软件，完成至少一个基础电路的仿真设计，并输出仿真报告。</li>
+<li>报名全国大学生电子设计竞赛的校内选拔或相关电子类竞赛，组建团队并明确分工，开始备赛训练。</li>
+<li>深入学习《信号与系统》课程，利用MATLAB进行信号波形仿真，将理论知识转化为可视化的工程能力。</li>
+</ol>
+<div class="gap-alt" style="margin-top:14px"><b>备选岗位 / 方向：</b>嵌入式软件开发工程师；硬件测试工程师</div>
+</div>
+<h2 id="report-refs">参考文献<span class="fact-chip">正文上标 [Sn] 对应以下来源</span></h2>
+<div class="ref-list"><ol>
+<li>[S1]　1+X证书制度试点第二批通知-含云计算平台运维等10个证书范围、岗位技能表 R23</li>
+<li>[S2]　招聘JD-硬件-小米-硬件研发工程师26届 R23</li>
+<li>[S3]　天大电自培养方案2025 无</li>
+<li>[S4]　天大电自培养方案2025</li>
+<li>[S5]　天大电自培养方案2025 P4</li>
+<li>[S6]　天大电自培养方案2025 P6</li>
+<li>[S7]　天大电自培养方案2025 P140</li>
+<li>[S8]　天大电自培养方案2025 P142</li>
+<li>[S9]　天大电自培养方案2025 P124</li>
+<li>[S10]　天大电自培养方案2025 P134</li>
+<li>[S11]　天大电自培养方案2025 P8</li>
+<li>[S12]　天大电自培养方案2025 P137</li>
+</ol></div>
+</div></body></html>

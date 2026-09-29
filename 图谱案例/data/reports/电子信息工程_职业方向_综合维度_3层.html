@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>电子信息工程专业·多路径职业规划报告</title>
+<style>
+body { font-family: system-ui, -apple-system, 'Microsoft YaHei', sans-serif; background: #f5f7fa; margin: 0; padding: 32px; color: #1a202c; }
+.container { max-width: 900px; margin: 0 auto; }
+h1 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+.meta { font-size: 13px; color: #94a3b8; margin-bottom: 20px; }
+.summary { font-size: 14px; line-height: 1.8; color: #475569; background: #fff; padding: 20px; border-radius: 6px; border: 1px solid #e2e8f0; margin-bottom: 28px; }
+h2 { font-size: 16px; font-weight: 700; margin: 28px 0 16px; padding-left: 10px; border-left: 3px solid #2c6ecb; }
+.tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 1px 8px; border-radius: 10px; vertical-align: 2px; margin-right: 6px; }
+.tag-course { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+.tag-skill { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
+.tag-comp { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
+.tag-advice { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
+.ref-sup { color: #2c6ecb; font-size: 10px; margin: 0 1px; }
+.profile-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 28px; }
+.profile-card h3 { margin: 0 0 12px; font-size: 15px; color: #0f172a; }
+.profile-list { margin: 0; padding: 0; list-style: none; }
+.profile-list li { font-size: 13.5px; line-height: 1.9; color: #475569; padding: 6px 0 6px 18px; position: relative; border-bottom: 1px dashed #f1f5f9; }
+.profile-list li:last-child { border-bottom: none; }
+.profile-list li::before { content: '▸'; position: absolute; left: 2px; color: #2c6ecb; }
+.timeline { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 24px; margin-bottom: 28px; }
+.tl-year-head { display: flex; align-items: center; gap: 10px; margin: 20px 0 12px; }
+.tl-year-head:first-child { margin-top: 0; }
+.tl-year { font-size: 13px; font-weight: 700; color: #fff; background: #2c6ecb; padding: 3px 14px; border-radius: 14px; white-space: nowrap; }
+.tl-year-line { flex: 1; height: 1px; background: #e2e8f0; }
+.tl-sem-row { display: flex; gap: 12px; margin-bottom: 12px; }
+.tl-sem { flex-shrink: 0; width: 70px; font-size: 12.5px; font-weight: 600; color: #2c6ecb; text-align: center; background: #eff6ff; border-radius: 4px; padding: 4px 0; align-self: flex-start; }
+.tl-items { flex: 1; min-width: 0; }
+.tl-item { font-size: 13px; line-height: 1.8; color: #475569; padding: 3px 0; }
+.tl-item.advice-item { background: #fffbeb; border-left: 3px solid #fbbf24; padding-left: 8px; border-radius: 0 4px 4px 0; }
+.action-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 16px; }
+.action-title { font-size: 15px; font-weight: 700; color: #2c6ecb; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid #f1f5f9; }
+.action-sec { margin-bottom: 10px; display: flex; }
+.action-sec-label { flex-shrink: 0; width: 96px; font-size: 12.5px; font-weight: 600; color: #64748b; padding-top: 2px; }
+.action-sec ul { margin: 0; padding: 0; list-style: none; flex: 1; }
+.action-sec li { font-size: 13px; line-height: 1.8; color: #475569; }
+.action-sec li::before { content: '·'; font-weight: 700; margin-right: 6px; color: #94a3b8; }
+.gap-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 28px; }
+.gap-status { font-size: 13.5px; line-height: 1.8; color: #475569; margin-bottom: 14px; }
+.gap-top3 { margin: 0; padding-left: 22px; }
+.gap-top3 li { font-size: 13.5px; line-height: 1.9; color: #1e293b; }
+.gap-alt { font-size: 13px; color: #64748b; line-height: 1.8; }
+.gap-alt b { color: #475569; }
+.ref-list { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 28px; }
+.ref-list ol { margin: 0; padding-left: 22px; }
+.ref-list li { font-size: 12.5px; line-height: 1.9; color: #64748b; }
+.table-wrap { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 28px; overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { padding: 10px 14px; background: #f5f7fa; font-weight: 600; text-align: left; border-bottom: 2px solid #e2e8f0; }
+td { padding: 10px 14px; color: #475569; border-bottom: 1px solid #e2e8f0; }
+tr:last-child td { border-bottom: none; }
+.layer-legend { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+.legend-chip { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; padding: 5px 12px; border-radius: 20px; border: 1px solid; }
+.legend-fact { background: #eff6ff; border-color: #bfdbfe; color: #1d4ed8; }
+.legend-ai { background: #fffbeb; border-color: #fde68a; color: #b45309; }
+.fact-chip { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 10px; background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; vertical-align: 2px; margin-left: 8px; }
+.advice-badge { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 10px; background: #fffbeb; color: #b45309; border: 1px solid #fde68a; vertical-align: 2px; margin-left: 8px; }
+.advice-card { background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 16px 20px; margin-bottom: 12px; }
+.advice-title { font-size: 14px; font-weight: 600; color: #b45309; margin-bottom: 10px; }
+.advice-list { margin: 0; padding-left: 20px; }
+.advice-list li { font-size: 13px; line-height: 1.9; color: #78350f; margin-bottom: 4px; }
+.base-bar { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px; padding: 12px 16px; font-size: 12.5px; color: #1d4ed8; margin-bottom: 20px; line-height: 1.7; }
+.base-bar span { font-weight: 700; margin-right: 6px; }
+.base-bar b { font-size: 15px; margin: 0 2px; }
+.mindmap { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px 22px; margin-bottom: 24px; }
+.mm-root { display: inline-block; background: #1d4ed8; color: #fff; font-size: 14px; font-weight: 700; padding: 8px 26px; border-radius: 20px; margin-bottom: 8px; }
+.mm-branches { border-left: 2px solid #cbd5e1; margin-left: 16px; }
+.mm-cat { display: flex; align-items: flex-start; padding: 12px 0 2px 0; }
+.mm-cat-conn { width: 20px; height: 2px; background: #cbd5e1; margin-top: 18px; flex: none; }
+.mm-cat-label { flex: none; width: 108px; font-size: 13px; font-weight: 700; color: #1e40af; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 10px 8px; margin-right: 14px; text-align: center; align-self: flex-start; }
+.mm-main { flex: 1; min-width: 0; }
+.mm-rec { font-size: 12px; color: #b45309; background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 6px 10px; margin-bottom: 8px; line-height: 1.6; }
+.mm-years { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.mm-year { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 9px; }
+.mm-year-label { font-size: 12px; font-weight: 700; color: #475569; margin-bottom: 6px; }
+.mm-items { display: flex; flex-direction: column; gap: 4px; }
+.mm-item { font-size: 12px; line-height: 1.6; color: #334155; background: #f1f5f9; border-radius: 6px; padding: 4px 8px; word-break: break-all; }
+.mm-item .ref-sup { margin-left: 4px; }
+.mm-empty { color: #cbd5e1; text-align: center; background: transparent; }
+.mm-star { color: #b45309; font-weight: 700; }
+.fy-grid { display: grid; grid-template-columns: 11fr 9fr; gap: 16px; margin-bottom: 24px; align-items: start; }
+.fy-col { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px 20px; }
+.fy-col-head { font-size: 14.5px; font-weight: 700; color: #1d4ed8; padding-bottom: 10px; border-bottom: 2px solid #eff6ff; margin-bottom: 12px; }
+.fy-col-head.fy-head-ai { color: #b45309; border-bottom-color: #fef3c7; }
+.fy-col-sub { display: block; font-size: 11px; font-weight: 500; color: #94a3b8; margin-top: 2px; }
+.fy-year { margin-bottom: 14px; }
+.fy-year:last-child { margin-bottom: 0; }
+.fy-year-label { display: inline-block; font-size: 12px; font-weight: 700; color: #fff; background: #2c6ecb; padding: 2px 14px; border-radius: 12px; margin-bottom: 8px; }
+.fy-year-ai { background: #d97706; }
+.fy-sem { display: flex; gap: 10px; margin-bottom: 8px; }
+.fy-sem-label { flex: none; width: 64px; font-size: 11.5px; font-weight: 600; color: #1d4ed8; background: #eff6ff; border-radius: 4px; padding: 3px 0; text-align: center; align-self: flex-start; }
+.fy-sem-items { flex: 1; min-width: 0; }
+.fy-course { font-size: 12.5px; line-height: 1.9; color: #334155; }
+.ct-tag { display: inline-block; font-size: 10.5px; font-weight: 600; padding: 0 6px; border-radius: 8px; margin-right: 6px; border: 1px solid; vertical-align: 1px; white-space: nowrap; }
+.ct-0 { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+.ct-1 { background: #f5f3ff; color: #6d28d9; border-color: #ddd6fe; }
+.ct-2 { background: #ecfeff; color: #0e7490; border-color: #a5f3fc; }
+.ct-3 { background: #f1f5f9; color: #475569; border-color: #e2e8f0; }
+.ct-plain { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+.fy-block { margin-bottom: 10px; }
+.fy-block:last-child { margin-bottom: 0; }
+.fy-block-label { font-size: 12px; font-weight: 700; color: #b45309; margin-bottom: 3px; }
+.fy-block ul { margin: 0; padding-left: 16px; }
+.fy-block li { font-size: 12.5px; line-height: 1.8; color: #475569; }
+.fy-empty { color: #cbd5e1; font-size: 12px; text-align: center; padding: 16px 0; }
+.cp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 24px; }
+.cp-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px 18px; box-shadow: 0 1px 2px rgba(15,23,42,0.04); }
+.cp-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+.cp-name { font-size: 15px; font-weight: 700; color: #0f172a; }
+.cp-type { font-size: 11px; font-weight: 600; padding: 2px 10px; border-radius: 12px; background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; white-space: nowrap; }
+.cp-type-policy { background: #ecfdf5; color: #047857; border-color: #a7f3d0; }
+.cp-type-job { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+.cp-type-master { background: #f5f3ff; color: #6d28d9; border-color: #ddd6fe; }
+.cp-type-phd { background: #ecfeff; color: #0e7490; border-color: #a5f3fc; }
+.cp-type-exam { background: #fff7ed; color: #c2410c; border-color: #fed7aa; }
+.cp-overview { font-size: 13px; color: #475569; line-height: 1.7; margin-bottom: 10px; }
+.cp-steps { border-left: 2px solid #e2e8f0; margin: 0 0 10px 6px; padding-left: 16px; display: flex; flex-direction: column; gap: 8px; }
+.cp-step { position: relative; font-size: 12.5px; line-height: 1.7; color: #334155; }
+.cp-step::before { content: ''; position: absolute; left: -21px; top: 7px; width: 8px; height: 8px; border-radius: 50%; background: #3b82f6; }
+.cp-period { display: inline-block; font-size: 11px; font-weight: 700; color: #1d4ed8; background: #eff6ff; border-radius: 6px; padding: 1px 8px; margin-right: 8px; vertical-align: 1px; }
+.cp-advice { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 10px 12px; font-size: 12.5px; color: #78350f; }
+.cp-advice b { display: block; margin-bottom: 4px; font-size: 12.5px; color: #b45309; }
+.cp-advice ul { margin: 0; padding-left: 18px; }
+.cp-advice li { margin-bottom: 3px; line-height: 1.7; }
+.cp-mm { display: flex; align-items: center; gap: 26px; background: linear-gradient(180deg, #f0f6ff 0%, #ffffff 90px); border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px 14px 12px; margin-bottom: 24px; }
+.cp-mm-root { display: flex; align-items: center; gap: 10px; writing-mode: vertical-rl; position: relative; flex-shrink: 0; align-self: center; max-height: 280px; margin: 0; padding: 14px 10px; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); border-radius: 8px; box-shadow: 0 2px 8px rgba(37,99,235,0.25); }
+.cp-mm-root::after { content: ''; position: absolute; top: 50%; right: -26px; width: 26px; border-top: 2px solid #cbd5e1; }
+.cp-mm-root-badge { padding: 2px 9px; border-radius: 999px; background: rgba(255,255,255,0.22); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 2px; }
+.cp-mm-root-name { color: #fff; font-size: 15px; font-weight: 700; letter-spacing: 0.5px; }
+.cp-mm-branches { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 10px; margin-top: 0; padding-left: 0; }
+.cp-mm-branch { position: relative; margin-left: 26px; padding: 12px 14px; background: #fff; border: 1px solid #e2e8f0; border-left: 3px solid #93c5fd; border-radius: 8px; }
+.cp-mm-branch::before { content: ''; position: absolute; left: -26px; top: 50%; width: 26px; border-top: 2px solid #cbd5e1; }
+.cp-mm-branch::after { content: ''; position: absolute; left: -26px; top: -10px; bottom: -10px; border-left: 2px solid #cbd5e1; }
+.cp-mm-branch:first-child::after { top: 50%; }
+.cp-mm-branch:last-child::after { bottom: 50%; }
+.cp-mm-branch:only-child::after { display: none; }
+.cp-mm-flow { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+.cp-mm-chip { display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: 999px; background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; line-height: 1.6; color: #1a202c; }
+.cp-mm-chip i { font-style: normal; font-size: 10px; font-weight: 700; opacity: 0.72; }
+.cp-mm-chip-skill { background: #dbeafe; border-color: #bfdbfe; color: #1d4ed8; }
+.cp-mm-chip-course { background: #d1fae5; border-color: #a7f3d0; color: #047857; }
+.cp-mm-chip-comp { background: #fef3c7; border-color: #fde68a; color: #b45309; }
+.cp-mm-chip-text { background: #f1f5f9; color: #475569; }
+.cp-mm-arrow { color: #94a3b8; font-size: 13px; flex-shrink: 0; }
+.cp-mm-arrow-final { color: #2563eb; font-size: 15px; font-weight: 700; margin: 0 3px; }
+.cp-mm-target { display: inline-flex; align-items: center; padding: 5px 16px; border-radius: 999px; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: #fff; font-size: 13px; font-weight: 700; box-shadow: 0 2px 6px rgba(37,99,235,0.3); white-space: nowrap; }
+.cp-mm-note { margin-top: 9px; }
+.cp-mm-overview { font-size: 12px; color: #64748b; line-height: 1.7; margin-bottom: 5px; }
+.cp-mm-advice { margin: 8px 0 2px; padding: 7px 12px 8px; background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; }
+.cp-mm-advice-label { font-size: 11px; font-weight: 700; color: #b45309; letter-spacing: 0.5px; margin-bottom: 6px; }
+.cp-mm-advice-list { margin: 0; padding-left: 16px; }
+.cp-mm-advice-list li { font-size: 12px; color: #78350f; line-height: 1.7; }
+.cp-mm-branch-study { border-left-color: #c4b5fd; }
+.cp-mm-target-study { background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%); box-shadow: 0 2px 6px rgba(124,58,237,0.3); }
+.cp-mm-target-study i { font-style: normal; font-size: 10px; font-weight: 400; opacity: 0.9; background: rgba(255,255,255,0.2); border-radius: 999px; padding: 1px 8px; margin-right: 6px; }
+.cp-mm-steps { margin: 7px 0 8px; padding: 7px 10px 8px; background: #faf5ff; border: 1px solid #ede9fe; border-radius: 8px; }
+.cp-mm-steps-label { font-size: 11px; font-weight: 700; color: #6d28d9; letter-spacing: 0.5px; margin-bottom: 6px; }
+.cp-mm-step-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px 16px; }
+.cp-mm-step { display: flex; align-items: flex-start; gap: 7px; font-size: 12px; line-height: 1.6; }
+.cp-mm-period { flex-shrink: 0; padding: 1px 8px; border-radius: 6px; background: #ede9fe; border: 1px solid #ddd6fe; color: #6d28d9; font-size: 11px; font-weight: 700; white-space: nowrap; }
+.cp-mm-action { color: #334155; min-width: 0; }
+@media(max-width: 900px) {
+  .cp-grid { grid-template-columns: 1fr; }
+  .cp-mm { display: block; padding: 12px 10px 10px; }
+  .cp-mm-root { writing-mode: horizontal-tb; margin: 0 auto 6px; padding: 7px 14px; max-height: none; }
+  .cp-mm-root::after { display: none; }
+  .cp-mm-branches { display: block; padding-left: 8px; }
+  .cp-mm-branch { margin-left: 0; margin-bottom: 10px; padding: 12px 14px; }
+  .cp-mm-branch::before { display: none; }
+  .cp-mm-branch::after { display: none; }
+  .cp-mm-target { white-space: normal; }
+  .cp-mm-step-grid { grid-template-columns: 1fr; }
+  .fy-grid { grid-template-columns: 1fr; }
+  .mm-years { grid-template-columns: repeat(2, 1fr); }
+  .mm-cat { flex-direction: column; }
+  .mm-cat-conn { display: none; }
+  .mm-cat-label { width: auto; margin-right: 0; margin-bottom: 8px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>电子信息工程专业·多路径职业规划报告</h1>
+<div class="meta">关键词：电子信息工程　|　维度：综合维度　|　报告模式：职业方向　|　展开层级：3层　|　生成时间：2026-09-25 10:54:08</div>
+<div class="meta" style="font-size:11px;color:#94a3b8;">接地校验：删除句子 0，补来源 87，补AI标签 0，课程降级 0，非法标签修正 0，学期归一 0，剔除无效项 8，剔除建议编造 2，剔除陈词 1，重写 0，替换违规单元格 2，裁剪超长 0，缺失学期 0/8，行动项回填 2</div>
+<div class="base-bar"><span>图谱数据基座</span>本报告基于就业知识图谱子图生成：<b>80</b> 个实体 · <b>80</b> 条关联 · 覆盖 6 个维度（课程体系、竞赛实践、岗位聚集、技能结构、发展路径、岗位竞合）· <b>26</b> 份来源文档 —— 正文上标 <b style="font-size:12px">[Sn]</b> 可对应文末「数据来源」逐条溯源；黄色「AI建议」条目为模型补全，仅供参考</div>
+<div class="layer-legend">
+<span class="legend-chip legend-fact">L1 官方课程 · 培养方案/职业标准权威骨架</span>
+<span class="legend-chip" style="background:#ecfdf5;border-color:#a7f3d0;color:#047857;">L2 技能/竞赛 · 多源抽取（职业标准·行业报告·竞赛简章）</span>
+<span class="legend-chip legend-ai">L3 AI 建议 · 模型补全，仅供参考</span>
+</div>
+
+<div class="summary">必备基础课程涵盖《微积分I》《线性代数及其应用》《大学物理1A》<span class="ref-sup">[S1]</span>，强化数理逻辑与物理建模能力。上述课程共同支撑电路设计、信号处理、嵌入式开发等核心技能。</div>
+<h2>个人现状与方向盘点<span class="fact-chip">L1 权威 + L2 抽取</span></h2>
+<div class="profile-card"><h3>画像要点</h3><ul class="profile-list">
+<li>岗位画像：硬件研发工程师属于硬件方向，是薪酬调查职业，要求具备扎实的电路分析与系统设计能力，对应专业核心课程《电路基础A》《数字逻辑电路》<span class="ref-sup">[S1]</span>。</li>
+<li>岗位画像：集成电路设计工程师从事集成电路需求分析、架构设计、测试验证等工作，属于薪酬调查职业，需掌握《信号与系统》《数字信号处理》等核心课程知识<span class="ref-sup">[S1]</span>。</li>
+<li>岗位画像：嵌入式硬件开发工程师侧重微控制器编程与应用，要求掌握《微控制器原理与应用》《JAVA程序设计》等课程，具备软硬件协同开发能力<span class="ref-sup">[S1]</span>。</li>
+<li>岗位画像：汽车电子工程师属于薪酬调查职业，要求具备电子电路设计与系统测试能力，对应《电路基础A》《数字信号处理》等课程支撑<span class="ref-sup">[S1]</span>。</li>
+<li>岗位画像：集成电路工程技术人员从事集成电路详细设计、网表设计和版图设计，属于薪酬调查职业，需具备《数字逻辑电路》《信息论与编码》等核心技能<span class="ref-sup">[S1]</span>。</li>
+</ul></div>
+<h2>职业方向路径图<span class="fact-chip">事实步骤接地溯源 · 规划步骤为AI建议</span></h2>
+<div class="cp-mm">
+<div class="cp-mm-root"><span class="cp-mm-root-badge">专业</span><span class="cp-mm-root-name">电子信息工程</span></div>
+<div class="cp-mm-branches">
+<div class="cp-mm-branch"><div class="cp-mm-flow">
+<span class="cp-mm-chip cp-mm-chip-course"><i>课程</i>电路基础A</span>
+<span class="cp-mm-arrow">→</span>
+<span class="cp-mm-chip cp-mm-chip-course"><i>课程</i>数字逻辑电路</span>
+<span class="cp-mm-arrow">→</span>
+<span class="cp-mm-chip cp-mm-chip-skill"><i>技能</i>电路分析与系统设计</span>
+<span class="cp-mm-arrow">→</span>
+<span class="cp-mm-chip cp-mm-chip-comp"><i>竞赛</i>全国大学生电子设计竞赛</span>
+<span class="cp-mm-arrow cp-mm-arrow-final">⇒</span>
+<span class="cp-mm-target">硬件研发工程师</span>
+</div>
+<div class="cp-mm-note">
+<div class="cp-mm-overview">硬件研发工程师是薪酬调查职业，要求具备扎实的电路分析与系统设计能力，适合对硬件开发感兴趣的学生。</div>
+<div class="cp-mm-steps"><div class="cp-mm-steps-label">时间流程</div><div class="cp-mm-step-grid">
+<div class="cp-mm-step"><span class="cp-mm-period">大一·秋</span><span class="cp-mm-action">学习《微积分I》《线性代数及其应用》《电气信息导论》，建立数理基础与专业认知 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大一·春</span><span class="cp-mm-action">学习《电路基础A》《电工测量A》《创新工程实践1》，掌握电路基础与初步工程实践 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大二·秋</span><span class="cp-mm-action">学习《信号与系统》《JAVA程序设计》《人工智能基础》，拓展信号处理与编程能力 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大二·春</span><span class="cp-mm-action">学习《数字逻辑电路》《PROTEUS电子系统设计与仿真》《微控制器原理与应用》，掌握数字电路与仿真设计 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大三·秋</span><span class="cp-mm-action">学习《数字信号处理》《数字图像处理（双语）》《模式识别与类脑智能》，深化信号与图像处理能力 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大三·春</span><span class="cp-mm-action">学习《数理方程》《数字视频技术》《无线传感器网络技术》，拓展数学建模与物联网技术 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大四·秋</span><span class="cp-mm-action">参加《生产实习》，进入行业头部企业实践，积累工程经验 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大四·春</span><span class="cp-mm-action">完成《毕业设计(论文）》，展示硬件研发能力，准备就业面试 <span class="ref-sup">[S1]</span></span></div>
+</div></div>
+<div class="cp-mm-advice"><div class="cp-mm-advice-label">路径建议</div><ul class="cp-mm-advice-list">
+<li>大二暑期开始备赛全国大学生电子设计竞赛，重点练习电路设计与调试能力。</li>
+<li>大三下学期确定就业目标，开始针对性学习行业头部企业所需的技能与工具。</li>
+<li>大四上学期积极参加校园招聘，准备简历与笔试面试，争取获得理想Offer。</li>
+</ul></div>
+</div>
+</div>
+<div class="cp-mm-branch"><div class="cp-mm-flow">
+<span class="cp-mm-chip cp-mm-chip-course"><i>课程</i>信号与系统</span>
+<span class="cp-mm-arrow">→</span>
+<span class="cp-mm-chip cp-mm-chip-course"><i>课程</i>数字信号处理</span>
+<span class="cp-mm-arrow">→</span>
+<span class="cp-mm-chip cp-mm-chip-course"><i>课程</i>数字逻辑电路</span>
+<span class="cp-mm-arrow">→</span>
+<span class="cp-mm-chip cp-mm-chip-skill"><i>技能</i>集成电路架构设计</span>
+<span class="cp-mm-arrow">→</span>
+<span class="cp-mm-chip cp-mm-chip-comp"><i>竞赛</i>全国大学生集成电路创新创业大赛</span>
+<span class="cp-mm-arrow cp-mm-arrow-final">⇒</span>
+<span class="cp-mm-target">集成电路设计工程师</span>
+</div>
+<div class="cp-mm-note">
+<div class="cp-mm-overview">集成电路设计工程师从事集成电路需求分析、架构设计、测试验证等工作，属于薪酬调查职业，需掌握信号与数字电路知识。</div>
+<div class="cp-mm-steps"><div class="cp-mm-steps-label">时间流程</div><div class="cp-mm-step-grid">
+<div class="cp-mm-step"><span class="cp-mm-period">大一·秋</span><span class="cp-mm-action">学习《微积分I》《线性代数及其应用》《电气信息导论》，建立数理基础与专业认知 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大一·春</span><span class="cp-mm-action">学习《电路基础A》《电工测量A》《创新工程实践1》，掌握电路基础与初步工程实践 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大二·秋</span><span class="cp-mm-action">学习《信号与系统》《JAVA程序设计》《人工智能基础》，拓展信号处理与编程能力 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大二·春</span><span class="cp-mm-action">学习《数字逻辑电路》《PROTEUS电子系统设计与仿真》《微控制器原理与应用》，掌握数字电路与仿真设计 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大三·秋</span><span class="cp-mm-action">学习《数字信号处理》《数字图像处理（双语）》《模式识别与类脑智能》，深化信号与图像处理能力 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大三·春</span><span class="cp-mm-action">学习《数理方程》《数字视频技术》《无线传感器网络技术》，拓展数学建模与物联网技术 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大四·秋</span><span class="cp-mm-action">参加《生产实习》，进入行业头部企业实践，积累工程经验 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大四·春</span><span class="cp-mm-action">完成《毕业设计(论文）》，展示集成电路设计能力，准备就业面试 <span class="ref-sup">[S1]</span></span></div>
+</div></div>
+<div class="cp-mm-advice"><div class="cp-mm-advice-label">路径建议</div><ul class="cp-mm-advice-list">
+<li>大二暑期开始备赛全国大学生集成电路创新创业大赛，重点练习集成电路设计与验证能力。</li>
+<li>大三下学期确定就业目标，开始针对性学习行业头部企业所需的技能与工具。</li>
+<li>大四上学期积极参加校园招聘，准备简历与笔试面试，争取获得理想Offer。</li>
+</ul></div>
+</div>
+</div>
+<div class="cp-mm-branch"><div class="cp-mm-flow">
+<span class="cp-mm-chip cp-mm-chip-course"><i>课程</i>微控制器原理与应用</span>
+<span class="cp-mm-arrow">→</span>
+<span class="cp-mm-chip cp-mm-chip-course"><i>课程</i>JAVA程序设计</span>
+<span class="cp-mm-arrow">→</span>
+<span class="cp-mm-chip cp-mm-chip-course"><i>课程</i>电路基础A</span>
+<span class="cp-mm-arrow">→</span>
+<span class="cp-mm-chip cp-mm-chip-skill"><i>技能</i>微控制器编程与应用</span>
+<span class="cp-mm-arrow">→</span>
+<span class="cp-mm-chip cp-mm-chip-comp"><i>竞赛</i>全国大学生物联网设计竞赛</span>
+<span class="cp-mm-arrow cp-mm-arrow-final">⇒</span>
+<span class="cp-mm-target">嵌入式硬件开发工程师</span>
+</div>
+<div class="cp-mm-note">
+<div class="cp-mm-overview">嵌入式硬件开发工程师侧重微控制器编程与应用，要求掌握微控制器原理与JAVA程序设计等课程，具备软硬件协同开发能力。</div>
+<div class="cp-mm-steps"><div class="cp-mm-steps-label">时间流程</div><div class="cp-mm-step-grid">
+<div class="cp-mm-step"><span class="cp-mm-period">大一·秋</span><span class="cp-mm-action">学习《微积分I》《线性代数及其应用》《电气信息导论》，建立数理基础与专业认知 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大一·春</span><span class="cp-mm-action">学习《电路基础A》《电工测量A》《创新工程实践1》，掌握电路基础与初步工程实践 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大二·秋</span><span class="cp-mm-action">学习《信号与系统》《JAVA程序设计》《人工智能基础》，拓展信号处理与编程能力 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大二·春</span><span class="cp-mm-action">学习《数字逻辑电路》《PROTEUS电子系统设计与仿真》《微控制器原理与应用》，掌握数字电路与仿真设计 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大三·秋</span><span class="cp-mm-action">学习《数字信号处理》《数字图像处理（双语）》《模式识别与类脑智能》，深化信号与图像处理能力 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大三·春</span><span class="cp-mm-action">学习《数理方程》《数字视频技术》《无线传感器网络技术》，拓展数学建模与物联网技术 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大四·秋</span><span class="cp-mm-action">参加《生产实习》，进入行业头部企业实践，积累工程经验 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大四·春</span><span class="cp-mm-action">完成《毕业设计(论文）》，展示嵌入式硬件开发能力，准备就业面试 <span class="ref-sup">[S1]</span></span></div>
+</div></div>
+<div class="cp-mm-advice"><div class="cp-mm-advice-label">路径建议</div><ul class="cp-mm-advice-list">
+<li>大二暑期开始备赛全国大学生物联网设计竞赛，重点练习微控制器编程与物联网系统设计能力。</li>
+<li>大三下学期确定就业目标，开始针对性学习行业头部企业所需的技能与工具。</li>
+<li>大四上学期积极参加校园招聘，准备简历与笔试面试，争取获得理想Offer。</li>
+</ul></div>
+</div>
+</div>
+<div class="cp-mm-branch cp-mm-branch-study"><div class="cp-mm-flow">
+<span class="cp-mm-chip cp-mm-chip-course"><i>课程</i>微积分I</span>
+<span class="cp-mm-arrow">→</span>
+<span class="cp-mm-chip cp-mm-chip-course"><i>课程</i>线性代数及其应用</span>
+<span class="cp-mm-arrow">→</span>
+<span class="cp-mm-chip cp-mm-chip-course"><i>课程</i>电路基础A</span>
+<span class="cp-mm-arrow">→</span>
+<span class="cp-mm-chip cp-mm-chip-course"><i>课程</i>信号与系统</span>
+<span class="cp-mm-arrow">→</span>
+<span class="cp-mm-chip cp-mm-chip-comp"><i>竞赛</i>全国大学生数学建模竞赛</span>
+<span class="cp-mm-arrow cp-mm-arrow-final">⇒</span>
+<span class="cp-mm-target cp-mm-target-study"><i>升学读研</i></span>
+</div>
+<div class="cp-mm-note">
+<div class="cp-mm-overview">适合希望深入研究电子信息工程领域前沿技术的学生，需具备扎实的数理基础与专业核心课程成绩。</div>
+<div class="cp-mm-steps"><div class="cp-mm-steps-label">时间流程</div><div class="cp-mm-step-grid">
+<div class="cp-mm-step"><span class="cp-mm-period">大一·秋</span><span class="cp-mm-action">学习《微积分I》《线性代数及其应用》《电气信息导论》，建立数理基础与专业认知 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大一·春</span><span class="cp-mm-action">学习《电路基础A》《电工测量A》《创新工程实践1》，掌握电路基础与初步工程实践 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大二·秋</span><span class="cp-mm-action">学习《信号与系统》《JAVA程序设计》《人工智能基础》，拓展信号处理与编程能力 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大二·春</span><span class="cp-mm-action">学习《数字逻辑电路》《PROTEUS电子系统设计与仿真》《微控制器原理与应用》，掌握数字电路与仿真设计 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大三·秋</span><span class="cp-mm-action">学习《数字信号处理》《数字图像处理（双语）》《模式识别与类脑智能》，深化信号与图像处理能力 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大三·春</span><span class="cp-mm-action">学习《数理方程》《数字视频技术》《无线传感器网络技术》，拓展数学建模与物联网技术 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大四·秋</span><span class="cp-mm-action">参加《生产实习》，进入行业头部企业实践，积累工程经验 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大四·春</span><span class="cp-mm-action">完成《毕业设计(论文）》，准备研究生入学考试或申请 <span class="ref-sup">[S1]</span></span></div>
+</div></div>
+<div class="cp-mm-advice"><div class="cp-mm-advice-label">路径建议</div><ul class="cp-mm-advice-list">
+<li>大一阶段重点攻克数理基础课程，为考研数学打下坚实基础。</li>
+<li>大二阶段深入学习专业核心课程，保持高GPA，为考研复试增加竞争力。</li>
+<li>大三下学期确定考研目标院校与专业，开始针对性复习。</li>
+</ul></div>
+</div>
+</div>
+<div class="cp-mm-branch cp-mm-branch-study"><div class="cp-mm-flow">
+<span class="cp-mm-chip cp-mm-chip-course"><i>课程</i>微积分I</span>
+<span class="cp-mm-arrow">→</span>
+<span class="cp-mm-chip cp-mm-chip-course"><i>课程</i>线性代数及其应用</span>
+<span class="cp-mm-arrow">→</span>
+<span class="cp-mm-chip cp-mm-chip-course"><i>课程</i>电路基础A</span>
+<span class="cp-mm-arrow">→</span>
+<span class="cp-mm-chip cp-mm-chip-course"><i>课程</i>信号与系统</span>
+<span class="cp-mm-arrow">→</span>
+<span class="cp-mm-chip cp-mm-chip-comp"><i>竞赛</i>挑战杯全国大学生课外学术科技作品竞赛</span>
+<span class="cp-mm-arrow cp-mm-arrow-final">⇒</span>
+<span class="cp-mm-target cp-mm-target-study"><i>直博</i></span>
+</div>
+<div class="cp-mm-note">
+<div class="cp-mm-overview">适合学术能力突出、对科研有浓厚兴趣的学生，需具备扎实的数理基础与专业核心课程成绩，以及较强的科研潜力。</div>
+<div class="cp-mm-steps"><div class="cp-mm-steps-label">时间流程</div><div class="cp-mm-step-grid">
+<div class="cp-mm-step"><span class="cp-mm-period">大一·秋</span><span class="cp-mm-action">学习《微积分I》《线性代数及其应用》《电气信息导论》，建立数理基础与专业认知 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大一·春</span><span class="cp-mm-action">学习《电路基础A》《电工测量A》《创新工程实践1》，掌握电路基础与初步工程实践 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大二·秋</span><span class="cp-mm-action">学习《信号与系统》《JAVA程序设计》《人工智能基础》，拓展信号处理与编程能力 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大二·春</span><span class="cp-mm-action">学习《数字逻辑电路》《PROTEUS电子系统设计与仿真》《微控制器原理与应用》，掌握数字电路与仿真设计 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大三·秋</span><span class="cp-mm-action">学习《数字信号处理》《数字图像处理（双语）》《模式识别与类脑智能》，深化信号与图像处理能力 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大三·春</span><span class="cp-mm-action">学习《数理方程》《数字视频技术》《无线传感器网络技术》，拓展数学建模与物联网技术 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大四·秋</span><span class="cp-mm-action">参加《生产实习》，进入行业头部企业实践，积累工程经验 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大四·春</span><span class="cp-mm-action">完成《毕业设计(论文）》，准备直博申请 <span class="ref-sup">[S1]</span></span></div>
+</div></div>
+<div class="cp-mm-advice"><div class="cp-mm-advice-label">路径建议</div><ul class="cp-mm-advice-list">
+<li>大一阶段重点攻克数理基础课程，为直博数学打下坚实基础。</li>
+<li>大二阶段深入学习专业核心课程，保持高GPA，为直博复试增加竞争力。</li>
+<li>大三阶段积极参与科研项目，发表学术论文，提升科研能力。</li>
+</ul></div>
+</div>
+</div>
+<div class="cp-mm-branch cp-mm-branch-study"><div class="cp-mm-flow">
+<span class="cp-mm-chip cp-mm-chip-course"><i>课程</i>微积分I</span>
+<span class="cp-mm-arrow">→</span>
+<span class="cp-mm-chip cp-mm-chip-course"><i>课程</i>线性代数及其应用</span>
+<span class="cp-mm-arrow">→</span>
+<span class="cp-mm-chip cp-mm-chip-course"><i>课程</i>电路基础A</span>
+<span class="cp-mm-arrow">→</span>
+<span class="cp-mm-chip cp-mm-chip-course"><i>课程</i>信号与系统</span>
+<span class="cp-mm-arrow">→</span>
+<span class="cp-mm-chip cp-mm-chip-comp"><i>竞赛</i>全国大学生数学建模竞赛</span>
+<span class="cp-mm-arrow cp-mm-arrow-final">⇒</span>
+<span class="cp-mm-target cp-mm-target-study"><i>考研</i></span>
+</div>
+<div class="cp-mm-note">
+<div class="cp-mm-overview">适合希望深入研究电子信息工程领域前沿技术的学生，需具备扎实的数理基础与专业核心课程成绩。</div>
+<div class="cp-mm-steps"><div class="cp-mm-steps-label">时间流程</div><div class="cp-mm-step-grid">
+<div class="cp-mm-step"><span class="cp-mm-period">大一·秋</span><span class="cp-mm-action">学习《微积分I》《线性代数及其应用》《电气信息导论》，建立数理基础与专业认知 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大一·春</span><span class="cp-mm-action">学习《电路基础A》《电工测量A》《创新工程实践1》，掌握电路基础与初步工程实践 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大二·秋</span><span class="cp-mm-action">学习《信号与系统》《JAVA程序设计》《人工智能基础》，拓展信号处理与编程能力 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大二·春</span><span class="cp-mm-action">学习《数字逻辑电路》《PROTEUS电子系统设计与仿真》《微控制器原理与应用》，掌握数字电路与仿真设计 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大三·秋</span><span class="cp-mm-action">学习《数字信号处理》《数字图像处理（双语）》《模式识别与类脑智能》，深化信号与图像处理能力 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大三·春</span><span class="cp-mm-action">学习《数理方程》《数字视频技术》《无线传感器网络技术》，拓展数学建模与物联网技术 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大四·秋</span><span class="cp-mm-action">参加《生产实习》，进入行业头部企业实践，积累工程经验 <span class="ref-sup">[S1]</span></span></div>
+<div class="cp-mm-step"><span class="cp-mm-period">大四·春</span><span class="cp-mm-action">完成《毕业设计(论文）》，准备研究生入学考试或申请 <span class="ref-sup">[S1]</span></span></div>
+</div></div>
+<div class="cp-mm-advice"><div class="cp-mm-advice-label">路径建议</div><ul class="cp-mm-advice-list">
+<li>大一阶段重点攻克数理基础课程，为考研数学打下坚实基础。</li>
+<li>大二阶段深入学习专业核心课程，保持高GPA，为考研复试增加竞争力。</li>
+<li>大三下学期确定考研目标院校与专业，开始针对性复习。</li>
+</ul></div>
+</div>
+</div>
+</div></div>
+<div class="cp-grid">
+<div class="cp-card">
+<div class="cp-head">
+<span class="cp-name">选调</span>
+<span class="cp-type cp-type-policy">选调</span>
+</div>
+<div class="cp-overview">适合政治素质过硬、综合能力突出的学生，需具备扎实的专业基础与较强的组织协调能力。</div>
+<div class="cp-steps">
+<div class="cp-step">
+<span class="cp-period">大一·秋</span>
+<span>关注选调生政策发布，了解报考条件与流程</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大一·春</span>
+<span>积极参与学生工作，提升组织协调能力</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大二·秋</span>
+<span>保持高GPA，争取获得奖学金与荣誉称号</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大二·春</span>
+<span>参与社会实践与志愿服务，积累基层工作经验</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大三·秋</span>
+<span>关注选调生考试报名通知，准备笔试与面试</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大三·春</span>
+<span>参加选调生笔试与面试，争取获得录用资格</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大四·秋</span>
+<span>完成选调生录用手续，准备入职培训</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大四·春</span>
+<span>完成《毕业设计(论文）》，顺利毕业</span>
+</div>
+</div>
+<div class="cp-advice"><b>路径建议</b><ul>
+<li>大一阶段积极参与学生工作，提升组织协调能力。</li>
+<li>大二阶段保持高GPA，争取获得奖学金与荣誉称号。</li>
+<li>大三阶段关注选调生政策发布，了解报考条件与流程。</li>
+</ul></div>
+</div>
+<div class="cp-card">
+<div class="cp-head">
+<span class="cp-name">支教保研</span>
+<span class="cp-type cp-type-policy">支教保研</span>
+</div>
+<div class="cp-overview">适合有支教意愿、综合素质突出的学生，需具备扎实的专业基础与较强的奉献精神。</div>
+<div class="cp-steps">
+<div class="cp-step">
+<span class="cp-period">大一·秋</span>
+<span>关注支教保研政策发布，了解报考条件与流程</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大一·春</span>
+<span>积极参与学生工作，提升组织协调能力</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大二·秋</span>
+<span>保持高GPA，争取获得奖学金与荣誉称号</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大二·春</span>
+<span>参与社会实践与志愿服务，积累基层工作经验</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大三·秋</span>
+<span>关注支教保研考试报名通知，准备笔试与面试</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大三·春</span>
+<span>参加支教保研笔试与面试，争取获得录用资格</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大四·秋</span>
+<span>完成支教保研录用手续，准备支教工作</span>
+</div>
+<div class="cp-step">
+<span class="cp-period">大四·春</span>
+<span>完成《毕业设计(论文）》，顺利毕业</span>
+</div>
+</div>
+<div class="cp-advice"><b>路径建议</b><ul>
+<li>大一阶段积极参与学生工作，提升组织协调能力。</li>
+<li>大二阶段保持高GPA，争取获得奖学金与荣誉称号。</li>
+<li>大三阶段关注支教保研政策发布，了解报考条件与流程。</li>
+</ul></div>
+</div>
+</div>
+<h2>四年培养路径总览<span class="fact-chip">官方培养方案骨架 + 分层补全</span></h2>
+<div class="timeline">
+<div class="tl-year-head">
+<span class="tl-year">大一</span><span class="tl-year-line"></span>
+</div>
+<div class="tl-sem-row">
+<div class="tl-sem">大一·秋</div>
+<div class="tl-items">
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《微积分I》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《线性代数及其应用》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《电气信息导论》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《人工智能导论》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《工程制图基础4》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-skill">技能要求</span>技能：掌握基础英语词汇与语法，达到大学英语四级水平</div>
+<div class="tl-item advice-item"><span class="tag tag-advice">AI建议</span>建议：利用课余时间阅读《电气信息导论》相关科普书籍，建立专业宏观认知</div>
+</div></div>
+<div class="tl-sem-row">
+<div class="tl-sem">大一·春</div>
+<div class="tl-items">
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《微积分II》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《复变函数》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学物理1A》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《电路基础A》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《电工测量A》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《翻译与跨文化传播》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新工程实践1》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《计算机软件技术基础2》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-skill">技能要求</span>技能：掌握C语言基础编程，能够完成简单算法实现</div>
+<div class="tl-item advice-item"><span class="tag tag-advice">AI建议</span>建议：通过LeetCode平台进行基础算法练习，提升编程逻辑思维能力</div>
+</div></div>
+<div class="tl-year-head">
+<span class="tl-year">大二</span><span class="tl-year-line"></span>
+</div>
+<div class="tl-sem-row">
+<div class="tl-sem">大二·秋</div>
+<div class="tl-items">
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《信号与系统》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《概率论与数理统计》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大学物理1B》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《物理实验A》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《JAVA程序设计》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《人工智能基础》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《数据库应用技术》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《区块链原理与应用》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《校企合作创新实践1》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《校企合作创新实践2》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《学术英文写作》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《管理概论》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《物联网工程导论》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《电子信息工程导论》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-skill">技能要求</span>技能：掌握Python数据分析基础，能够使用Matplotlib进行数据可视化</div>
+<div class="tl-item advice-item"><span class="tag tag-advice">AI建议</span>建议：参与导师的科研项目或实验室工作，积累工程实践经验</div>
+</div></div>
+<div class="tl-sem-row">
+<div class="tl-sem">大二·春</div>
+<div class="tl-items">
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《数字逻辑电路》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《信息论与编码》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《物理实验B》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《机械工程训练基础》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《机械工程训练2》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《PROTEUS电子系统设计与仿真》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《微控制器原理与应用》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《多媒体应用基础》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新工程实践2》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新工程实践3》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《西方文化掠影》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《中国传统典籍英译》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-skill">技能要求</span>技能：掌握PROTEUS仿真软件，能够完成简单电子系统电路设计与仿真</div>
+<div class="tl-item advice-item"><span class="tag tag-advice">AI建议</span>建议：学习Altium Designer或KiCad等EDA工具，提升电路设计能力</div>
+</div></div>
+<div class="tl-year-head">
+<span class="tl-year">大三</span><span class="tl-year-line"></span>
+</div>
+<div class="tl-sem-row">
+<div class="tl-sem">大三·秋</div>
+<div class="tl-items">
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《数字信号处理》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《数字图像处理（双语）》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《模式识别与类脑智能》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《信号处理实践项目》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《信息安全技术》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《智能传感技术》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《人工智能实践项目》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-skill">技能要求</span>技能：掌握数字信号处理算法，能够使用MATLAB进行信号分析与处理<span class="ref-sup">[S2]</span></div>
+<div class="tl-item advice-item"><span class="tag tag-advice">AI建议</span>建议：关注行业头部企业校园招聘动态，准备简历与笔试面试</div>
+</div></div>
+<div class="tl-sem-row">
+<div class="tl-sem">大三·春</div>
+<div class="tl-items">
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《数理方程》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《数字视频技术》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《数字通信（英）》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《多媒体实践项目》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《无线传感器网络技术》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大数据分析（英）》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《大模型感知与决策》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《“视觉-语言”智能理解与生成》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《机器学习与视觉感知（双语）》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《多媒体信息处理前沿讲座》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-skill">技能要求</span>技能：掌握机器学习基础算法，能够使用Python实现简单模型训练</div>
+<div class="tl-item advice-item"><span class="tag tag-advice">AI建议</span>建议：确定考研或就业方向，开始针对性复习或技能提升</div>
+</div></div>
+<div class="tl-year-head">
+<span class="tl-year">大四</span><span class="tl-year-line"></span>
+</div>
+<div class="tl-sem-row">
+<div class="tl-sem">大四·秋</div>
+<div class="tl-items">
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《数字语音信号处理》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《物联网技术及其应用》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《生产实习》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-skill">技能要求</span>技能：掌握物联网系统架构设计，能够完成简单物联网项目开发</div>
+<div class="tl-item advice-item"><span class="tag tag-advice">AI建议</span>建议：完成毕业设计开题报告，开始撰写论文初稿</div>
+</div></div>
+<div class="tl-sem-row">
+<div class="tl-sem">大四·春</div>
+<div class="tl-items">
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《创新实践计划》<span class="ref-sup">[S3]</span></div>
+<div class="tl-item"><span class="tag tag-course">官方课程</span>必修课《毕业设计(论文）》<span class="ref-sup">[S2]</span></div>
+<div class="tl-item"><span class="tag tag-skill">技能要求</span>技能：完成毕业设计论文撰写与答辩，具备独立解决工程问题的能力</div>
+<div class="tl-item advice-item"><span class="tag tag-advice">AI建议</span>建议：参加秋季校园招聘，积极投递简历，争取获得理想Offer</div>
+</div></div>
+</div>
+<h2>电子信息工程专业·个人职业行动清单<span class="fact-chip">图谱实证</span></h2>
+<div class="table-wrap"><table><thead><tr>
+<th>行动项</th>
+<th>针对的差距技能</th>
+<th>学习资源（课程/证书）</th>
+<th>目标岗位</th>
+<th>优先级</th>
+</tr></thead><tbody>
+<tr>
+<td>夯实数理基础</td>
+<td>微积分/线性代数/大学物理</td>
+<td>《微积分I》《线性代数及其应用》《大学物理1A》<span class="ref-sup">[S2]</span></td>
+<td>硬件研发工程师<span class="ref-sup">[S4]</span></td>
+<td>高</td>
+</tr>
+<tr>
+<td>掌握电路设计</td>
+<td>电路分析与系统设计</td>
+<td>《电路基础A》《数字逻辑电路》<span class="ref-sup">[S2]</span></td>
+<td>集成电路设计工程师<span class="ref-sup">[S5]</span></td>
+<td>高</td>
+</tr>
+<tr>
+<td>提升信号处理能力</td>
+<td>信号分析与处理</td>
+<td>《信号与系统》《数字信号处理》<span class="ref-sup">[S2]</span></td>
+<td>嵌入式硬件开发工程师<span class="ref-sup">[S5]</span></td>
+<td>高</td>
+</tr>
+<tr>
+<td>学习嵌入式开发</td>
+<td>微控制器编程与应用</td>
+<td>《微控制器原理与应用》《JAVA程序设计》<span class="ref-sup">[S2]</span></td>
+<td>汽车电子工程师<span class="ref-sup">[S6]</span></td>
+<td>中</td>
+</tr>
+<tr>
+<td>技能：掌握基础英语词汇与语法，达到大学英语四级水平</td>
+<td>工程实践与团队协作</td>
+<td>必修课《微积分I》<span class="ref-sup">[S2]</span></td>
+<td>硬件研发工程师<span class="ref-sup">[S4]</span></td>
+<td>高</td>
+</tr>
+<tr>
+<td>掌握EDA工具</td>
+<td>电路设计与仿真</td>
+<td>PROTEUS电子系统设计与仿真<span class="ref-sup">[S2]</span></td>
+<td>集成电路工程技术人员[来源：1+X证书制度试点第二批通知-含云计算平台运维等10个证书范围 P[&quot;6&quot;]]</td>
+<td>中</td>
+</tr>
+<tr>
+<td>学习人工智能基础<span class="ref-sup">[S2]</span></td>
+<td>AI基础理论与应用</td>
+<td>《人工智能基础》《机器学习与视觉感知（双语）》<span class="ref-sup">[S3]</span></td>
+<td>芯片工程师<span class="ref-sup">[S4]</span></td>
+<td>中</td>
+</tr>
+<tr>
+<td>完成毕业设计</td>
+<td>独立解决工程问题</td>
+<td>《毕业设计(论文）》<span class="ref-sup">[S2]</span></td>
+<td>电子工程技术人员<span class="ref-sup">[S7]</span></td>
+<td>高</td>
+</tr>
+</tbody></table></div>
+<h2>分阶段行动清单<span class="advice-badge">AI 建议 · 仅供参考</span></h2>
+<div class="action-card">
+<div class="action-title">大一</div>
+<div class="action-sec">
+<div class="action-sec-label">核心目标</div>
+<ul>
+<li>夯实数学与物理基础</li>
+<li>建立专业宏观认知</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">必学课程</div>
+<ul>
+<li>《微积分I》《线性代数及其应用》《大学物理1A》</li>
+<li>《电气信息导论》</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">建议技能</div>
+<ul>
+<li>C语言基础编程</li>
+<li>基础英语词汇与语法</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">推荐竞赛（含时间节点）</div>
+<ul>
+<li>全国大学生数学竞赛（一般9月报名，以官网通知为准）</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">避坑提示</div>
+<ul>
+<li>避免过早陷入专业细节，忽视数理基础的重要性</li>
+</ul></div>
+</div>
+<div class="action-card">
+<div class="action-title">大二</div>
+<div class="action-sec">
+<div class="action-sec-label">核心目标</div>
+<ul>
+<li>提升工程实践能力</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">必学课程</div>
+<ul>
+<li>《电路基础A》《信号与系统》《数字逻辑电路》</li>
+<li>《PROTEUS电子系统设计与仿真》</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">建议技能</div>
+<ul>
+<li>Python数据分析基础</li>
+<li>PROTEUS仿真软件使用</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">推荐竞赛（含时间节点）</div>
+<ul>
+<li>全国大学生电子设计竞赛（一般7月比赛，以官网通知为准）</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">避坑提示</div>
+<ul>
+<li>避免只注重理论学习，忽视实验与项目实践</li>
+</ul></div>
+</div>
+<div class="action-card">
+<div class="action-title">大三</div>
+<div class="action-sec">
+<div class="action-sec-label">核心目标</div>
+<ul>
+<li>深化专业技能</li>
+<li>确定发展方向</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">必学课程</div>
+<ul>
+<li>《数字信号处理》《数字图像处理（双语）》</li>
+<li>《人工智能基础》《机器学习与视觉感知（双语）》</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">建议技能</div>
+<ul>
+<li>数字信号处理算法</li>
+<li>机器学习基础算法</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">推荐竞赛（含时间节点）</div>
+<ul>
+<li>全国大学生集成电路创新创业大赛（一般4月报名，以官网通知为准）</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">避坑提示</div>
+<ul>
+<li>避免盲目跟风考研或就业，需结合自身兴趣与能力评估</li>
+</ul></div>
+</div>
+<div class="action-card">
+<div class="action-title">大四</div>
+<div class="action-sec">
+<div class="action-sec-label">核心目标</div>
+<ul>
+<li>完成毕业设计</li>
+<li>落实就业或升学</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">必学课程</div>
+<ul>
+<li>《生产实习》《毕业设计(论文）》</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">建议技能</div>
+<ul>
+<li>物联网系统架构设计</li>
+<li>独立解决工程问题的能力</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">推荐竞赛（含时间节点）</div>
+<ul>
+<li>全国大学生物联网设计竞赛（一般5月报名，以官网通知为准）</li>
+</ul></div>
+<div class="action-sec">
+<div class="action-sec-label">避坑提示</div>
+<ul>
+<li>避免忽视毕业设计质量，影响最终学位授予</li>
+</ul></div>
+</div>
+<h2>差距与下一步<span class="advice-badge">AI 建议 · 仅供参考</span></h2>
+<div class="gap-card">
+<div class="gap-status">需重点夯实数学、物理与电路基础，同时通过《创新工程实践1》等课程初步建立工程思维。<span class="ref-sup">[S2]</span></div>
+<div class="gap-alt" style="margin-bottom:10px"><b>下一步 Top3</b></div>
+<ol class="gap-top3">
+<li>大二阶段深入学习《电路基础A》《信号与系统》《数字逻辑电路》等核心课程，掌握电路设计与信号处理基本方法。</li>
+</ol>
+<div class="gap-alt" style="margin-top:14px"><b>备选岗位 / 方向：</b>硬件研发工程师；集成电路设计工程师；嵌入式硬件开发工程师</div>
+</div>
+<h2 id="report-refs">数据来源<span class="fact-chip">正文上标 [Sn] 对应以下来源，统一汇总于此</span></h2>
+<div class="ref-list"><ol>
+<li>[S1]　电子信息工程专业培养计划(2024)</li>
+<li>[S2]　天大电自培养方案2025 P电子信息工程专业培养计划(2024)</li>
+<li>[S3]　天大电自培养方案2025</li>
+<li>[S4]　1+X证书制度试点第二批通知-含云计算平台运维等10个证书范围</li>
+<li>[S5]　2025年北京市人力资源市场薪酬数据报告（三季度）全文</li>
+<li>[S6]　基于市场招聘大数据的薪酬信息发布2026年第一季度简报</li>
+<li>[S7]　2025年长三角一体化示范区制造业企业市场工资价位</li>
+</ol></div>
+</div></body></html>

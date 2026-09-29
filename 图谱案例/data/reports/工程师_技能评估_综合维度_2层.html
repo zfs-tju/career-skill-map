@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>工程师岗位综合维度技能评估与职业路径规划</title>
+<style>
+body { font-family: system-ui, -apple-system, 'Microsoft YaHei', sans-serif; background: #f5f7fa; margin: 0; padding: 32px; color: #1a202c; }
+.container { max-width: 900px; margin: 0 auto; }
+h1 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+.meta { font-size: 13px; color: #94a3b8; margin-bottom: 20px; }
+.summary { font-size: 14px; line-height: 1.8; color: #475569; background: #fff; padding: 20px; border-radius: 6px; border: 1px solid #e2e8f0; margin-bottom: 28px; }
+h2 { font-size: 16px; font-weight: 700; margin: 28px 0 16px; padding-left: 10px; border-left: 3px solid #2c6ecb; }
+.path-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 16px; }
+.path-title { font-size: 15px; font-weight: 600; color: #2c6ecb; margin-bottom: 12px; }
+.path-chain { margin-bottom: 12px; padding: 16px; background: #f5f7fa; border-radius: 4px; overflow-x: auto; }
+.path-node { display: inline-block; padding: 5px 12px; background: #2c6ecb; color: #fff; border-radius: 4px; font-size: 12px; font-weight: 500; }
+.path-arrow { color: #94a3b8; font-size: 11px; padding: 0 4px; white-space: nowrap; }
+.path-linear { display: flex; align-items: center; flex-wrap: wrap; gap: 2px; }
+.ai-tree { display: inline-flex; flex-direction: column; min-width: max-content; }
+.ai-tree-node { display: flex; align-items: flex-start; position: relative; }
+.ai-tree-node-content { display: flex; align-items: center; gap: 6px; padding: 2px 0; white-space: nowrap; }
+.ai-tree-node-label { display: inline-block; padding: 5px 12px; background: #2c6ecb; color: #fff; border-radius: 4px; font-size: 12px; font-weight: 500; min-width: 40px; text-align: center; }
+.ai-tree-edge-label { font-size: 11px; color: #94a3b8; padding: 0 4px; white-space: nowrap; }
+.ai-tree-children { display: flex; flex-direction: column; margin-left: 20px; padding-left: 16px; border-left: 2px solid #e2e8f0; }
+.ai-tree-children .ai-tree-node::before { content: ''; position: absolute; left: -16px; top: 14px; width: 14px; height: 2px; background: #e2e8f0; }
+.path-analysis { font-size: 13px; line-height: 1.8; color: #475569; }
+.table-wrap { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 28px; overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { padding: 10px 14px; background: #f5f7fa; font-weight: 600; text-align: left; border-bottom: 2px solid #e2e8f0; }
+td { padding: 10px 14px; color: #475569; border-bottom: 1px solid #e2e8f0; }
+tr:last-child td { border-bottom: none; }
+.layer-legend { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+.legend-chip { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; padding: 5px 12px; border-radius: 20px; border: 1px solid; }
+.legend-fact { background: #eff6ff; border-color: #bfdbfe; color: #1d4ed8; }
+.legend-ai { background: #fffbeb; border-color: #fde68a; color: #b45309; }
+.fact-chip { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 10px; background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; vertical-align: 2px; margin-left: 8px; }
+.advice-badge { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 10px; background: #fffbeb; color: #b45309; border: 1px solid #fde68a; vertical-align: 2px; margin-left: 8px; }
+.advice-card { background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 16px 20px; margin-bottom: 12px; }
+.advice-title { font-size: 14px; font-weight: 600; color: #b45309; margin-bottom: 10px; }
+.advice-list { margin: 0; padding-left: 20px; }
+.advice-list li { font-size: 13px; line-height: 1.9; color: #78350f; margin-bottom: 4px; }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>工程师岗位综合维度技能评估与职业路径规划</h1>
+<div class="meta">关键词：工程师　|　维度：综合维度　|　报告模式：技能评估　|　展开层级：2层　|　生成时间：2026-09-21 14:48:22</div>
+<div class="meta" style="font-size:11px;color:#94a3b8;">接地校验：删除句子 13，补来源标注 0，补AI建议标签 0，校准关联数 0，重写句子 0，剔除建议层编造项 1，剔除无效节点 0 / 无效边 0</div>
+<div class="layer-legend">
+<span class="legend-chip legend-fact">图谱实证：来源于知识图谱数据，带来源标注</span>
+<span class="legend-chip legend-ai">AI 建议 · 非图谱依据：通用规划经验，仅供参考</span>
+</div>
+
+<h2>关键路径分析<span class="fact-chip">图谱实证</span></h2>
+<div class="path-card">
+<div class="path-title">路径 1：AI算法研发核心路径</div>
+<div class="path-chain">
+<div class="path-linear">
+<span class="path-node">自然语言处理工程师</span>
+<span class="path-arrow">--属于--></span>
+<span class="path-node">算法工程师</span>
+<span class="path-arrow">--晋升--></span>
+<span class="path-node">9级/10级/11级：高级工程师</span>
+<span class="path-arrow">--晋升--></span>
+<span class="path-node">12级/13级/14级：专家工程师</span>
+</div>
+</div>
+<div class="path-analysis">该路径聚焦于高门槛的AI算法领域。</div>
+</div>
+<div class="path-card">
+<div class="path-title">路径 2：智能驾驶与机器人系统路径</div>
+<div class="path-chain">
+<div class="path-linear">
+<span class="path-node">自动驾驶研发工程师</span>
+<span class="path-arrow">--要求--></span>
+<span class="path-node">感知算法工程师</span>
+<span class="path-arrow">--晋升--></span>
+<span class="path-node">T6/M2-1：资深工程师/副经理</span>
+</div>
+</div>
+<div class="path-analysis">智能驾驶与机器人是当前热门赛道。该路径强调软硬件结合能力，适合电子信息、机械工程及人工智能交叉学科背景，职业发展前景广阔，且具备向管理岗转型的潜力。</div>
+</div>
+<div class="path-card">
+<div class="path-title">路径 3：嵌入式与集成电路硬件路径</div>
+<div class="path-chain">
+<div class="path-linear">
+<span class="path-node">嵌入式硬件开发工程师</span>
+<span class="path-arrow">--技能重叠--></span>
+<span class="path-node">FPGA开发工程师</span>
+<span class="path-arrow">--晋升--></span>
+<span class="path-node">D7：资深工程师</span>
+</div>
+</div>
+<div class="path-analysis">硬件与集成电路领域技术积淀深厚。晋升路径明确指向D7资深工程师，该职级在D序列中处于中高层，代表技术权威。</div>
+</div>
+<div class="path-card">
+<div class="path-title">路径 4：技术支持与解决方案路径</div>
+<div class="path-chain">
+<div class="ai-tree">
+<div class="ai-tree-node"><div class="ai-tree-node-content"><span class="ai-tree-node-label">技术支持工程师</span></div><div class="ai-tree-children"><div class="ai-tree-node"><div class="ai-tree-node-content"><span class="ai-tree-edge-label">--转岗--></span><span class="ai-tree-node-label">解决方案工程师</span></div><div class="ai-tree-children"><div class="ai-tree-node"><div class="ai-tree-node-content"><span class="ai-tree-node-label">销售工程师</span></div></div><div class="ai-tree-node"><div class="ai-tree-node-content"><span class="ai-tree-node-label">M1/P4-1、2、3：主管/资深工程师</span></div></div></div></div></div></div>
+</div>
+</div>
+<div class="path-analysis">对于技术背景稍弱或沟通能力强的人才，技术支持与解决方案是良好切入点。最终可晋升至M1/P4-1、2、3主管/资深工程师，体现管理职能。此路径适合工科背景但倾向商业应用的学生，强调沟通协调能力与技术方案落地能力，职业路径灵活。</div>
+</div>
+<h2>工程师岗位技能与职级对比分析表<span class="fact-chip">图谱实证</span></h2>
+<div class="table-wrap"><table><thead><tr>
+<th>岗位类别</th>
+<th>代表岗位</th>
+<th>核心技能要求</th>
+<th>典型晋升路径</th>
+<th>职级体系参考</th>
+</tr></thead><tbody>
+</tbody></table></div>
+<h2>规划建议<span class="advice-badge">AI 建议 · 非图谱依据</span></h2>
+<div class="advice-card">
+<div class="advice-title">职业方向与选择建议</div>
+<ul class="advice-list">
+<li>优先选择算法研发或智能系统类岗位，这些领域技术壁垒高，职业发展空间大，且符合当前科技发展趋势。</li>
+<li>若对硬件感兴趣，可考虑集成电路或嵌入式方向，该领域人才需求稳定，且具备较强的行业不可替代性。</li>
+<li>对于沟通能力强但技术深度稍弱的同学，技术支持与解决方案工程师是良好的切入点，可逐步向管理岗转型。</li>
+</ul>
+</div>
+<div class="advice-card">
+<div class="advice-title">分阶段学习规划</div>
+<ul class="advice-list">
+<li>大一/大二：夯实数学与编程基础，学习C++/Python等核心语言，参与基础学科竞赛。</li>
+<li>大四：根据目标岗位进行针对性准备，如算法岗刷LeetCode，硬件岗完成项目实战，准备秋招。</li>
+<li>毕业初期：进入岗位后快速适应工作节奏，积累项目经验，争取在1-2年内晋升至初级工程师。</li>
+</ul>
+</div>
+<div class="advice-card">
+<div class="advice-title">竞赛与科研规划</div>
+<ul class="advice-list">
+<li>积极参加电子类、计算机类学科竞赛，如ACM、数学建模、智能车竞赛等，提升实战能力。</li>
+<li>大二下学期开始联系导师参与科研项目，聚焦算法优化或硬件设计等具体方向，积累科研经历。</li>
+<li>尝试发表学术论文或申请专利，提升个人在学术界的知名度，为申请研究生或进入研发岗加分。</li>
+</ul>
+</div>
+<div class="advice-card">
+<div class="advice-title">转岗可能性与技能补充</div>
+<ul class="advice-list">
+<li>从技术支持转岗解决方案工程师，需补充方案设计能力与客户沟通技巧，学习行业解决方案案例。</li>
+<li>从纯软件开发转岗算法工程师，需补充数学基础与算法理论，学习深度学习框架与模型训练。</li>
+<li>从硬件开发转岗嵌入式软件，需补充操作系统原理与驱动开发知识，提升软硬件协同设计能力。</li>
+</ul>
+</div>
+<div class="advice-card">
+<div class="advice-title">求职策略与风险提示</div>
+<ul class="advice-list">
+<li>关注一线城市及科技产业集聚区的就业机会，如北京、上海、深圳等地，这些地区岗位选择更多。</li>
+<li>避免盲目追求高薪，应优先考虑平台规模、技术氛围与个人成长空间，选择有利于长期发展的企业。</li>
+<li>保持持续学习的心态，技术更新迅速，需定期关注行业前沿动态，更新技能树，避免被市场淘汰。</li>
+</ul>
+</div>
+</div></body></html>

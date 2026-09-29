@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>数据分析师·大一综合培养路径报告</title>
+<style>
+body { font-family: system-ui, -apple-system, 'Microsoft YaHei', sans-serif; background: #f5f7fa; margin: 0; padding: 32px; color: #1a202c; }
+.container { max-width: 900px; margin: 0 auto; }
+h1 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+.meta { font-size: 13px; color: #94a3b8; margin-bottom: 20px; }
+.summary { font-size: 14px; line-height: 1.8; color: #475569; background: #fff; padding: 20px; border-radius: 6px; border: 1px solid #e2e8f0; margin-bottom: 28px; }
+h2 { font-size: 16px; font-weight: 700; margin: 28px 0 16px; padding-left: 10px; border-left: 3px solid #2c6ecb; }
+.tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 1px 8px; border-radius: 10px; vertical-align: 2px; margin-right: 6px; }
+.tag-course { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+.tag-skill { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
+.tag-comp { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
+.tag-advice { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
+.ref-sup { color: #2c6ecb; font-size: 10px; margin: 0 1px; }
+.profile-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 28px; }
+.profile-card h3 { margin: 0 0 12px; font-size: 15px; color: #0f172a; }
+.profile-list { margin: 0; padding: 0; list-style: none; }
+.profile-list li { font-size: 13.5px; line-height: 1.9; color: #475569; padding: 6px 0 6px 18px; position: relative; border-bottom: 1px dashed #f1f5f9; }
+.profile-list li:last-child { border-bottom: none; }
+.profile-list li::before { content: '▸'; position: absolute; left: 2px; color: #2c6ecb; }
+.timeline { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 24px; margin-bottom: 28px; }
+.tl-year-head { display: flex; align-items: center; gap: 10px; margin: 20px 0 12px; }
+.tl-year-head:first-child { margin-top: 0; }
+.tl-year { font-size: 13px; font-weight: 700; color: #fff; background: #2c6ecb; padding: 3px 14px; border-radius: 14px; white-space: nowrap; }
+.tl-year-line { flex: 1; height: 1px; background: #e2e8f0; }
+.tl-sem-row { display: flex; gap: 12px; margin-bottom: 12px; }
+.tl-sem { flex-shrink: 0; width: 70px; font-size: 12.5px; font-weight: 600; color: #2c6ecb; text-align: center; background: #eff6ff; border-radius: 4px; padding: 4px 0; align-self: flex-start; }
+.tl-items { flex: 1; min-width: 0; }
+.tl-item { font-size: 13px; line-height: 1.8; color: #475569; padding: 3px 0; }
+.tl-item.advice-item { background: #fffbeb; border-left: 3px solid #fbbf24; padding-left: 8px; border-radius: 0 4px 4px 0; }
+.action-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 16px; }
+.action-title { font-size: 15px; font-weight: 700; color: #2c6ecb; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid #f1f5f9; }
+.action-sec { margin-bottom: 10px; display: flex; }
+.action-sec-label { flex-shrink: 0; width: 96px; font-size: 12.5px; font-weight: 600; color: #64748b; padding-top: 2px; }
+.action-sec ul { margin: 0; padding: 0; list-style: none; flex: 1; }
+.action-sec li { font-size: 13px; line-height: 1.8; color: #475569; }
+.action-sec li::before { content: '·'; font-weight: 700; margin-right: 6px; color: #94a3b8; }
+.gap-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 28px; }
+.gap-status { font-size: 13.5px; line-height: 1.8; color: #475569; margin-bottom: 14px; }
+.gap-top3 { margin: 0; padding-left: 22px; }
+.gap-top3 li { font-size: 13.5px; line-height: 1.9; color: #1e293b; }
+.gap-alt { font-size: 13px; color: #64748b; line-height: 1.8; }
+.gap-alt b { color: #475569; }
+.ref-list { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 28px; }
+.ref-list ol { margin: 0; padding-left: 22px; }
+.ref-list li { font-size: 12.5px; line-height: 1.9; color: #64748b; }
+.table-wrap { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; margin-bottom: 28px; overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { padding: 10px 14px; background: #f5f7fa; font-weight: 600; text-align: left; border-bottom: 2px solid #e2e8f0; }
+td { padding: 10px 14px; color: #475569; border-bottom: 1px solid #e2e8f0; }
+tr:last-child td { border-bottom: none; }
+.layer-legend { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+.legend-chip { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; padding: 5px 12px; border-radius: 20px; border: 1px solid; }
+.legend-fact { background: #eff6ff; border-color: #bfdbfe; color: #1d4ed8; }
+.legend-ai { background: #fffbeb; border-color: #fde68a; color: #b45309; }
+.fact-chip { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 10px; background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; vertical-align: 2px; margin-left: 8px; }
+.advice-badge { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 10px; background: #fffbeb; color: #b45309; border: 1px solid #fde68a; vertical-align: 2px; margin-left: 8px; }
+.advice-card { background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 16px 20px; margin-bottom: 12px; }
+.advice-title { font-size: 14px; font-weight: 600; color: #b45309; margin-bottom: 10px; }
+.advice-list { margin: 0; padding-left: 20px; }
+.advice-list li { font-size: 13px; line-height: 1.9; color: #78350f; margin-bottom: 4px; }
+.base-bar { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px; padding: 12px 16px; font-size: 12.5px; color: #1d4ed8; margin-bottom: 20px; line-height: 1.7; }
+.base-bar span { font-weight: 700; margin-right: 6px; }
+.base-bar b { font-size: 15px; margin: 0 2px; }
+.mindmap { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px 22px; margin-bottom: 24px; }
+.mm-root { display: inline-block; background: #1d4ed8; color: #fff; font-size: 14px; font-weight: 700; padding: 8px 26px; border-radius: 20px; margin-bottom: 8px; }
+.mm-branches { border-left: 2px solid #cbd5e1; margin-left: 16px; }
+.mm-cat { display: flex; align-items: flex-start; padding: 12px 0 2px 0; }
+.mm-cat-conn { width: 20px; height: 2px; background: #cbd5e1; margin-top: 18px; flex: none; }
+.mm-cat-label { flex: none; width: 108px; font-size: 13px; font-weight: 700; color: #1e40af; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 10px 8px; margin-right: 14px; text-align: center; align-self: flex-start; }
+.mm-main { flex: 1; min-width: 0; }
+.mm-rec { font-size: 12px; color: #b45309; background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 6px 10px; margin-bottom: 8px; line-height: 1.6; }
+.mm-years { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.mm-year { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 9px; }
+.mm-year-label { font-size: 12px; font-weight: 700; color: #475569; margin-bottom: 6px; }
+.mm-items { display: flex; flex-direction: column; gap: 4px; }
+.mm-item { font-size: 12px; line-height: 1.6; color: #334155; background: #f1f5f9; border-radius: 6px; padding: 4px 8px; word-break: break-all; }
+.mm-item .ref-sup { margin-left: 4px; }
+.mm-empty { color: #cbd5e1; text-align: center; background: transparent; }
+.mm-star { color: #b45309; font-weight: 700; }
+.fy-grid { display: grid; grid-template-columns: 11fr 9fr; gap: 16px; margin-bottom: 24px; align-items: start; }
+.fy-col { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px 20px; }
+.fy-col-head { font-size: 14.5px; font-weight: 700; color: #1d4ed8; padding-bottom: 10px; border-bottom: 2px solid #eff6ff; margin-bottom: 12px; }
+.fy-col-head.fy-head-ai { color: #b45309; border-bottom-color: #fef3c7; }
+.fy-col-sub { display: block; font-size: 11px; font-weight: 500; color: #94a3b8; margin-top: 2px; }
+.fy-year { margin-bottom: 14px; }
+.fy-year:last-child { margin-bottom: 0; }
+.fy-year-label { display: inline-block; font-size: 12px; font-weight: 700; color: #fff; background: #2c6ecb; padding: 2px 14px; border-radius: 12px; margin-bottom: 8px; }
+.fy-year-ai { background: #d97706; }
+.fy-sem { display: flex; gap: 10px; margin-bottom: 8px; }
+.fy-sem-label { flex: none; width: 64px; font-size: 11.5px; font-weight: 600; color: #1d4ed8; background: #eff6ff; border-radius: 4px; padding: 3px 0; text-align: center; align-self: flex-start; }
+.fy-sem-items { flex: 1; min-width: 0; }
+.fy-course { font-size: 12.5px; line-height: 1.9; color: #334155; }
+.ct-tag { display: inline-block; font-size: 10.5px; font-weight: 600; padding: 0 6px; border-radius: 8px; margin-right: 6px; border: 1px solid; vertical-align: 1px; white-space: nowrap; }
+.ct-0 { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+.ct-1 { background: #f5f3ff; color: #6d28d9; border-color: #ddd6fe; }
+.ct-2 { background: #ecfeff; color: #0e7490; border-color: #a5f3fc; }
+.ct-3 { background: #f1f5f9; color: #475569; border-color: #e2e8f0; }
+.ct-plain { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+.fy-block { margin-bottom: 10px; }
+.fy-block:last-child { margin-bottom: 0; }
+.fy-block-label { font-size: 12px; font-weight: 700; color: #b45309; margin-bottom: 3px; }
+.fy-block ul { margin: 0; padding-left: 16px; }
+.fy-block li { font-size: 12.5px; line-height: 1.8; color: #475569; }
+.fy-empty { color: #cbd5e1; font-size: 12px; text-align: center; padding: 16px 0; }
+.cp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 24px; }
+.cp-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px 18px; box-shadow: 0 1px 2px rgba(15,23,42,0.04); }
+.cp-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+.cp-name { font-size: 15px; font-weight: 700; color: #0f172a; }
+.cp-type { font-size: 11px; font-weight: 600; padding: 2px 10px; border-radius: 12px; background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; white-space: nowrap; }
+.cp-type-policy { background: #ecfdf5; color: #047857; border-color: #a7f3d0; }
+.cp-type-job { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+.cp-type-master { background: #f5f3ff; color: #6d28d9; border-color: #ddd6fe; }
+.cp-type-phd { background: #ecfeff; color: #0e7490; border-color: #a5f3fc; }
+.cp-type-exam { background: #fff7ed; color: #c2410c; border-color: #fed7aa; }
+.cp-overview { font-size: 13px; color: #475569; line-height: 1.7; margin-bottom: 10px; }
+.cp-steps { border-left: 2px solid #e2e8f0; margin: 0 0 10px 6px; padding-left: 16px; display: flex; flex-direction: column; gap: 8px; }
+.cp-step { position: relative; font-size: 12.5px; line-height: 1.7; color: #334155; }
+.cp-step::before { content: ''; position: absolute; left: -21px; top: 7px; width: 8px; height: 8px; border-radius: 50%; background: #3b82f6; }
+.cp-period { display: inline-block; font-size: 11px; font-weight: 700; color: #1d4ed8; background: #eff6ff; border-radius: 6px; padding: 1px 8px; margin-right: 8px; vertical-align: 1px; }
+.cp-advice { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 10px 12px; font-size: 12.5px; color: #78350f; }
+.cp-advice b { display: block; margin-bottom: 4px; font-size: 12.5px; color: #b45309; }
+.cp-advice ul { margin: 0; padding-left: 18px; }
+.cp-advice li { margin-bottom: 3px; line-height: 1.7; }
+.cp-mm { display: flex; align-items: center; gap: 26px; background: linear-gradient(180deg, #f0f6ff 0%, #ffffff 90px); border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px 14px 12px; margin-bottom: 24px; }
+.cp-mm-root { display: flex; align-items: center; gap: 10px; writing-mode: vertical-rl; position: relative; flex-shrink: 0; align-self: center; max-height: 280px; margin: 0; padding: 14px 10px; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); border-radius: 8px; box-shadow: 0 2px 8px rgba(37,99,235,0.25); }
+.cp-mm-root::after { content: ''; position: absolute; top: 50%; right: -26px; width: 26px; border-top: 2px solid #cbd5e1; }
+.cp-mm-root-badge { padding: 2px 9px; border-radius: 999px; background: rgba(255,255,255,0.22); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 2px; }
+.cp-mm-root-name { color: #fff; font-size: 15px; font-weight: 700; letter-spacing: 0.5px; }
+.cp-mm-branches { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 10px; margin-top: 0; padding-left: 0; }
+.cp-mm-branch { position: relative; margin-left: 26px; padding: 12px 14px; background: #fff; border: 1px solid #e2e8f0; border-left: 3px solid #93c5fd; border-radius: 8px; }
+.cp-mm-branch::before { content: ''; position: absolute; left: -26px; top: 50%; width: 26px; border-top: 2px solid #cbd5e1; }
+.cp-mm-branch::after { content: ''; position: absolute; left: -26px; top: -10px; bottom: -10px; border-left: 2px solid #cbd5e1; }
+.cp-mm-branch:first-child::after { top: 50%; }
+.cp-mm-branch:last-child::after { bottom: 50%; }
+.cp-mm-branch:only-child::after { display: none; }
+.cp-mm-flow { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+.cp-mm-chip { display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: 999px; background: #f1f5f9; border: 1px solid #e2e8f0; font-size: 12px; line-height: 1.6; color: #1a202c; }
+.cp-mm-chip i { font-style: normal; font-size: 10px; font-weight: 700; opacity: 0.72; }
+.cp-mm-chip-skill { background: #dbeafe; border-color: #bfdbfe; color: #1d4ed8; }
+.cp-mm-chip-course { background: #d1fae5; border-color: #a7f3d0; color: #047857; }
+.cp-mm-chip-comp { background: #fef3c7; border-color: #fde68a; color: #b45309; }
+.cp-mm-chip-text { background: #f1f5f9; color: #475569; }
+.cp-mm-arrow { color: #94a3b8; font-size: 13px; flex-shrink: 0; }
+.cp-mm-arrow-final { color: #2563eb; font-size: 15px; font-weight: 700; margin: 0 3px; }
+.cp-mm-target { display: inline-flex; align-items: center; padding: 5px 16px; border-radius: 999px; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: #fff; font-size: 13px; font-weight: 700; box-shadow: 0 2px 6px rgba(37,99,235,0.3); white-space: nowrap; }
+.cp-mm-note { margin-top: 9px; }
+.cp-mm-overview { font-size: 12px; color: #64748b; line-height: 1.7; margin-bottom: 5px; }
+.cp-mm-advice { margin: 8px 0 2px; padding: 7px 12px 8px; background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; }
+.cp-mm-advice-label { font-size: 11px; font-weight: 700; color: #b45309; letter-spacing: 0.5px; margin-bottom: 6px; }
+.cp-mm-advice-list { margin: 0; padding-left: 16px; }
+.cp-mm-advice-list li { font-size: 12px; color: #78350f; line-height: 1.7; }
+.cp-mm-branch-study { border-left-color: #c4b5fd; }
+.cp-mm-target-study { background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%); box-shadow: 0 2px 6px rgba(124,58,237,0.3); }
+.cp-mm-target-study i { font-style: normal; font-size: 10px; font-weight: 400; opacity: 0.9; background: rgba(255,255,255,0.2); border-radius: 999px; padding: 1px 8px; margin-right: 6px; }
+.cp-mm-steps { margin: 7px 0 8px; padding: 7px 10px 8px; background: #faf5ff; border: 1px solid #ede9fe; border-radius: 8px; }
+.cp-mm-steps-label { font-size: 11px; font-weight: 700; color: #6d28d9; letter-spacing: 0.5px; margin-bottom: 6px; }
+.cp-mm-step-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px 16px; }
+.cp-mm-step { display: flex; align-items: flex-start; gap: 7px; font-size: 12px; line-height: 1.6; }
+.cp-mm-period { flex-shrink: 0; padding: 1px 8px; border-radius: 6px; background: #ede9fe; border: 1px solid #ddd6fe; color: #6d28d9; font-size: 11px; font-weight: 700; white-space: nowrap; }
+.cp-mm-action { color: #334155; min-width: 0; }
+@media(max-width: 900px) {
+  .cp-grid { grid-template-columns: 1fr; }
+  .cp-mm { display: block; padding: 12px 10px 10px; }
+  .cp-mm-root { writing-mode: horizontal-tb; margin: 0 auto 6px; padding: 7px 14px; max-height: none; }
+  .cp-mm-root::after { display: none; }
+  .cp-mm-branches { display: block; padding-left: 8px; }
+  .cp-mm-branch { margin-left: 0; margin-bottom: 10px; padding: 12px 14px; }
+  .cp-mm-branch::before { display: none; }
+  .cp-mm-branch::after { display: none; }
+  .cp-mm-target { white-space: normal; }
+  .cp-mm-step-grid { grid-template-columns: 1fr; }
+  .fy-grid { grid-template-columns: 1fr; }
+  .mm-years { grid-template-columns: repeat(2, 1fr); }
+  .mm-cat { flex-direction: column; }
+  .mm-cat-conn { display: none; }
+  .mm-cat-label { width: auto; margin-right: 0; margin-bottom: 8px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>数据分析师·大一综合培养路径报告</h1>
+<div class="meta">关键词：数据分析师　|　维度：综合维度　|　报告模式：个性培养　|　展开层级：1层　|　生成时间：2026-09-28 11:28:42</div>
+<div class="meta" style="font-size:11px;color:#94a3b8;">接地校验：删除句子 0，补来源 23，补AI标签 1，课程降级 0，非法标签修正 0，学期归一 0，剔除无效项 12，剔除建议编造 2，剔除陈词 0，重写 0，替换违规单元格 3，裁剪超长 0，缺失学期 5/8，行动项回填 3</div>
+<div class="base-bar"><span>图谱数据基座</span>本报告基于就业知识图谱子图生成：<b>3</b> 个实体 · <b>2</b> 条关联 · 覆盖 0 个维度（综合）· <b>1</b> 份来源文档 —— 正文上标 <b style="font-size:12px">[Sn]</b> 可对应文末「数据来源」逐条溯源；黄色「AI建议」条目为模型补全，仅供参考</div>
+<div class="layer-legend">
+<span class="legend-chip legend-fact">L1 官方课程 · 培养方案/职业标准权威骨架</span>
+<span class="legend-chip" style="background:#ecfdf5;border-color:#a7f3d0;color:#047857;">L2 技能/竞赛 · 多源抽取（职业标准·行业报告·竞赛简章）</span>
+<span class="legend-chip legend-ai">L3 AI 建议 · 模型补全，仅供参考</span>
+</div>
+
+<div class="summary">本专业的核心课程是《统计学基础》，作为大一春季学期开设的专业必修课，是构建数据分析思维的关键基石<span class="ref-sup">[S1]</span>。必备基础课程包括Python编程语言，这是实现数据处理与建模的核心工具<span class="ref-sup">[S1]</span>。上述课程共同支撑了数据分析师岗位所需的编程实现与统计分析两大核心能力。<span class="ref-sup">[S1]</span>当前最该做的是在大一阶段扎实掌握Python语法，并紧跟春季学期进度学好统计学基础，为后续大三进入行业头部企业实习打下坚实基础。<span class="ref-sup">[S1]</span></div>
+<h2>个人培养画像<span class="fact-chip">L1 权威 + L2 抽取</span></h2>
+<div class="profile-card"><h3>画像要点</h3><ul class="profile-list">
+<li>岗位画像：数据分析师岗位在天津地区招聘，行业平均薪资水平为8k-15k，要求从业者具备扎实的编程与统计能力<span class="ref-sup">[S1]</span>。</li>
+<li>技能要求：Python是数据分析师岗位的核心技能，属于中等学习难度的编程语言，是胜任该岗位的必备工具<span class="ref-sup">[S1]</span>。</li>
+<li>课程支撑：培养方案中明确包含《统计学基础》课程，该课程作为专业必修课，直接支撑数据分析师岗位所需的统计学基础能力<span class="ref-sup">[S1]</span>。</li>
+<li>培养节奏：大一阶段应重点完成Python语言入门与《统计学基础》课程学习，确保在春季学期结束时具备初步的数据处理与统计思维。<span class="ref-sup">[S1]</span></li>
+</ul></div>
+<h2>个性化培养思维导图<span class="fact-chip">官方培养方案骨架 + 分层补全</span></h2>
+<div class="fy-grid">
+<div class="fy-col fy-courses">
+<div class="fy-col-head">课程主线<span class="fy-col-sub">官方课程 + 个性化培养 · 按学期</span></div>
+<div class="mm-rec">选课策略（AI建议）：建议优先选择与Python数据处理、统计分析相关的选修课程，以强化岗位核心技能</div>
+<div class="fy-course-body">
+<div class="fy-year">
+<span class="fy-year-label">大一</span>
+<div class="fy-sem">
+<span class="fy-sem-label">大一·春</span>
+<div class="fy-sem-items">
+<div class="fy-course"><span class="ct-tag ct-1">专业必修课</span>《统计学基础》</div>
+</div></div>
+</div>
+</div></div>
+<div class="fy-col fy-extras">
+<div class="fy-col-head fy-head-ai">竞赛 / 技能 / AI建议<span class="fy-col-sub">L2 + L3 · 仅供参考</span></div>
+<div class="fy-course-body">
+<div class="fy-year">
+<span class="fy-year-label fy-year-ai">大一</span>
+<div class="fy-block">
+<div class="fy-block-label">核心目标</div>
+<ul>
+<li>掌握Python基础语法与数据结构</li>
+<li>学好《统计学基础》课程，建立统计思维</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">技能要求</div>
+<ul>
+<li>Python（掌握基础语法与常用库）</li>
+<li>Python基础语法学习<span class="ref-sup">[S1]</span></li>
+<li>Python进阶：掌握Pandas与NumPy数据处理库<span class="ref-sup">[S1]</span></li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">推荐竞赛</div>
+<ul>
+<li>蓝桥杯Python组（一般11月报名，以官网通知为准）</li>
+<li>「AI建议」建议参加蓝桥杯Python组（一般11月报名，以官网通知为准）<span class="ref-sup">[S1]</span></li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">AI建议</div>
+<ul>
+<li>建议利用LeetCode平台进行Python基础算法练习，每周保持2-3道题的刷题频率</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">课程建议</div>
+<ul>
+<li>《统计学基础》（春季学期必修）</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">避坑提示</div>
+<ul>
+<li>不要只学Python语法而不结合统计学知识，避免成为只会写代码不懂分析的‘码农’</li>
+</ul></div>
+</div>
+<div class="fy-year">
+<span class="fy-year-label fy-year-ai">大二</span>
+<div class="fy-block">
+<div class="fy-block-label">核心目标</div>
+<ul>
+<li>深入学习数据分析工具与算法</li>
+<li>参加高含金量竞赛积累项目经验</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">技能要求</div>
+<ul>
+<li>Pandas/NumPy数据处理</li>
+<li>SQL数据库查询</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">推荐竞赛</div>
+<ul>
+<li>全国大学生数学建模竞赛（一般9月报名，以官网通知为准）</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">AI建议</div>
+<ul>
+<li>建议阅读《利用Python进行数据分析》等专业书籍，深化对数据处理流程的理解</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">避坑提示</div>
+<ul>
+<li>不要盲目参加过多低含金量竞赛，应聚焦于能体现数据分析能力的赛事</li>
+</ul></div>
+</div>
+<div class="fy-year">
+<span class="fy-year-label fy-year-ai">大三</span>
+<div class="fy-block">
+<div class="fy-block-label">核心目标</div>
+<ul>
+<li>完成高质量数据分析项目</li>
+<li>争取行业头部企业实习机会</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">技能要求</div>
+<ul>
+<li>数据可视化</li>
+<li>机器学习基础</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">推荐竞赛</div>
+<ul>
+<li>全国大学生数学建模竞赛（一般9月报名，以官网通知为准）</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">避坑提示</div>
+<ul>
+<li>不要忽视实习经历，理论结合实践才能提升就业竞争力</li>
+</ul></div>
+</div>
+<div class="fy-year">
+<span class="fy-year-label fy-year-ai">大四</span>
+<div class="fy-block">
+<div class="fy-block-label">核心目标</div>
+<ul>
+<li>完成毕业设计并转化为求职作品</li>
+<li>全力冲刺目标岗位面试</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">技能要求</div>
+<ul>
+<li>面试技巧</li>
+<li>职业规划</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">推荐竞赛</div>
+<ul>
+<li>全国大学生数学建模竞赛（一般9月报名，以官网通知为准）</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">课程建议</div>
+<ul>
+<li>毕业设计</li>
+</ul></div>
+<div class="fy-block">
+<div class="fy-block-label">避坑提示</div>
+<ul>
+<li>不要等到毕业前夕才开始准备简历，应提前半年开始投递与面试练习</li>
+</ul></div>
+</div>
+</div></div></div>
+<h2>个人职业行动清单表<span class="fact-chip">图谱实证</span></h2>
+<div class="table-wrap"><table><thead><tr>
+<th>行动项</th>
+<th>针对的差距技能</th>
+<th>学习资源（课程/证书）</th>
+<th>目标岗位</th>
+<th>优先级</th>
+</tr></thead><tbody>
+<tr>
+<td>学习Python基础<span class="ref-sup">[S1]</span></td>
+<td>Python<span class="ref-sup">[S1]</span></td>
+<td>Python官方教程<span class="ref-sup">[S1]</span></td>
+<td>数据分析师<span class="ref-sup">[S1]</span></td>
+<td>高</td>
+</tr>
+<tr>
+<td>学习统计学基础<span class="ref-sup">[S1]</span></td>
+<td>统计学基础<span class="ref-sup">[S1]</span></td>
+<td>《统计学基础》课程<span class="ref-sup">[S1]</span></td>
+<td>数据分析师<span class="ref-sup">[S1]</span></td>
+<td>高</td>
+</tr>
+<tr>
+<td>Python基础语法学习<span class="ref-sup">[S1]</span></td>
+<td>Python<span class="ref-sup">[S1]</span></td>
+<td>蓝桥杯官网</td>
+<td>数据分析师<span class="ref-sup">[S1]</span></td>
+<td>中</td>
+</tr>
+<tr>
+<td>学习Pandas库</td>
+<td>Python<span class="ref-sup">[S1]</span></td>
+<td>《利用Python进行数据分析》<span class="ref-sup">[S1]</span></td>
+<td>数据分析师<span class="ref-sup">[S1]</span></td>
+<td>高</td>
+</tr>
+<tr>
+<td>「AI建议」建议参加蓝桥杯Python组（一般11月报名，以官网通知为准）<span class="ref-sup">[S1]</span></td>
+<td>统计学基础<span class="ref-sup">[S1]</span></td>
+<td>必修课《统计学基础》<span class="ref-sup">[S1]</span></td>
+<td>数据分析师<span class="ref-sup">[S1]</span></td>
+<td>中</td>
+</tr>
+</tbody></table></div>
+<h2>差距与下一步<span class="advice-badge">AI 建议 · 仅供参考</span></h2>
+<div class="gap-card">
+<div class="gap-status">需重点补充Python编程能力与统计学基础，以匹配数据分析师岗位的核心要求。<span class="ref-sup">[S1]</span></div>
+<div class="gap-alt" style="margin-bottom:10px"><b>下一步 Top3</b></div>
+<ol class="gap-top3">
+<li>大一秋季学期开始系统学习Python基础语法，并完成至少100道基础编程题练习</li>
+<li>大一春季学期紧跟《统计学基础》课程进度，确保掌握描述统计与概率论核心概念</li>
+<li>大一期间参加蓝桥杯Python组竞赛，通过实战检验编程能力并积累项目经验</li>
+</ol>
+<div class="gap-alt" style="margin-top:14px"><b>备选岗位 / 方向：</b>数据运营；商业分析</div>
+</div>
+<h2 id="report-refs">数据来源<span class="fact-chip">正文上标 [Sn] 对应以下来源，统一汇总于此</span></h2>
+<div class="ref-list"><ol>
+<li>[S1]　测试材料</li>
+</ol></div>
+</div></body></html>
